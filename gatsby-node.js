@@ -6,6 +6,7 @@
 
 const { createFilePath } = require('gatsby-source-filesystem');
 
+// Modify nodes that are created by plugins.
 exports.onCreateNode = ({ node, actions, getNode }) => {
   const { createNodeField } = actions;
 
@@ -20,7 +21,7 @@ exports.onCreateNode = ({ node, actions, getNode }) => {
 
     // Add slug information based on the collection.
     const slugPrefix = {
-      blog: '/blog/',
+      blog: '/blog',
       pages: '',
     };
     createNodeField({
@@ -29,4 +30,32 @@ exports.onCreateNode = ({ node, actions, getNode }) => {
       value: `${slugPrefix[collection]}${createFilePath({ node, getNode })}`,
     });
   }
+};
+
+exports.createPages = async function({ actions, graphql }) {
+  const { data } = await graphql(`
+    query {
+      allPostsConnection: allMarkdownRemark(
+        filter: { fields: { collection: { eq: "blog" } } }
+      ) {
+        edges {
+          node {
+            id
+            fields {
+              slug
+            }
+          }
+        }
+      }
+    }
+  `);
+  data.allPostsConnection.edges.forEach(edge => {
+    const id = edge.node.id;
+    const slug = edge.node.fields.slug;
+    actions.createPage({
+      path: slug,
+      component: require.resolve('./src/templates/BlogPost.js'),
+      context: { id },
+    });
+  });
 };
