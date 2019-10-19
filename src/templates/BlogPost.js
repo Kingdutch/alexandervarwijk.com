@@ -15,6 +15,7 @@ export default ({ data }) => {
     <Layout>
       <div>
         <h1>{post.frontmatter.title}</h1>
+        <div>{post.frontmatter.date}</div>
         <div dangerouslySetInnerHTML={{ __html: post.html }} />
       </div>
     </Layout>
@@ -26,7 +27,8 @@ export const query = graphql`
     markdownRemark(id: { eq: $id }) {
       html
       frontmatter {
-        title
+        title,
+        date(formatString: "MMMM Do, YYYY")
       }
     }
   }
