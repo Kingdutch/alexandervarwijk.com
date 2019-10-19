@@ -21,7 +21,7 @@ const IndexPage = () => (
             customers and I've been responsible for introducing React into the
             Open Social codebase. I love looking for ways to improve accessibility,
             performance and maintainabiltity of the code I work with, preferring
-            to build re-usablbe lasting solutions over hacks. I'm also the
+            to build reusable lasting solutions over hacks. I'm also the
             maintainer of the <a href={"https://www.drupal.org/project/yoast_seo/"} title={"Real Time SEO Module on Drupal.org"}>Real Time SEO Drupal module</a> (used on 16.000+ sites).
         </p>
         <p>
