@@ -4,10 +4,10 @@
  * See: https://www.gatsbyjs.org/docs/node-apis/
  */
 
-const { createFilePath } = require("gatsby-source-filesystem")
+const { createFilePath } = require('gatsby-source-filesystem');
 
 exports.onCreateNode = ({ node, actions, getNode }) => {
-  const { createNodeField } = actions
+  const { createNodeField } = actions;
 
   if (node.internal.type === `MarkdownRemark`) {
     // Add the collection to our node so it can be used in querying.
@@ -22,11 +22,11 @@ exports.onCreateNode = ({ node, actions, getNode }) => {
     const slugPrefix = {
       blog: '/blog/',
       pages: '',
-    }
+    };
     createNodeField({
       name: `slug`,
       node,
-      value: `${slugPrefix[collection]}${createFilePath({ node, getNode})}`,
-    })
+      value: `${slugPrefix[collection]}${createFilePath({ node, getNode })}`,
+    });
   }
-}
+};
