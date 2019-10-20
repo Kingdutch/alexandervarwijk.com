@@ -24,11 +24,13 @@ exports.onCreateNode = ({ node, actions, getNode }) => {
       blog: '/blog',
       pages: '',
     };
-    createNodeField({
-      name: `slug`,
-      node,
-      value: `${slugPrefix[collection]}${createFilePath({ node, getNode })}`,
-    });
+    if (slugPrefix[collection] !== undefined) {
+      createNodeField({
+        name: `slug`,
+        node,
+        value: `${slugPrefix[collection]}${createFilePath({ node, getNode })}`,
+      });
+    }
   }
 };
 

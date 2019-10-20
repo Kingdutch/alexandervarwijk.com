@@ -28,3 +28,17 @@ collections:
       #      - {label: "Featured Image", name: "thumbnail", widget: "image"}
       #      - {label: "Rating (scale of 1-5)", name: "rating", widget: "number"}
       - {label: "Body", name: "body", widget: "markdown"}
+  - name: "resource" # Used in routes, e.g., /admin/collections/blog
+    label: "Resource" # Used in the UI
+    folder: "content/resources" # The path to the folder where the documents are stored
+    create: true # Allow users to create new documents in this collection
+    slug: "{{slug}}" # Filename template, e.g., YYYY-MM-DD-title.md
+    fields: # The fields for each document, usually in front matter
+      - {label: "Layout", name: "layout", widget: "hidden", default: "resource"}
+      - {label: "Title", name: "title", widget: "string"}
+      - {label: "URL", name: "url", widget: "string"}
+      - {label: "Last Visited", name: "date", widget: "datetime"}
+      #      - {label: "Featured Image", name: "thumbnail", widget: "image"}
+      #      - {label: "Rating (scale of 1-5)", name: "rating", widget: "number"}
+      - {label: "Description", name: "body", widget: "markdown"}
+      - {label: "Tags", name: "tags", widget: "list"}
