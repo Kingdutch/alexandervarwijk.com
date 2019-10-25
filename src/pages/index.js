@@ -3,13 +3,11 @@ import React from 'react';
 import Layout from '../components/layout';
 import SEO from '../components/seo';
 import RecentBlogPosts from '../components/RecentBlogPosts';
-import Avatar from "../components/Avatar";
 
 const IndexPage = () => (
-  <Layout>
+  <Layout isFront={true}>
     <SEO title="Home" />
     <aside>
-        <Avatar style={{float: 'left'}} />
         <p>
             I'm a Full Stack developer that learned to program using Perl
             over 15 years ago. Since then I've explored many languages but found

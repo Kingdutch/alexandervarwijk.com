@@ -8,13 +8,13 @@ import React from 'react';
 import { graphql, useStaticQuery } from 'gatsby';
 import Img from 'gatsby-image';
 
-function Avatar( ) {
+function Avatar({ style }) {
   const { file }  = useStaticQuery(
     graphql`
       query {
         file(relativePath:{eq:"alexandervarwijk.jpeg"}) {
           childImageSharp {
-              fixed(width: 125, height: 125) {
+              fixed(width: 75, height: 75) {
                 ...GatsbyImageSharpFixed
               }
             }
@@ -28,8 +28,8 @@ function Avatar( ) {
     alt={"A headshot of Alexander Varwijk"}
     style={{
       float: "left",
-      margin: "0 2rem 1rem 0",
-      // borderRadius: "50%",
+      borderRadius: '100%',
+      ...style
     }}
   />
 }
