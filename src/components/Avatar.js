@@ -28,7 +28,6 @@ function Avatar({ style }) {
       fixed={file.childImageSharp.fixed}
       alt={'A headshot of Alexander Varwijk'}
       style={{
-        float: 'left',
         borderRadius: '100%',
         ...style,
       }}

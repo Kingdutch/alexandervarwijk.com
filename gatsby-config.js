@@ -6,6 +6,7 @@ module.exports = {
     siteUrl: 'https://www.alexandervarwijk.com',
   },
   plugins: [
+    `gatsby-plugin-styled-components`,
     `gatsby-plugin-react-helmet`,
     {
       resolve: `gatsby-source-filesystem`,
