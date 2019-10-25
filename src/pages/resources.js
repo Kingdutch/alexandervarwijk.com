@@ -31,12 +31,12 @@ const Blog = () => {
   console.log(allResourcesConnection);
 
   const resources = allResourcesConnection.edges.map(({ node: resource }) => (
-    <div key={resource.id} style={{marginTop: '1rem'}}>
+    <div key={resource.id} style={{ marginTop: '1rem' }}>
       <div>{resource.frontmatter.tags.join(', ')}</div>
       <h2>
         <a href={resource.frontmatter.url}>{resource.frontmatter.title}</a>
       </h2>
-      <div dangerouslySetInnerHTML={{__html: resource.html}} />
+      <div dangerouslySetInnerHTML={{ __html: resource.html }} />
     </div>
   ));
 
@@ -44,9 +44,7 @@ const Blog = () => {
     <Layout>
       <SEO title="Posts" />
       <h1>Resources</h1>
-      <div>
-        Below is a selection of my bookmarks for quick reference.
-      </div>
+      <div>Below is a selection of my bookmarks for quick reference.</div>
       {resources}
     </Layout>
   );

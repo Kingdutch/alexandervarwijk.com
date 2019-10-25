@@ -9,29 +9,31 @@ import { graphql, useStaticQuery } from 'gatsby';
 import Img from 'gatsby-image';
 
 function Avatar({ style }) {
-  const { file }  = useStaticQuery(
+  const { file } = useStaticQuery(
     graphql`
       query {
-        file(relativePath:{eq:"alexandervarwijk.jpeg"}) {
+        file(relativePath: { eq: "alexandervarwijk.jpeg" }) {
           childImageSharp {
-              fixed(width: 75, height: 75) {
-                ...GatsbyImageSharpFixed
-              }
+            fixed(width: 75, height: 75) {
+              ...GatsbyImageSharpFixed
             }
+          }
         }
       }
     `
   );
 
-  return <Img
-    fixed={file.childImageSharp.fixed}
-    alt={"A headshot of Alexander Varwijk"}
-    style={{
-      float: "left",
-      borderRadius: '100%',
-      ...style
-    }}
-  />
+  return (
+    <Img
+      fixed={file.childImageSharp.fixed}
+      alt={'A headshot of Alexander Varwijk'}
+      style={{
+        float: 'left',
+        borderRadius: '100%',
+        ...style,
+      }}
+    />
+  );
 }
 
 export default Avatar;

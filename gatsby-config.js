@@ -3,7 +3,7 @@ module.exports = {
     title: `Alexander's Blog`,
     description: `The thoughts and musings of Alexander Varwijk - Full Stack developer.`,
     author: `@Kingdutch`,
-    siteUrl: 'https://www.alexandervarwijk.com'
+    siteUrl: 'https://www.alexandervarwijk.com',
   },
   plugins: [
     `gatsby-plugin-react-helmet`,
