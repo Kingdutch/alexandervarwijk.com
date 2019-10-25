@@ -3,6 +3,7 @@ module.exports = {
     title: `Alexander's Blog`,
     description: `The thoughts and musings of Alexander Varwijk - Full Stack developer.`,
     author: `@Kingdutch`,
+    siteUrl: 'https://www.alexandervarwijk.com'
   },
   plugins: [
     `gatsby-plugin-react-helmet`,
@@ -50,6 +51,7 @@ module.exports = {
       },
     },
     `gatsby-plugin-netlify-cms`,
+    'gatsby-plugin-sitemap',
     // this (optional) plugin enables Progressive Web App + Offline functionality
     // To learn more, visit: https://gatsby.dev/offline
     // `gatsby-plugin-offline`,
