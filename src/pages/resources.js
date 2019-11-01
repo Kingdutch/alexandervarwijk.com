@@ -27,7 +27,7 @@ const Blog = () => {
       }
     `
   );
-  
+
   const resources = allResourcesConnection.edges.map(({ node: resource }) => (
     <div key={resource.id} style={{ marginTop: '1rem' }}>
       <div>{resource.frontmatter.tags.join(', ')}</div>
@@ -40,7 +40,7 @@ const Blog = () => {
 
   return (
     <Layout>
-      <SEO title="Posts" />
+      <SEO title="Resources" />
       <h1>Resources</h1>
       <div>Below is a selection of my bookmarks for quick reference.</div>
       {resources}

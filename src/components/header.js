@@ -62,6 +62,7 @@ const Header = ({ siteTitle, isFront }) => {
         </PageTitle>
         <Nav>
           <NavLink to="/blog">Posts</NavLink> &middot;{' '}
+          <NavLink to="/talks">Talks</NavLink> &middot;{' '}
           <NavLink to="/resources">Resources</NavLink>
         </Nav>
       </HeaderContainer>
