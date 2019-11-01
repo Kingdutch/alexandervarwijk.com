@@ -20,9 +20,15 @@ export default ({ data }) => {
       />
       <article>
         <h1>{talk.frontmatter.title}</h1>
-        <time>{talk.frontmatter.date}</time>
+        <time>{talk.frontmatter.date}</time>, <span>{talk.frontmatter.conference}</span>
         <div dangerouslySetInnerHTML={{ __html: talk.html }} />
-        <div dangerouslySetInnerHTML={{ __html: talk.frontmatter.slides }} />
+        { typeof talk.frontmatter.slides !== "undefined" && talk.frontmatter.slides.length ?
+          <section>
+            <h2>Slides</h2>
+            <div dangerouslySetInnerHTML={{ __html: talk.frontmatter.slides }} />
+          </section> : null
+        }
+
       </article>
     </Layout>
   );
