@@ -8,10 +8,16 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { useStaticQuery, graphql } from 'gatsby';
-import styled from 'styled-components';
+import styled, { createGlobalStyle } from 'styled-components';
 
 import Header from './header';
 import './layout.css';
+
+const GlobalStyle = createGlobalStyle`
+  * {
+    box-sizing: border-box;
+  }
+`;
 
 const Container = styled.div`
   margin: 0 auto;
@@ -32,10 +38,9 @@ const Layout = ({ children, isFront = false }) => {
 
   return (
     <>
+      <GlobalStyle />
       <Header isFront={isFront} siteTitle={data.site.siteMetadata.title} />
-      <Container as={"main"}>
-        {children}
-      </Container>
+      <Container as={'main'}>{children}</Container>
       <footer>
         <Container>
           © {new Date().getFullYear()} by Alexander Varwijk, proudly built with

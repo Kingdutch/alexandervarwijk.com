@@ -6,18 +6,25 @@
 
 import React from 'react';
 import { graphql } from 'gatsby';
+import Img from 'gatsby-image';
 import Layout from '../components/layout';
+import SEO from '../components/seo';
 
 export default ({ data }) => {
   const post = data.markdownRemark;
 
   return (
     <Layout>
-      <div>
+      <SEO
+        title={post.frontmatter.title}
+        description={post.frontmatter.description}
+      />
+      <article>
         <h1>{post.frontmatter.title}</h1>
-        <div>{post.frontmatter.date}</div>
+        <time>{post.frontmatter.date}</time>
+        <Img sizes={post.frontmatter.featuredImage.childImageSharp.sizes} />
         <div dangerouslySetInnerHTML={{ __html: post.html }} />
-      </div>
+      </article>
     </Layout>
   );
 };
@@ -28,7 +35,15 @@ export const query = graphql`
       html
       frontmatter {
         title
+        description
         date(formatString: "MMMM Do, YYYY")
+        featuredImage {
+          childImageSharp {
+            sizes(maxWidth: 960) {
+              ...GatsbyImageSharpSizes
+            }
+          }
+        }
       }
     }
   }
