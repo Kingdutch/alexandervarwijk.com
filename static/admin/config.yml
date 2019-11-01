@@ -55,3 +55,4 @@ collections:
       - {label: "Meta Description", name: "description", widget: "text"}
       - {label: "Description", name: "body", widget: "markdown"}
       - {label: "Slides embed", name: "slides", widget: "string"}
+      - {label: "Recording", name: "recording", widget: "string"}
