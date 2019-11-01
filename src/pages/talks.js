@@ -4,7 +4,7 @@ import { useStaticQuery, graphql, Link } from 'gatsby';
 import Layout from '../components/layout';
 import SEO from '../components/seo';
 
-const Blog = () => {
+const Talks = () => {
   const { allTalksConnection } = useStaticQuery(
     graphql`
       query {
@@ -56,4 +56,4 @@ const Blog = () => {
   );
 };
 
-export default Blog;
+export default Talks;
