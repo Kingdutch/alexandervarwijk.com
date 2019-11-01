@@ -45,7 +45,10 @@ const Blog = () => {
 
   return (
     <Layout>
-      <SEO title="Talks" />
+      <SEO
+        title="Talks"
+        description="An overview of the talks given by Alexander at meetups and conferences."
+      />
       <h1>Talks</h1>
       <div>Below is an overview of the talks that I have given at meetups and conferences.</div>
       {talks}
