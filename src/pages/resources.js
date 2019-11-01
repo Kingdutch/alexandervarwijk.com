@@ -27,9 +27,7 @@ const Blog = () => {
       }
     `
   );
-
-  console.log(allResourcesConnection);
-
+  
   const resources = allResourcesConnection.edges.map(({ node: resource }) => (
     <div key={resource.id} style={{ marginTop: '1rem' }}>
       <div>{resource.frontmatter.tags.join(', ')}</div>
