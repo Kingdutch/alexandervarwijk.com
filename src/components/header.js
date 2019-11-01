@@ -7,7 +7,7 @@ import Avatar from './Avatar';
 
 const HeaderBackground = styled.header`
   background: #0067fb
-    linear-gradient(140deg, rgb(0, 103, 251) 59%, rgb(255, 155, 61) 61%);
+    linear-gradient(rgb(255, 155, 61) 3%, rgb(0, 103, 251) 5%);
   margin-bottom: 1.45rem;
 `;
 
@@ -31,15 +31,23 @@ const PageTitle = styled.h1`
 const TitleLink = styled(Link)`
   color: white;
   text-decoration: none;
+  outline-color: rgb(255, 155, 61);
 `;
 
 const Nav = styled.nav`
+  color: white;
   margin-left: auto;
 `;
 
 const NavLink = styled(Link)`
-  color: #001430;
+  font-family: sans-serif;
+  color: inherit;
   text-decoration: none;
+  outline-color: rgb(255, 155, 61);
+  
+  &:focus, &:hover {
+    text-decoration: underline;
+  }
 `;
 
 const Header = ({ siteTitle, isFront }) => {
