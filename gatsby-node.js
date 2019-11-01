@@ -27,6 +27,7 @@ exports.onCreateNode = ({ node, actions, getNode }) => {
     // Add slug information based on the collection.
     const slugPrefix = {
       blog: '/blog',
+      talks: '/talks',
       pages: '',
     };
     if (slugPrefix[collection] !== undefined) {
@@ -53,9 +54,22 @@ exports.createPages = async function({ actions, graphql }) {
             }
           }
         }
+      },
+      allTalksConnection: allMarkdownRemark(
+        filter: { fields: { collection: { eq: "talks" } } }
+      ) {
+        edges {
+          node {
+            id
+            fields {
+              slug
+            }
+          }
+        }
       }
     }
   `);
+  // Create all blog post pages.
   data.allPostsConnection.edges.forEach(edge => {
     const id = edge.node.id;
     const slug = edge.node.fields.slug;
@@ -65,4 +79,15 @@ exports.createPages = async function({ actions, graphql }) {
       context: { id },
     });
   });
+
+  // Create all talk pages.
+  data.allTalksConnection.edges.forEach(edge => {
+    const id = edge.node.id;
+    const slug = edge.node.fields.slug;
+    actions.createPage({
+      path: slug,
+      component: require.resolve('./src/templates/Talk.js'),
+      context: { id },
+    });
+  })
 };
