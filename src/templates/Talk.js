@@ -28,6 +28,12 @@ export default ({ data }) => {
             <div dangerouslySetInnerHTML={{ __html: talk.frontmatter.slides }} />
           </section> : null
         }
+        { typeof talk.frontmatter.recording !== "undefined" && talk.frontmatter.recording.length ?
+          <section>
+            <h2>Recording</h2>
+            <div dangerouslySetInnerHTML={{ __html: talk.frontmatter.recording }} />
+          </section> : null
+        }
 
       </article>
     </Layout>
@@ -44,6 +50,7 @@ export const query = graphql`
         date(formatString: "MMMM Do, YYYY")
         conference
         slides
+        recording
       }
     }
   }
