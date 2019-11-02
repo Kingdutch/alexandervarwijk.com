@@ -22,13 +22,13 @@ export default ({ data }) => {
         <h1>{talk.frontmatter.title}</h1>
         <time>{talk.frontmatter.date}</time>, <span>{talk.frontmatter.conference}</span>
         <div dangerouslySetInnerHTML={{ __html: talk.html }} />
-        { typeof talk.frontmatter.slides !== "undefined" && talk.frontmatter.slides.length ?
+        { talk.frontmatter.slides && talk.frontmatter.slides.length ?
           <section>
             <h2>Slides</h2>
             <div dangerouslySetInnerHTML={{ __html: talk.frontmatter.slides }} />
           </section> : null
         }
-        { typeof talk.frontmatter.recording !== "undefined" && talk.frontmatter.recording.length ?
+        { talk.frontmatter.recording && talk.frontmatter.recording.length ?
           <section>
             <h2>Recording</h2>
             <div dangerouslySetInnerHTML={{ __html: talk.frontmatter.recording }} />
