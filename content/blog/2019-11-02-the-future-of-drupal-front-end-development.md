@@ -1,7 +1,7 @@
 ---
 layout: blog
 title: The future of Drupal front-end development
-date: 2019-11-02T08:36:08.508Z
+date: 2019-11-09T14:30:08.508Z
 description: >-
   With the move to decoupled applications and the adoption of frameworks like 
   React and Vue.js, the workload of front-end development in Drupal will change. 
