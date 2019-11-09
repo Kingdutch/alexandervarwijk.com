@@ -30,6 +30,7 @@ function RecentBlogPosts() {
     graphql`
       query {
         allPostConnection: allMarkdownRemark(
+          sort:{fields:frontmatter___date, order: DESC}
           filter: { fields: { collection: { eq: "blog" } } }
           limit: 10
         ) {
