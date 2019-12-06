@@ -1,11 +1,11 @@
 ---
 layout: blog
 title: RustFest Barcelona 2019 in Review
-date: 2019-11-20T18:19:02.944Z
+date: 2019-12-06T14:45:00.000Z
 description: >-
   This year was the first time I attended RustFest. The European conference for
   the Rust Programming language. I take a look back at the experience.
-featuredImage: /images/uploads/notebook-with-pen-and-coffee.jpg
+featuredImage: /images/uploads/hola-spanish-hello-light-sign.jpg
 ---
 RustFest Barcelona 2019 was the first time I attended a Rust conference. I've previously been to a few editions of DrupalCon as well as React.Amsterdam so I have something to compare the experience with. However, RustFest was a unique experience compared to the previous conferences I attended.
 
