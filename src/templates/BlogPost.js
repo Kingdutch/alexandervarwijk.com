@@ -18,6 +18,12 @@ export default ({ data }) => {
       <SEO
         title={post.frontmatter.title}
         description={post.frontmatter.description}
+        meta={[
+          {
+            name: 'twitter:image',
+            content: data.site.siteMetadata.siteUrl + post.frontmatter.featuredImage.childImageSharp.sizes.src
+          }
+        ]}
       />
       <article>
         <h1>{post.frontmatter.title}</h1>
@@ -45,6 +51,11 @@ export const query = graphql`
           }
         }
       }
-    }
+    },
+    site {
+        siteMetadata {
+            siteUrl
+        }
+    },
   }
 `;
