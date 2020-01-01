@@ -25,7 +25,20 @@ const Post = styled.article`
   margin-bottom: 2rem;
 `;
 
-function RecentBlogPosts() {
+const ResponsivePost = styled.article`
+  margin-bottom: 2rem;
+
+  @media (min-width: 720px) {
+    display: flex;
+
+    .gatsby-image-wrapper {
+      flex: 200px 1 0;
+      margin-right: 1rem;
+    }
+  }
+`
+
+function RecentBlogPosts({ display = "grid", HeadingLevel = "h3"}) {
   const { allPostConnection } = useStaticQuery(
     graphql`
       query {
@@ -58,20 +71,38 @@ function RecentBlogPosts() {
     `
   );
 
-  const posts = allPostConnection.nodes.map(post => (
-    <Post key={post.id}>
-      <Img sizes={post.frontmatter.featuredImage.childImageSharp.sizes} />
-      <h3><Link to={post.fields.slug}>{post.frontmatter.title}</Link></h3>
-      <div>{post.excerpt}</div>
-      <time>{post.frontmatter.date}</time>
-    </Post>
-  ));
+  if (display === "list") {
+    return allPostConnection.nodes.map(post => (
+      <ResponsivePost key={post.id}>
+        <Img sizes={post.frontmatter.featuredImage.childImageSharp.sizes}/>
+        <div>
+          <time>{post.frontmatter.date}</time>
+          <HeadingLevel>
+            <Link to={post.fields.slug}>{post.frontmatter.title}</Link>
+          </HeadingLevel>
+          <div>{post.excerpt}</div>
+        </div>
+      </ResponsivePost>
+    ));
+  }
+  else {
+    const posts = allPostConnection.nodes.map(post => (
+      <Post key={post.id}>
+        <Img sizes={post.frontmatter.featuredImage.childImageSharp.sizes}/>
+        <HeadingLevel>
+          <Link to={post.fields.slug}>{post.frontmatter.title}</Link>
+        </HeadingLevel>
+        <div>{post.excerpt}</div>
+        <time>{post.frontmatter.date}</time>
+      </Post>
+    ));
 
-  return (
-    <Grid>
-      {posts}
-    </Grid>
-  );
+    return (
+      <Grid>
+        {posts}
+      </Grid>
+    );
+  }
 }
 
 export default RecentBlogPosts;
