@@ -14,8 +14,11 @@ import Header from './header';
 import './layout.css';
 
 const GlobalStyle = createGlobalStyle`
-  * {
+  html {
     box-sizing: border-box;
+  }
+  *, *:before, *:after {
+    box-sizing: inherit;
   }
 `;
 
