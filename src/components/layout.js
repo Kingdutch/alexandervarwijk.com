@@ -43,7 +43,7 @@ const Layout = ({ children, isFront = false }) => {
       <Container as={'main'}>{children}</Container>
       <footer>
         <Container>
-          © {new Date().getFullYear()} by Alexander Varwijk, proudly built with
+          © Alexander Varwijk, proudly built with
           {` `}
           <a href="https://www.gatsbyjs.org">Gatsby</a>
         </Container>
