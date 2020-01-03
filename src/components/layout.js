@@ -28,6 +28,21 @@ const Container = styled.div`
   padding: 0 1.0875rem 1.45rem;
 `;
 
+const SkipLink = styled.a`
+  &:not(:focus):not(:active) {
+    position: absolute !important;
+    height: 1px;
+    width: 1px;
+    overflow: hidden;
+    clip: rect(1px, 1px, 1px, 1px);
+    white-space: nowrap; /* added line */
+  }
+`;
+
+const CenterText = styled.div`
+  text-align: center;
+`
+
 const Layout = ({ children, isFront = false }) => {
   const data = useStaticQuery(graphql`
     query SiteTitleQuery {
@@ -42,8 +57,11 @@ const Layout = ({ children, isFront = false }) => {
   return (
     <>
       <GlobalStyle />
+      <CenterText>
+        <SkipLink href={"#content"}>Skip to main content</SkipLink>
+      </CenterText>
       <Header isFront={isFront} siteTitle={data.site.siteMetadata.title} />
-      <Container as={'main'}>{children}</Container>
+      <Container id="content" as={'main'}>{children}</Container>
       <footer>
         <Container>
           © Alexander Varwijk, proudly built with
