@@ -66,4 +66,4 @@ Although it won’t be as easy to raise money with an ICO as it was in 2017 (thi
 
 A big hurdle will probably be government legislation. Keeping up to date with technological advancement is a challenge for all individuals. Even more so for a large group of individuals that are expected to govern for the future. I do believe proper legislation is necessary to protect the general public from scams and money-grabs while allowing legitimate projects to flourish. 
 
-One project that is experimenting with a new form of ICO which promises better accountability and governance is The Abyss. Their Distributed Autonomous Initial Coin Offering (DAICO) is something that could provide a solution to these problems. We will look at them in more detail in a future article.
+One project that is experimenting with a new form of ICO which promises better accountability and governance is The Abyss. Their Distributed Autonomous Initial Coin Offering (DAICO) is something that could provide a solution to these problems.
