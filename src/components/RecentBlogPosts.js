@@ -53,6 +53,7 @@ function RecentBlogPosts({ display = "grid", HeadingLevel = "h3"}) {
               title
               date(formatString: "MMMM Do, YYYY")
               tags
+              description
               featuredImage {
                 childImageSharp {
                   sizes(maxWidth: 300) {
@@ -64,45 +65,32 @@ function RecentBlogPosts({ display = "grid", HeadingLevel = "h3"}) {
             fields {
               slug
             }
-            excerpt
           }
         }
       }
     `
   );
 
-  if (display === "list") {
-    return allPostConnection.nodes.map(post => (
-      <ResponsivePost key={post.id}>
-        <Img sizes={post.frontmatter.featuredImage.childImageSharp.sizes}/>
-        <div>
-          <time>{post.frontmatter.date}</time>
-          <HeadingLevel>
-            <Link to={post.fields.slug}>{post.frontmatter.title}</Link>
-          </HeadingLevel>
-          <div>{post.excerpt}</div>
-        </div>
-      </ResponsivePost>
-    ));
-  }
-  else {
-    const posts = allPostConnection.nodes.map(post => (
-      <Post key={post.id}>
-        <Img sizes={post.frontmatter.featuredImage.childImageSharp.sizes}/>
+  const PostWrapper = display === 'list' ? ResponsivePost : Post;
+
+  const posts = allPostConnection.nodes.map(post => (
+    <PostWrapper key={post.id}>
+      <Img sizes={post.frontmatter.featuredImage.childImageSharp.sizes}/>
+      <div>
+        <time>{post.frontmatter.date}</time>
         <HeadingLevel>
           <Link to={post.fields.slug}>{post.frontmatter.title}</Link>
         </HeadingLevel>
-        <div>{post.excerpt}</div>
-        <time>{post.frontmatter.date}</time>
-      </Post>
-    ));
+        <div>{post.frontmatter.description}</div>
+      </div>
+    </PostWrapper>
+  ));
 
-    return (
-      <Grid>
-        {posts}
-      </Grid>
-    );
-  }
+  return display === 'list' ? posts : (
+    <Grid>
+      {posts}
+    </Grid>
+  );
 }
 
 export default RecentBlogPosts;
