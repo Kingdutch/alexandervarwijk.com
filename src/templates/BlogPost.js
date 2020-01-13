@@ -20,7 +20,8 @@ export default ({ data }) => {
         description={post.frontmatter.description}
         meta={[
           {
-            name: 'og:image',
+            name: 'image',
+            property: 'og:image',
             content: data.site.siteMetadata.siteUrl + post.frontmatter.featuredImage.childImageSharp.sizes.src
           },
           {
