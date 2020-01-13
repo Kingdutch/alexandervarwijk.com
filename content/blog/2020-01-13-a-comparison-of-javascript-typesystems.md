@@ -87,6 +87,7 @@ The smaller community probably comes in part from Flow being used internally bef
 
 Most notably the Jest testing framework decided to move from Flow to TypeScript to make it easier to onboard non-Facebook contributors. [The PR where this move is discussed makes for  an interesting read.](https://github.com/facebook/jest/pull/7554)
 
+![A google trends analysis that clearly shows TypeScript outperforming Flow in search popularity.](/images/uploads/flow-typescript-google-trends.png)
 
 ### ReasonML
 The Facebook/Reason project currently has 8k stars but only 266 packages on GitHub that are using it. Important packages that we care about such as React are already ported and Next.js has examples of using it with ReasonML. ReasonML allows us to escape to plain old JavaScript packages wherever we may need to.
