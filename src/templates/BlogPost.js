@@ -20,6 +20,10 @@ export default ({ data }) => {
         description={post.frontmatter.description}
         meta={[
           {
+            name: 'og:image',
+            content: data.site.siteMetadata.siteUrl + post.frontmatter.featuredImage.childImageSharp.sizes.src
+          },
+          {
             name: 'twitter:image',
             content: data.site.siteMetadata.siteUrl + post.frontmatter.featuredImage.childImageSharp.sizes.src
           }
