@@ -178,7 +178,7 @@ TypeScript has been around in the community for a long time. With the backing of
 ### Flow
 Flow has been created by Facebook and is used in a lot of their internal projects (including React). This makes it quite mature. The size of the Facebook codebase means that the Flow team has to be careful with the introduction of backwards incompatible changes. It probably won’t go anywhere anytime soon, but shifts in the community can see its utility diminish as a tool for consumers outside of Facebook.
 
-#### ReasonML
+### ReasonML
 ReasonML itself is only a few years old (looking at the public repository). However, it’s build on OCaml which has a long and proven history. In 2017 [50% of Facebook Messenger was converted to ReasonML](https://reasonml.github.io/blog/2017/09/08/messenger-50-reason.html). With those things in mind we can conclude that the language is definitely battle tested.
 
 As an important benefit of ReasonML being built on OCaml, it supports compiling to native targets such as iOS or Android. This could lead to even more performant native apps than when using the JavaScript version of React Native. Some web uses of ReasonML still bind on top of JavaScript frameworks though, so using ReasonML for universal apps (compiling to both web and native targets) will require more work.
@@ -200,11 +200,11 @@ Onboarding a developer for TypeScript or Flow will probably involve the same amo
 ### ReasonML
 Determining the talent pool is a bit difficult because the language is relatively young. ReasonML is probably easier to pick up for non-web developers than people who only know JavaScript.
 
-## Open Social’s Goals \#our-goals
+## Open Social’s Goals
 
 We do not have any production front-end code using React at the moment. However, whatever we write now will probably have to survive for multiple years. The language should make it possible to write code that catches as many errors at compile time as possible. 
 
-## Conclusion \#conclusion
+## Conclusion
 
 When looking at the development of programming languages it’s becoming clear that more checking at compile time is needed. As JavaScript applications become more prevalent and more complex, this trend is reinforced by the introduction of TypeScript and Flow. 
 
@@ -214,7 +214,7 @@ Although ReasonML is the youngest solution in the list of options, it best tackl
 
 The initial investment in adopting ReasonML may be larger due to its differences with plain JavaScript. This is offset by the benefits that it provides in its type-safety and the ability to use the type system to encode and enforce business logic. Aspects that greatly benefit long running projects with multiple contributors such as [Open Social](https://www.getopensocial.com/).
 
-## Sources \#sources
+## Sources
 
 The following sources, in addition to links included in the text, were used in making this document.
 
