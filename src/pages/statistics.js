@@ -93,6 +93,8 @@ const initialSortState = {
 
 function sortReducer(state, action) {
   switch (action.type) {
+    case "reset":
+      return initialSortState;
     case "sort":
       // By default don't reverse, but toggle reverse when the same sort column
       // is clicked again.
@@ -177,7 +179,7 @@ const Statistics = () => {
       <h1>Pageviews</h1>
       {loading ? "Loading..." : <Button onClick={fetchPageviews}>Reload pageviews</Button>}
       <br/>
-      <Button onClick={() => dispatchSort({type: 'sort', by: sortById})}>Reset sort</Button>
+      <Button onClick={() => dispatchSort({type: 'reset'})}>Reset sort</Button>
       <table>
         <thead>
         <tr>
