@@ -2,8 +2,6 @@ import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
 
 import Layout from '../components/layout';
-import SEO from '../components/seo';
-import Header from "../components/header";
 
 const sortByString = (column) => (a, b) => {
   // Ignore case.
@@ -86,9 +84,7 @@ const Statistics = () => {
   console.log("Statistics", statistics);
 
   return (
-    <>
-      <Header isFront={false} siteTitle={"Statistics"} />
-      <SEO title="Pageviews" />
+    <Layout noContainer={true}>
       <h1>Pageviews</h1>
       <Button onClick={() => setSortColumn({func: sortById})}>Reset sort</Button>
       <table>
@@ -132,7 +128,7 @@ const Statistics = () => {
           ))}
         </tbody>
       </table>
-    </>
+    </Layout>
   );
 };
 
