@@ -107,10 +107,70 @@ function sortReducer(state, action) {
   }
 }
 
+const initialFields = [
+  {id: 'id', title: 'id', sort: sortById, visible: false},
+  {id: 'type', title: 'type', sort: sortByType, visible: false},
+  {id: 'path', title: 'path', sort: sortByPath, visible: true},
+  {
+    id: 'user_agent',
+    title: 'user agent',
+    sort: sortByUserAgent,
+    visible: false
+  },
+  {id: 'timezone', title: 'timezone', sort: sortByTimezone, visible: true},
+  {
+    id: 'visited',
+    title: 'visited',
+    sort: sortByVisited,
+    visible: true,
+    process: value => (new Date(value)).toLocaleString('nl')
+  },
+  {
+    id: 'submitted',
+    title: 'submitted',
+    sort: sortBySubmitted,
+    visible: true,
+    process: value => (new Date(value)).toLocaleString('nl')
+  },
+  {
+    id: 'time_on_page',
+    title: 'time on page',
+    sort: sortByTimeOnPage,
+    visible: true,
+    process: secondsToHuman,
+  },
+  {id: 'width', title: 'width', sort: sortByWidth, visible: true},
+  {id: 'height', title: 'height', sort: sortByHeight, visible: true},
+  {
+    id: 'scroll',
+    title: 'scroll',
+    sort: sortByScroll,
+    visible: true,
+    process: value => `${value / 100}%`
+  },
+  {id: 'source_source', title: 'source', sort: sortBySource, visible: false},
+  {id: 'source_medium', title: 'medium', sort: sortByMedium, visible: false},
+  {id: 'source_campaign', title: 'campaign', sort: sortByCampaign, visible: false},
+  {id: 'source_referrer', title: 'referrer', sort: sortByReferrer, visible: false},
+];
+
+function fieldsReducer(state, action) {
+  switch (action.type) {
+    case "visibilityChange":
+      // Toggle
+      return state.map(field =>
+        field.id === action.field ? { ...field, visible: action.visible } : field
+      );
+    default:
+      throw new Error("Invalid action " + action.type);
+  }
+}
+
 const Statistics = () => {
   const [credentials, setCredentials] = useState({ user: '', pass: '' });
   const [{loading, statistics}, dispatchStatistics] = useReducer(statisticsReducer, initialStatisticsState);
   const [sort, dispatchSort] = useReducer(sortReducer, initialSortState);
+  const [fields, dispatchVisibility] = useReducer(fieldsReducer, initialFields);
   const fetchPageviews = () => {
     if (!credentials.user.length || !credentials.pass.length) {
       return;
@@ -148,25 +208,35 @@ const Statistics = () => {
     )
   }
 
-  console.log("Statistics", statistics);
+  const visibilityControl = (<div>{
+    fields.map(field =>
+      <label key={field.id} style={{marginRight:'.5rem'}}>
+        <input
+          onChange={e => dispatchVisibility({type: 'visibilityChange', field: field.id, visible: e.target.checked})}
+          type="checkbox"
+          value={true}
+          checked={field.visible} />
+        {field.title}
+      </label>
+    )
+  }</div>);
+
+  const heading = fields.map(field =>
+    field.visible
+      ? <td key={field.id}><Button onClick={() => dispatchSort({type: 'sort', by: field.sort})}>{field.title}</Button></td>
+      : null
+  );
 
   const statisticList = statistics.sort(sort.by)
     .map(statistic => (
-      <tr>
-        <td>{statistic.type}</td>
-        <td>{statistic.path}</td>
-        <td>{statistic.user_agent}</td>
-        <td>{statistic.timezone}</td>
-        <td>{(new Date(statistic.visited)).toLocaleString('nl')}</td>
-        <td>{(new Date(statistic.submitted)).toLocaleString('nl')}</td>
-        <td>{secondsToHuman(statistic.time_on_page)}</td>
-        <td>{statistic.width}px</td>
-        <td>{statistic.height}px</td>
-        <td>{statistic.scroll / 100}%</td>
-        <td>{statistic.source_source}</td>
-        <td>{statistic.source_medium}</td>
-        <td>{statistic.source_campaign}</td>
-        <td>{statistic.source_referrer}</td>
+      <tr key={statistic.id}>
+        {fields.map(field =>
+          field.visible
+            ? <td key={field.id}>
+              {field.process ? field.process(statistic[field.id]) : statistic[field.id]}
+            </td>
+            : null
+        )}
       </tr>
     ));
 
@@ -180,24 +250,10 @@ const Statistics = () => {
       {loading ? "Loading..." : <Button onClick={fetchPageviews}>Reload pageviews</Button>}
       <br/>
       <Button onClick={() => dispatchSort({type: 'reset'})}>Reset sort</Button>
+      {visibilityControl}
       <table>
         <thead>
-        <tr>
-          <td><Button onClick={() => dispatchSort({type: 'sort', by: sortByType})}>type</Button></td>
-          <td><Button onClick={() => dispatchSort({type: 'sort', by: sortByPath})}>path</Button></td>
-          <td><Button onClick={() => dispatchSort({type: 'sort', by: sortByUserAgent})}>user agent</Button></td>
-          <td><Button onClick={() => dispatchSort({type: 'sort', by: sortByTimezone})}>timezone</Button></td>
-          <td><Button onClick={() => dispatchSort({type: 'sort', by: sortByVisited})}>visited</Button></td>
-          <td><Button onClick={() => dispatchSort({type: 'sort', by: sortBySubmitted})}>submitted</Button></td>
-          <td><Button onClick={() => dispatchSort({type: 'sort', by: sortByTimeOnPage})}>time on page</Button></td>
-          <td><Button onClick={() => dispatchSort({type: 'sort', by: sortByWidth})}>width</Button></td>
-          <td><Button onClick={() => dispatchSort({type: 'sort', by: sortByHeight})}>height</Button></td>
-          <td><Button onClick={() => dispatchSort({type: 'sort', by: sortByScroll})}>scroll</Button></td>
-          <td><Button onClick={() => dispatchSort({type: 'sort', by: sortBySource})}>source</Button></td>
-          <td><Button onClick={() => dispatchSort({type: 'sort', by: sortByMedium})}>medium</Button></td>
-          <td><Button onClick={() => dispatchSort({type: 'sort', by: sortByCampaign})}>campaign</Button></td>
-          <td><Button onClick={() => dispatchSort({type: 'sort', by: sortByReferrer})}>referrer</Button></td>
-        </tr>
+          <tr>{heading}</tr>
         </thead>
         <tbody>
           {statisticList}
