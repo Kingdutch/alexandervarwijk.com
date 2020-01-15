@@ -7,7 +7,7 @@ description: >-
   Enterprise applications.
 featuredImage: /images/uploads/rainbow-colored-smoke-plumes.jpg
 ---
-_Update 14 Jan 2020: Some attentive readers pointed out some errors that have been fixed:_ [_A language can not be fully sound and complete_](https://en.wikipedia.org/wiki/Type_system#Static_type_checking) _(Reason is fully sound, this makes it incomplete); The BuckleScript compiler usage count provides a better indicatation that the Reason repo of language usage in the JavaScript ecosystem; A mention of genType was added as a solution to ReasonML lock-in worries._
+_Update 14 Jan 2020: Some attentive readers pointed out some errors that have been fixed:_ [_A language can not be fully sound and complete_](https://en.wikipedia.org/wiki/Type_system#Static_type_checking) _(Reason is fully sound, this makes it incomplete); The BuckleScript compiler usage count provides a better indicatation than the Reason repo of language usage in the JavaScript ecosystem; A mention of genType was added as a solution to ReasonML lock-in worries._
 
 _Update 15 Jan 2020: Added link to the re-web CacheControl enum as a ReasonML example rather than having to defer only to Rust._
 
