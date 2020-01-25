@@ -11,8 +11,8 @@ const IndexPage = () => (
       <section>
         <p>
           I'm a Full Stack developer that learned to program using Perl over 15
-          years ago. Since then I've explored many languages but found my focus in
-          the world of Webdevelopment.
+          years ago. Since then I've explored many languages but found my focus
+          in the world of Webdevelopment.
         </p>
         <p>
           I'm currently working at{' '}
@@ -23,11 +23,11 @@ const IndexPage = () => (
             Open social
           </a>
           . As part of my work I've created reusable extensions for Enterprise
-          customers and I've been responsible for introducing React into the Open
-          Social codebase. I love looking for ways to improve accessibility,
-          performance and maintainabiltity of the code I work with, preferring to
-          build reusable lasting solutions over hacks. I'm also the maintainer of
-          the{' '}
+          customers and I've been responsible for introducing React into the
+          Open Social codebase. I love looking for ways to improve
+          accessibility, performance and maintainabiltity of the code I work
+          with, preferring to build reusable lasting solutions over hacks. I'm
+          also the maintainer of the{' '}
           <a
             href={'https://www.drupal.org/project/yoast_seo/'}
             title={'Real Time SEO Module on Drupal.org'}

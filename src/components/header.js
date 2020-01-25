@@ -6,8 +6,7 @@ import styled from 'styled-components';
 import Avatar from './Avatar';
 
 const HeaderBackground = styled.header`
-  background: #0067fb
-    linear-gradient(rgb(255, 155, 61) 3%, rgb(0, 103, 251) 5%);
+  background: #0067fb linear-gradient(rgb(255, 155, 61) 3%, rgb(0, 103, 251) 5%);
   margin-bottom: 1.45rem;
 `;
 
@@ -44,8 +43,9 @@ const NavLink = styled(Link)`
   color: inherit;
   text-decoration: none;
   outline-color: rgb(255, 155, 61);
-  
-  &:focus, &:hover {
+
+  &:focus,
+  &:hover {
     text-decoration: underline;
   }
 `;

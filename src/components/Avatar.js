@@ -14,7 +14,7 @@ const StyledImg = styled(Img)`
   width: 60px;
   height: 60px;
   flex: auto 0 0;
-  
+
   @media (min-width: 560px) {
     width: 75px;
     height: 75px;

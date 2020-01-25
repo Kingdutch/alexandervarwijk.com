@@ -10,7 +10,7 @@ const Talks = () => {
       query {
         allTalksConnection: allMarkdownRemark(
           filter: { fields: { collection: { eq: "talks" } } }
-          sort: {fields:frontmatter___date, order:DESC}
+          sort: { fields: frontmatter___date, order: DESC }
         ) {
           edges {
             node {
@@ -33,13 +33,13 @@ const Talks = () => {
 
   const talks = allTalksConnection.edges.map(({ node: talk }) => (
     <article key={talk.id} style={{ marginTop: '1rem' }}>
-      <div>{talk.frontmatter.date}, {talk.frontmatter.conference}</div>
+      <div>
+        {talk.frontmatter.date}, {talk.frontmatter.conference}
+      </div>
       <h2>
         <Link to={talk.fields.slug}>{talk.frontmatter.title}</Link>
       </h2>
-      <div>
-        {talk.frontmatter.description}
-      </div>
+      <div>{talk.frontmatter.description}</div>
     </article>
   ));
 
@@ -50,7 +50,10 @@ const Talks = () => {
         description="An overview of the talks given by Alexander at meetups and conferences."
       />
       <h1>Talks</h1>
-      <div>Below is an overview of the talks that I have given at meetups and conferences.</div>
+      <div>
+        Below is an overview of the talks that I have given at meetups and
+        conferences.
+      </div>
       {talks}
     </Layout>
   );

@@ -41,7 +41,7 @@ const SkipLink = styled.a`
 
 const CenterText = styled.div`
   text-align: center;
-`
+`;
 
 const Layout = ({ children, isFront = false, noContainer = false }) => {
   const data = useStaticQuery(graphql`
@@ -58,12 +58,16 @@ const Layout = ({ children, isFront = false, noContainer = false }) => {
     <>
       <GlobalStyle />
       <CenterText>
-        <SkipLink href={"#content"}>Skip to main content</SkipLink>
+        <SkipLink href={'#content'}>Skip to main content</SkipLink>
       </CenterText>
       <Header isFront={isFront} siteTitle={data.site.siteMetadata.title} />
-      {noContainer ?
-        children :
-        <Container id="content" as={'main'}>{children}</Container>}
+      {noContainer ? (
+        children
+      ) : (
+        <Container id="content" as={'main'}>
+          {children}
+        </Container>
+      )}
       <footer>
         <Container>
           © Alexander Varwijk, proudly built with

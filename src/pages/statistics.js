@@ -1,10 +1,10 @@
-import React, {useEffect, useReducer, useState} from 'react';
+import React, { useEffect, useReducer, useState } from 'react';
 import styled from 'styled-components';
 
 import Layout from '../components/layout';
 
 // String sort helper.
-const sortByString = (column) => (a, b) => {
+const sortByString = column => (a, b) => {
   // Ignore case.
   const valueA = a[column].toUpperCase();
   const valueB = b[column].toUpperCase();
@@ -21,7 +21,7 @@ const sortByString = (column) => (a, b) => {
 // Sorting functions
 const sortById = (a, b) => a.id - b.id;
 const sortByType = (a, b) => {
-  const types = {'js-tracking': 1, 'image-fallback': 2};
+  const types = { 'js-tracking': 1, 'image-fallback': 2 };
   return (types[a.type] || 50) - (types[b.type] || 50);
 };
 const sortByPath = sortByString('path');
@@ -39,20 +39,20 @@ const sortByCampaign = sortByString('source_campaign');
 const sortByReferrer = sortByString('source_referrer');
 
 // Convert X seconds to human readable A hour B minutes C seconds.
-const secondsToHuman = (s) => {
+const secondsToHuman = s => {
   const hour = Math.floor(s / 3600);
   const minutes = Math.floor((s - hour * 3600) / 60);
   const seconds = s - hour * 3600 - minutes * 60;
 
-  let ret = "";
+  let ret = '';
   if (hour > 0) {
-    ret += hour + (hour === 1 ? "\u00A0hour " : "\u00A0hours ");
+    ret += hour + (hour === 1 ? '\u00A0hour ' : '\u00A0hours ');
   }
   if (minutes > 0) {
-    ret += minutes + (minutes === 1 ? "\u00A0minute " : "\u00A0minutes ");
+    ret += minutes + (minutes === 1 ? '\u00A0minute ' : '\u00A0minutes ');
   }
   if (seconds > 0) {
-    ret += seconds + (seconds === 1 ? "\u00A0second " : "\u00A0seconds");
+    ret += seconds + (seconds === 1 ? '\u00A0second ' : '\u00A0seconds');
   }
 
   return ret;
@@ -70,7 +70,7 @@ const initialStatisticsState = {
 };
 
 function statisticsReducer(state, action) {
-  switch(action.type) {
+  switch (action.type) {
     case 'fetch':
       return {
         ...state,
@@ -82,7 +82,7 @@ function statisticsReducer(state, action) {
         statistics: action.statistics,
       };
     default:
-      throw new Error("Invalid action " + action.type);
+      throw new Error('Invalid action ' + action.type);
   }
 }
 
@@ -93,9 +93,9 @@ const initialSortState = {
 
 function sortReducer(state, action) {
   switch (action.type) {
-    case "reset":
+    case 'reset':
       return initialSortState;
-    case "sort":
+    case 'sort':
       // By default don't reverse, but toggle reverse when the same sort column
       // is clicked again.
       return {
@@ -103,34 +103,34 @@ function sortReducer(state, action) {
         reverse: state.by === action.by ? !state.reverse : false,
       };
     default:
-      throw new Error("Invalid action " + action.type);
+      throw new Error('Invalid action ' + action.type);
   }
 }
 
 const initialFields = [
-  {id: 'id', title: 'id', sort: sortById, visible: false},
-  {id: 'type', title: 'type', sort: sortByType, visible: false},
-  {id: 'path', title: 'path', sort: sortByPath, visible: true},
+  { id: 'id', title: 'id', sort: sortById, visible: false },
+  { id: 'type', title: 'type', sort: sortByType, visible: false },
+  { id: 'path', title: 'path', sort: sortByPath, visible: true },
   {
     id: 'user_agent',
     title: 'user agent',
     sort: sortByUserAgent,
-    visible: false
+    visible: false,
   },
-  {id: 'timezone', title: 'timezone', sort: sortByTimezone, visible: true},
+  { id: 'timezone', title: 'timezone', sort: sortByTimezone, visible: true },
   {
     id: 'visited',
     title: 'visited',
     sort: sortByVisited,
     visible: true,
-    process: value => (new Date(value)).toLocaleString('nl')
+    process: value => new Date(value).toLocaleString('nl'),
   },
   {
     id: 'submitted',
     title: 'submitted',
     sort: sortBySubmitted,
     visible: true,
-    process: value => (new Date(value)).toLocaleString('nl')
+    process: value => new Date(value).toLocaleString('nl'),
   },
   {
     id: 'time_on_page',
@@ -139,103 +139,140 @@ const initialFields = [
     visible: true,
     process: secondsToHuman,
   },
-  {id: 'width', title: 'width', sort: sortByWidth, visible: true},
-  {id: 'height', title: 'height', sort: sortByHeight, visible: true},
+  { id: 'width', title: 'width', sort: sortByWidth, visible: true },
+  { id: 'height', title: 'height', sort: sortByHeight, visible: true },
   {
     id: 'scroll',
     title: 'scroll',
     sort: sortByScroll,
     visible: true,
-    process: value => `${value / 100}%`
+    process: value => `${value / 100}%`,
   },
-  {id: 'source_source', title: 'source', sort: sortBySource, visible: false},
-  {id: 'source_medium', title: 'medium', sort: sortByMedium, visible: false},
-  {id: 'source_campaign', title: 'campaign', sort: sortByCampaign, visible: false},
-  {id: 'source_referrer', title: 'referrer', sort: sortByReferrer, visible: false},
+  { id: 'source_source', title: 'source', sort: sortBySource, visible: false },
+  { id: 'source_medium', title: 'medium', sort: sortByMedium, visible: false },
+  {
+    id: 'source_campaign',
+    title: 'campaign',
+    sort: sortByCampaign,
+    visible: false,
+  },
+  {
+    id: 'source_referrer',
+    title: 'referrer',
+    sort: sortByReferrer,
+    visible: false,
+  },
 ];
 
 function fieldsReducer(state, action) {
   switch (action.type) {
-    case "visibilityChange":
+    case 'visibilityChange':
       // Toggle
       return state.map(field =>
-        field.id === action.field ? { ...field, visible: action.visible } : field
+        field.id === action.field
+          ? { ...field, visible: action.visible }
+          : field
       );
     default:
-      throw new Error("Invalid action " + action.type);
+      throw new Error('Invalid action ' + action.type);
   }
 }
 
 const Statistics = () => {
   const [credentials, setCredentials] = useState({ user: '', pass: '' });
-  const [{loading, statistics}, dispatchStatistics] = useReducer(statisticsReducer, initialStatisticsState);
+  const [{ loading, statistics }, dispatchStatistics] = useReducer(
+    statisticsReducer,
+    initialStatisticsState
+  );
   const [sort, dispatchSort] = useReducer(sortReducer, initialSortState);
   const [fields, dispatchVisibility] = useReducer(fieldsReducer, initialFields);
   const fetchPageviews = () => {
     if (!credentials.user.length || !credentials.pass.length) {
       return;
     }
-    dispatchStatistics({type: 'fetch'});
+    dispatchStatistics({ type: 'fetch' });
     fetch('https://visit.alexandervarwijk.com/pageviews', {
       headers: new Headers({
-        "Authorization": `Basic ${btoa(`${credentials.user}:${credentials.pass}`)}`,
+        Authorization: `Basic ${btoa(
+          `${credentials.user}:${credentials.pass}`
+        )}`,
       }),
     })
       .then(response => response.json())
-      .then(statistics => dispatchStatistics({type: 'complete', statistics}))
+      .then(statistics => dispatchStatistics({ type: 'complete', statistics }));
   };
-  useEffect(fetchPageviews,  [credentials, dispatchStatistics]);
+  useEffect(fetchPageviews, [credentials, dispatchStatistics]);
 
   if (!credentials.user.length || !credentials.pass.length) {
     const submit = e => {
-      setCredentials({user: e.target.name.value, pass: e.target.pass.value})
+      setCredentials({ user: e.target.name.value, pass: e.target.pass.value });
       e.preventDefault();
     };
     return (
       <Layout>
         <form onSubmit={submit}>
           <label>
-            Name<br />
-            <input name="name" type="text" /><br />
+            Name
+            <br />
+            <input name="name" type="text" />
+            <br />
           </label>
           <label>
-            Password<br />
-            <input name="pass" type="password" /><br />
+            Password
+            <br />
+            <input name="pass" type="password" />
+            <br />
           </label>
           <input type="submit" value="Show statistics" />
         </form>
       </Layout>
-    )
+    );
   }
 
-  const visibilityControl = (<div>{
-    fields.map(field =>
-      <label key={field.id} style={{marginRight:'.5rem'}}>
-        <input
-          onChange={e => dispatchVisibility({type: 'visibilityChange', field: field.id, visible: e.target.checked})}
-          type="checkbox"
-          value={true}
-          checked={field.visible} />
-        {field.title}
-      </label>
-    )
-  }</div>);
-
-  const heading = fields.map(field =>
-    field.visible
-      ? <td key={field.id}><Button onClick={() => dispatchSort({type: 'sort', by: field.sort})}>{field.title}</Button></td>
-      : null
+  const visibilityControl = (
+    <div>
+      {fields.map(field => (
+        <label key={field.id} style={{ marginRight: '.5rem' }}>
+          <input
+            onChange={e =>
+              dispatchVisibility({
+                type: 'visibilityChange',
+                field: field.id,
+                visible: e.target.checked,
+              })
+            }
+            type="checkbox"
+            value={true}
+            checked={field.visible}
+          />
+          {field.title}
+        </label>
+      ))}
+    </div>
   );
 
-  const statisticList = statistics.sort(sort.by)
+  const heading = fields.map(field =>
+    field.visible ? (
+      <td key={field.id}>
+        <Button onClick={() => dispatchSort({ type: 'sort', by: field.sort })}>
+          {field.title}
+        </Button>
+      </td>
+    ) : null
+  );
+
+  const statisticList = statistics
+    .sort(sort.by)
     .map(statistic => (
       <tr key={statistic.id}>
         {fields.map(field =>
-          field.visible
-            ? <td key={field.id}>
-              {field.process ? field.process(statistic[field.id]) : statistic[field.id]}
+          field.visible ? (
+            <td key={field.id}>
+              {field.process
+                ? field.process(statistic[field.id])
+                : statistic[field.id]}
             </td>
-            : null
+          ) : null
         )}
       </tr>
     ));
@@ -247,17 +284,21 @@ const Statistics = () => {
   return (
     <Layout noContainer={true}>
       <h1>Pageviews</h1>
-      {loading ? "Loading..." : <Button onClick={fetchPageviews}>Reload pageviews</Button>}
-      <br/>
-      <Button onClick={() => dispatchSort({type: 'reset'})}>Reset sort</Button>
+      {loading ? (
+        'Loading...'
+      ) : (
+        <Button onClick={fetchPageviews}>Reload pageviews</Button>
+      )}
+      <br />
+      <Button onClick={() => dispatchSort({ type: 'reset' })}>
+        Reset sort
+      </Button>
       {visibilityControl}
       <table>
         <thead>
           <tr>{heading}</tr>
         </thead>
-        <tbody>
-          {statisticList}
-        </tbody>
+        <tbody>{statisticList}</tbody>
       </table>
     </Layout>
   );

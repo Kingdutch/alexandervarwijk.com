@@ -54,7 +54,7 @@ exports.createPages = async function({ actions, graphql }) {
             }
           }
         }
-      },
+      }
       allTalksConnection: allMarkdownRemark(
         filter: { fields: { collection: { eq: "talks" } } }
       ) {
@@ -89,5 +89,5 @@ exports.createPages = async function({ actions, graphql }) {
       component: require.resolve('./src/templates/Talk.js'),
       context: { id },
     });
-  })
+  });
 };

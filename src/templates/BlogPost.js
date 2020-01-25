@@ -22,12 +22,16 @@ export default ({ data }) => {
           {
             name: 'image',
             property: 'og:image',
-            content: data.site.siteMetadata.siteUrl + post.frontmatter.featuredImage.childImageSharp.sizes.src
+            content:
+              data.site.siteMetadata.siteUrl +
+              post.frontmatter.featuredImage.childImageSharp.sizes.src,
           },
           {
             name: 'twitter:image',
-            content: data.site.siteMetadata.siteUrl + post.frontmatter.featuredImage.childImageSharp.sizes.src
-          }
+            content:
+              data.site.siteMetadata.siteUrl +
+              post.frontmatter.featuredImage.childImageSharp.sizes.src,
+          },
         ]}
       />
       <article>
@@ -56,11 +60,11 @@ export const query = graphql`
           }
         }
       }
-    },
+    }
     site {
-        siteMetadata {
-            siteUrl
-        }
-    },
+      siteMetadata {
+        siteUrl
+      }
+    }
   }
 `;

@@ -15,7 +15,7 @@ const Grid = styled.div`
     grid-template-columns: repeat(2, 1fr);
     grid-gap: 3rem;
   }
-  
+
   @media (min-width: 960px) {
     grid-template-columns: repeat(3, 1fr);
   }
@@ -36,14 +36,14 @@ const ResponsivePost = styled.article`
       margin-right: 1rem;
     }
   }
-`
+`;
 
-function RecentBlogPosts({ display = "grid", HeadingLevel = "h3"}) {
+function RecentBlogPosts({ display = 'grid', HeadingLevel = 'h3' }) {
   const { allPostConnection } = useStaticQuery(
     graphql`
       query {
         allPostConnection: allMarkdownRemark(
-          sort:{fields:frontmatter___date, order: DESC}
+          sort: { fields: frontmatter___date, order: DESC }
           filter: { fields: { collection: { eq: "blog" } } }
           limit: 10
         ) {
@@ -75,7 +75,7 @@ function RecentBlogPosts({ display = "grid", HeadingLevel = "h3"}) {
 
   const posts = allPostConnection.nodes.map(post => (
     <PostWrapper key={post.id}>
-      <Img sizes={post.frontmatter.featuredImage.childImageSharp.sizes}/>
+      <Img sizes={post.frontmatter.featuredImage.childImageSharp.sizes} />
       <div>
         <time>{post.frontmatter.date}</time>
         <HeadingLevel>
@@ -86,11 +86,7 @@ function RecentBlogPosts({ display = "grid", HeadingLevel = "h3"}) {
     </PostWrapper>
   ));
 
-  return display === 'list' ? posts : (
-    <Grid>
-      {posts}
-    </Grid>
-  );
+  return display === 'list' ? posts : <Grid>{posts}</Grid>;
 }
 
 export default RecentBlogPosts;
