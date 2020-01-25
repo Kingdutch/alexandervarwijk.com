@@ -1,9 +1,9 @@
 import React from 'react';
-import { withPrefix } from "gatsby";
 
 function onRenderBody({ setPostBodyComponents }) {
   setPostBodyComponents([
-    <script key="main" async src={"//visit.alexandervarwijk.com/hello.js"}></script>
+    <script key="main" async src={"//visit.alexandervarwijk.com/hello.js"}></script>,
+    <noscript><img src={"//visit.alexandervarwijk.com/image.gif"} alt={""} /></noscript>,
   ])
 }
 
