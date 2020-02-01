@@ -4,9 +4,10 @@ import React from 'react';
 import styled from 'styled-components';
 
 import Avatar from './Avatar';
+import { colors } from './atoms/colors';
 
 const HeaderBackground = styled.header`
-  background: #0067fb linear-gradient(rgb(255, 155, 61) 3%, rgb(0, 103, 251) 5%);
+  background: ${colors.secondary};
   margin-bottom: 1.45rem;
 `;
 
@@ -30,7 +31,7 @@ const PageTitle = styled.h1`
 const TitleLink = styled(Link)`
   color: white;
   text-decoration: none;
-  outline-color: rgb(255, 155, 61);
+  outline-color: ${colors.primary};
 `;
 
 const Nav = styled.nav`
@@ -42,10 +43,11 @@ const NavLink = styled(Link)`
   font-family: sans-serif;
   color: inherit;
   text-decoration: none;
-  outline-color: rgb(255, 155, 61);
+  outline-color: ${colors.primary};
 
   &:focus,
   &:hover {
+    color: ${colors.primary};
     text-decoration: underline;
   }
 `;
