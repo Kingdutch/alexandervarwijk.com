@@ -42,7 +42,9 @@ const Blog = () => {
     <Layout>
       <SEO title="Resources" />
       <h1>Resources</h1>
-      <div>Below is a selection of my bookmarks for quick reference.</div>
+      <p>Below is a selection of my bookmarks for quick reference.</p>
+      <p></p>
+      <hr/>
       {resources}
     </Layout>
   );

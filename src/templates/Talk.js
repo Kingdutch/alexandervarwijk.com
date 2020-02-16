@@ -5,9 +5,14 @@
  */
 
 import React from 'react';
+import styled from 'styled-components';
 import { graphql } from 'gatsby';
 import Layout from '../components/layout';
 import SEO from '../components/seo';
+
+const DatePlace = styled.div`
+  margin-top: .5rem;
+`
 
 export default ({ data }) => {
   const talk = data.markdownRemark;
@@ -20,8 +25,10 @@ export default ({ data }) => {
       />
       <article>
         <h1>{talk.frontmatter.title}</h1>
-        <time>{talk.frontmatter.date}</time>,{' '}
-        <span>{talk.frontmatter.conference}</span>
+        <DatePlace>
+          <time>{talk.frontmatter.date}</time>,{' '}
+          <span>{talk.frontmatter.conference}</span>
+        </DatePlace>
         <div dangerouslySetInnerHTML={{ __html: talk.html }} />
         {talk.frontmatter.slides && talk.frontmatter.slides.length ? (
           <section>

@@ -13,7 +13,7 @@ const Grid = styled.div`
   @media (min-width: 520px) {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    grid-gap: 3rem;
+    grid-gap: 1rem 2rem;
   }
 
   @media (min-width: 960px) {
@@ -22,11 +22,11 @@ const Grid = styled.div`
 `;
 
 const Post = styled.article`
-  margin-bottom: 2rem;
+  margin-top: 1rem;
 `;
 
 const ResponsivePost = styled.article`
-  margin-bottom: 2rem;
+  margin-top: 2rem;
 
   @media (min-width: 720px) {
     display: flex;
@@ -36,6 +36,20 @@ const ResponsivePost = styled.article`
       margin-right: 1rem;
     }
   }
+`;
+
+const PostDetails = styled.div`
+  margin-top: .25rem;
+  
+  ${({display}) => display === 'list' ? `
+    @media (min-width: 720px) {
+      margin-top: 0;
+    }
+  ` : null}
+ `;
+
+const Snippet = styled.div`
+  margin-top: 1rem;
 `;
 
 function RecentBlogPosts({ display = 'grid', HeadingLevel = 'h3' }) {
@@ -76,13 +90,13 @@ function RecentBlogPosts({ display = 'grid', HeadingLevel = 'h3' }) {
   const posts = allPostConnection.nodes.map(post => (
     <PostWrapper key={post.id}>
       <Img sizes={post.frontmatter.featuredImage.childImageSharp.sizes} />
-      <div>
+      <PostDetails display={display}>
         <time>{post.frontmatter.date}</time>
         <HeadingLevel>
           <Link to={post.fields.slug}>{post.frontmatter.title}</Link>
         </HeadingLevel>
-        <div>{post.frontmatter.description}</div>
-      </div>
+        <Snippet>{post.frontmatter.description}</Snippet>
+      </PostDetails>
     </PostWrapper>
   ));
 

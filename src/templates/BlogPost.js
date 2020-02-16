@@ -5,10 +5,15 @@
  */
 
 import React from 'react';
+import styled from 'styled-components';
 import { graphql } from 'gatsby';
-import Img from 'gatsby-image';
+import GatsbyImg from 'gatsby-image';
 import Layout from '../components/layout';
 import SEO from '../components/seo';
+
+const Img = styled(GatsbyImg)`
+  margin-top: 1rem;
+`
 
 export default ({ data }) => {
   const post = data.markdownRemark;

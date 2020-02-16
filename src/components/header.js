@@ -8,7 +8,6 @@ import { colors } from './atoms/colors';
 
 const HeaderBackground = styled.header`
   background: ${colors.secondary};
-  margin-bottom: 1.45rem;
 `;
 
 const HeaderContainer = styled.div`

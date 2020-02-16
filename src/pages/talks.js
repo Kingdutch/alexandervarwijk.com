@@ -50,10 +50,12 @@ const Talks = () => {
         description="An overview of the talks given by Alexander at meetups and conferences."
       />
       <h1>Talks</h1>
-      <div>
+      <p>
         Below is an overview of the talks that I have given at meetups and
         conferences.
-      </div>
+      </p>
+      <p></p>
+      <hr />
       {talks}
     </Layout>
   );
