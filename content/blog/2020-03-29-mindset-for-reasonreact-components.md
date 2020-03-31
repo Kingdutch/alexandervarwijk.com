@@ -1,7 +1,7 @@
 ---
 layout: blog
 title: Mindset for ReasonReact components
-date: 2020-03-29T18:47:57.197Z
+date: 2020-03-31T18:50:57.197Z
 description: >-
   Moving from React in JavaScript to ReasonML can be quite challenging. Figuring
   out how to move your existing code patterns from JavaScript to a string
@@ -63,24 +63,26 @@ There is quite a bit going on here. There are three things to take away from thi
 One of the things that you see in the JavaScript version of this element is the use of the spread operator (`...`) to catch and release the properties that our special Image element is not interested in. Unfortunately [the spread operator is not supported in ReasonML](https://reasonml.github.io/reason-react/docs/en/props-spread "Documentation on props spread"). The documentation mentions that if we absolutely need it there is a way to mimic the behaviour.
 
 ```ReasonML
-module Image {
+module Image = {
   type imageVariant =
     | Top
     | Left;
 
   [@react.component]
   let make = (~variant=Top, ~className=?, ~children) => {
-    let classes = switch(variant) {
-                    | Top => "image--top"
-                    | Left => "image--left"
-                  };
-    let classes = switch(className) {
-                    | Some(x) => classes ++ " " ++ x
-                    | None => classes
-                };
+    let classes =
+      switch (variant) {
+      | Top => "image--top"
+      | Left => "image--left"
+      };
+    let classes =
+      switch (className) {
+      | Some(x) => classes ++ " " ++ x
+      | None => classes
+      };
     ReasonReact.cloneElement(children, ~props={"className": classes}, [||]);
-  }
-}
+  };
+};
 ```
 
 This component can be used in the following manner:
@@ -99,22 +101,23 @@ Another issue is that if you were to set a className on the `img` element itself
 There is a way to make our `Image` work without having to pass in an extra `img` element. to do this we make use of the `ReactDOMRe.domProps` type that includes all the attributes that are allowed on a DOM element. This can be done by defining `makeProps` directly. Something that is normally done through the `[@React.component]` annotation.
 
 ```ReasonML
-module Image {
+module Image = {
   let makeProps = ReactDOMRe.domProps;
   let make = (props: ReactDOMRe.domProps) => {
     let classProps = {
-      "className": "image--top " ++ Obj.magic(props)##className
+      "className": "image--top " ++ Obj.magic(props)##className,
     };
     let myProps = Js.Obj.assign(Js.Obj.empty(), Obj.magic(props));
-    let myProps = Js.Obj.assign(myProps, classProps) ;
+    let myProps = Js.Obj.assign(myProps, classProps);
     ReactDOMRe.createDOMElementVariadic(
       "img",
       ~props=Obj.magic(myProps),
-      [||]
+      [||],
     );
-  }
-}
+  };
+};
 ```
+_Note when using the above code: `let makeProps = ReactDOMRe.domProps;` will copy the entire domProps generation function into your output JS. This may be undesireable._
 
 This element can be used in the following manner:
 ```ReasonML
@@ -134,25 +137,27 @@ JavaScript is a weakly typed language. This provides us with lots of creativity.
 Let’s try to recreate our component without needing a child element while still allowing for our variant class. Instead of extending `ReactDOMRe.domProps` this will require us to spell out all the properties that our `Image` component can handle. This may feel overly restrictive when coming from JavaScript — this article came from a two day discord conversation before I budged from this standpoint — but it also provides some benefits.
 
 ```ReasonML
-module Image {
+module Image = {
   type imageVariant =
     | Top
     | Left;
 
   [@react.component]
   let make = (~variant=Top, ~className=?, ~src, ~width=?) => {
-    let classes = switch(variant) {
-                    | Top => "image--top"
-                    | Left => "image--left"
-                  };
-    let classes = switch(className) {
-                    | Some(x) => classes ++ " " ++ x
-                    | None => classes
-                };
+    let classes =
+      switch (variant) {
+      | Top => "image--top"
+      | Left => "image--left"
+      };
+    let classes =
+      switch (className) {
+      | Some(x) => classes ++ " " ++ x
+      | None => classes
+      };
 
-    <img className=(classes) src=src width=?width />
-  }
-}
+    <img className=classes src ?width />;
+  };
+};
 ```
 
 This element can be used in the following manner:
@@ -170,3 +175,5 @@ My problem of trying to add an optional prop to all the other possible propertie
 While writing this article I’ve had some ideas of how you could utilise Reason’s type-system to implement component nesting as used in Bootstrap cards in a different way altogether. I hope to explain this in a future article.
 
 Have you run into this problem already? How have you solved it? Do you see any ways to improve any of these solutions? Let me know on [Twitter](https://twitter.com/Kingdutch/ "Find me on Twitter!")!
+
+_Thanks to alex.fedoseev, yawaramin, jaap, ryppy, johnridesabike, davesnx for their feedback in the ReasonML discord and their patience while I asked endless questions. Thanks to [Yawar Amin](https://dev.to/yawaramin/ "Read Yawar Amin's great articles about ReasonML and oCaml on dev.to") for providing feedback on a draft of this article._
