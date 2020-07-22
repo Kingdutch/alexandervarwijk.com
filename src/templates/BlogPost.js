@@ -10,6 +10,7 @@ import { graphql } from 'gatsby';
 import GatsbyImg from 'gatsby-image';
 import Layout from '../components/layout';
 import SEO from '../components/seo';
+import ConvertKitNewsletter from "../components/forms/ConvertKitNewsletter";
 
 const Img = styled(GatsbyImg)`
   margin-top: 1rem;
@@ -45,6 +46,7 @@ export default ({ data }) => {
         <Img sizes={post.frontmatter.featuredImage.childImageSharp.sizes} />
         <div dangerouslySetInnerHTML={{ __html: post.html }} />
       </article>
+      <ConvertKitNewsletter />
     </Layout>
   );
 };
