@@ -12,7 +12,6 @@ slides: >-
   <iframe src="//www.slideshare.net/slideshow/embed_code/key/wyOhC0JpIlrBfq"
   width="920" height="690" frameborder="0" marginwidth="0" marginheight="0"
   scrolling="no" style="max-width: 100%;" allowfullscreen> </iframe>
-recording: ' '
 ---
 Open Social is a community building solution that is sold as SaaS product and is also available as an open source Drupal distribution. With over 50 customers running off of the same product and many more sites in the open source community feeling the impact of our decisions, there are many things that we need to consider.
 
