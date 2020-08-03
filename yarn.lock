@@ -955,7 +955,7 @@
     core-js-pure "^3.0.0"
     regenerator-runtime "^0.13.4"
 
-"@babel/runtime@^7.0.0", "@babel/runtime@^7.1.2", "@babel/runtime@^7.10.2", "@babel/runtime@^7.10.3", "@babel/runtime@^7.2.0", "@babel/runtime@^7.3.4", "@babel/runtime@^7.5.5", "@babel/runtime@^7.7.2", "@babel/runtime@^7.8.4":
+"@babel/runtime@^7.0.0", "@babel/runtime@^7.1.2", "@babel/runtime@^7.10.2", "@babel/runtime@^7.10.3", "@babel/runtime@^7.2.0", "@babel/runtime@^7.3.1", "@babel/runtime@^7.3.4", "@babel/runtime@^7.5.5", "@babel/runtime@^7.7.2", "@babel/runtime@^7.8.4":
   version "7.11.0"
   resolved "https://registry.yarnpkg.com/@babel/runtime/-/runtime-7.11.0.tgz#f10245877042a815e07f7e693faff0ae9d3a2aac"
   integrity sha512-qArkXsjJq7H+T86WrIFV0Fnu/tNOkZ4cgXmjkzAu3b/58D5mFIO8JH/y77t7C9q0OdDRdh9s7Ue5GasYssxtXw==
@@ -6559,6 +6559,13 @@ gatsby-plugin-page-creator@^2.3.19:
     glob "^7.1.6"
     lodash "^4.17.15"
     micromatch "^3.1.10"
+
+gatsby-plugin-react-helmet-canonical-urls@^1.4.0:
+  version "1.4.0"
+  resolved "https://registry.yarnpkg.com/gatsby-plugin-react-helmet-canonical-urls/-/gatsby-plugin-react-helmet-canonical-urls-1.4.0.tgz#9a0f3a6e75b0ff54c6a8e70c2bc48219903a8296"
+  integrity sha512-5g2eqFNh8GSCTvL25sNm84IJ6G79qKHSnOa9druxBj6x5Iw3EujZMv6I4nGMlW5EZlaSf9D5QHNGypUW6idPTg==
+  dependencies:
+    "@babel/runtime" "^7.3.1"
 
 gatsby-plugin-react-helmet@^3.1.13:
   version "3.3.10"
