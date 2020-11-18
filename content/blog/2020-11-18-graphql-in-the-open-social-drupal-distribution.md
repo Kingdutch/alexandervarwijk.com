@@ -5,7 +5,7 @@ date: 2020-11-18T08:30:00.000Z
 description: >-
   Walking through the creation of the first GraphQL endpoint in Open Social from 
   module set-up to query resolver. Open Social provides solutions for flexible and
-  engaging online communities. GraphQL in Drupal will pave the road for exciting 
+  engaging online communities. GraphQL in Drupal will pave the way for exciting 
   new features and external integrations.
 featuredImage: /images/uploads/wires-between-two-square-panels.jpg
 ---
