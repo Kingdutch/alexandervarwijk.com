@@ -29,8 +29,12 @@ bower_components
 # node-waf configuration
 .lock-wscript
 
-# Compiled binary addons (http://nodejs.org/api/addons.html)
-build/Release
+# next.js
+.next/
+out/
+
+# production
+build
 
 # Dependency directories
 node_modules/
@@ -54,7 +58,7 @@ typings/
 # dotenv environment variables file
 .env
 
-# gatsby files
+# next files
 .cache/
 public
 
@@ -67,3 +71,6 @@ yarn-error.log
 .pnp.js
 # Yarn Integrity file
 .yarn-integrity
+
+# vercel
+.vercel
