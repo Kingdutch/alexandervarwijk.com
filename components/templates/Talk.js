@@ -7,9 +7,9 @@
 import React from 'react';
 import styled from 'styled-components';
 import { graphql } from 'gatsby';
-import Layout from '../components/layout';
-import SEO from '../components/seo';
-import ConvertKitNewsletter from "../components/forms/ConvertKitNewsletter";
+import Layout from '../layout';
+import SEO from '../seo';
+import ConvertKitNewsletter from "../forms/ConvertKitNewsletter";
 
 const DatePlace = styled.div`
   margin-top: .5rem;

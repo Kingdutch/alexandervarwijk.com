@@ -8,9 +8,9 @@ import React from 'react';
 import styled from 'styled-components';
 import { graphql } from 'gatsby';
 import GatsbyImg from 'gatsby-image';
-import Layout from '../components/layout';
-import SEO from '../components/seo';
-import ConvertKitNewsletter from "../components/forms/ConvertKitNewsletter";
+import Layout from '../layout';
+import SEO from '../seo';
+import ConvertKitNewsletter from "../forms/ConvertKitNewsletter";
 
 const Img = styled(GatsbyImg)`
   margin-top: 1rem;
