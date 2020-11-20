@@ -1,8 +1,8 @@
 import remark from "remark";
 import html from "remark-html";
-import ConvertKitNewsletter from "../../lib/components/forms/ConvertKitNewsletter";
+import ConvertKitNewsletter from "../../components/forms/ConvertKitNewsletter";
 import React from "react";
-import {getAllTalks, getTalkBySlug} from "../../lib/data/talks";
+import {getAllTalks, getTalkBySlug} from "../../lib/talks";
 
 export async function getStaticProps({ params }) {
   const talk = getTalkBySlug(params.slug);

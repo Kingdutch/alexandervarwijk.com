@@ -1,8 +1,8 @@
 import remark from "remark";
 import html from "remark-html";
-import {getAllPosts, getPostBySlug} from "../../lib/data/blog";
+import {getAllPosts, getPostBySlug} from "../../lib/blog";
 import Image from "next/image";
-import ConvertKitNewsletter from "../../lib/components/forms/ConvertKitNewsletter";
+import ConvertKitNewsletter from "../../components/forms/ConvertKitNewsletter";
 
 export async function getStaticProps({ params }) {
   const post = getPostBySlug(params.slug);
