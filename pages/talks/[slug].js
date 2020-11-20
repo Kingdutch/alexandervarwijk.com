@@ -3,6 +3,7 @@ import html from "remark-html";
 import ConvertKitNewsletter from "../../components/forms/ConvertKitNewsletter";
 import React from "react";
 import {getAllTalks, getTalkBySlug} from "../../lib/talks";
+import ProseContainer from "../../components/ProseContainer";
 
 export async function getStaticProps({ params }) {
   const talk = getTalkBySlug(params.slug);
@@ -37,7 +38,7 @@ export async function getStaticPaths() {
 export default function Index({ frontmatter, content }) {
   return (
     <>
-      <article>
+      <ProseContainer>
         <h1>{frontmatter.title}</h1>
         <div>
           <time>{frontmatter.date}</time>,{' '}
@@ -60,7 +61,7 @@ export default function Index({ frontmatter, content }) {
             />
           </section>
         ) : null}
-      </article>
+      </ProseContainer>
       <ConvertKitNewsletter />
     </>
   );

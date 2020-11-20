@@ -4,7 +4,7 @@ title: Mindset for ReasonReact components
 date: 2020-03-31T18:50:57.197Z
 description: >-
   Moving from React in JavaScript to ReasonML can be quite challenging. Figuring
-  out how to move your existing code patterns from JavaScript to a string
+  out how to move your existing code patterns from JavaScript to a strong
   type-system takes some time. In this article we'll explore how to translate a
   common component extension pattern.
 featuredImage: /images/blog/always-room-to-grow-grafitti-on-shed.jpg

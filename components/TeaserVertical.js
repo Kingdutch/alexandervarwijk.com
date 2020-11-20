@@ -1,23 +1,33 @@
 import Image from 'next/image';
 import Link from "next/link";
+import ClickableArea from "./ClickableArea";
 
 export default function TeaserVertical({ slug, frontmatter, HeadingLevel, ...rest }) {
   return (
-    <div {...rest}>
+    <ClickableArea {...rest}>
       <Image
         src={frontmatter.featuredImage}
         alt=""
         width={300}
         height={200}
-        objectFit="contain"
+        objectFit="cover"
       />
       <div>
         <time>{frontmatter.date}</time>
-        <HeadingLevel>
-          <Link href={slug}>{frontmatter.title}</Link>
+        <HeadingLevel className="text-xl mt-3 mb-2 text-blue-600">
+          <Link href={slug}>
+            <a
+              data-expand-click-area={true}
+              className="underline font-medium"
+            >
+              {frontmatter.title}
+            </a>
+          </Link>
         </HeadingLevel>
-        <div dangerouslySetInnerHTML={{ __html: frontmatter.description }} />
+        <div
+          className="prose lg:prose-lg"
+          dangerouslySetInnerHTML={{ __html: frontmatter.description }} />
       </div>
-    </div>
+    </ClickableArea>
   );
 }
