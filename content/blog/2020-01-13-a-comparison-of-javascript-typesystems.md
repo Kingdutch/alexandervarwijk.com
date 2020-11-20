@@ -5,7 +5,7 @@ date: 2020-01-13T08:00:00.000Z
 description: >-
   A look at JavaScript, TypeScript, Flow, and ReasonML for their suitability in
   Enterprise applications.
-featuredImage: /images/uploads/rainbow-colored-smoke-plumes.jpg
+featuredImage: /images/blog/rainbow-colored-smoke-plumes.jpg
 ---
 _Update 14 Jan 2020: Some attentive readers pointed out some errors that have been fixed:_ [_A language can not be fully sound and complete_](https://en.wikipedia.org/wiki/Type_system#Static_type_checking) _(Reason is fully sound, this makes it incomplete); The BuckleScript compiler usage count provides a better indication than the Reason repo of language usage in the JavaScript ecosystem; A mention of genType was added as a solution to ReasonML lock-in worries._
 
@@ -107,7 +107,7 @@ The smaller community probably comes in part from Flow being used internally bef
 
 Most notably the Jest testing framework decided to move from Flow to TypeScript to make it easier to onboard non-Facebook contributors. [The PR where this move is discussed makes for  an interesting read.](https://github.com/facebook/jest/pull/7554)
 
-![A google trends analysis that clearly shows TypeScript outperforming Flow in search popularity.](/images/uploads/flow-typescript-google-trends.png)
+![A google trends analysis that clearly shows TypeScript outperforming Flow in search popularity.](/images/blog/flow-typescript-google-trends.png)
 
 ### ReasonML
 

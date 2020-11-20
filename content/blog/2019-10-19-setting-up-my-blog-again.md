@@ -6,7 +6,7 @@ description: >-
   Everyone should have their own place on the internet. In this post I talk
   about revamping my own spot on the web with a quick tour of the technologies
   that I'm using.
-featuredImage: /images/uploads/notebook-with-pen-and-coffee.jpg
+featuredImage: /images/blog/notebook-with-pen-and-coffee.jpg
 ---
 
 The desire to have a place on the internet that I can call my own still exists. A place where I can write out my thoughts, without the fear of my content being suddenly removed because the platform I publish on decided to change their policies or go bankrupt.

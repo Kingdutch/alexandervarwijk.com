@@ -5,7 +5,7 @@ date: 2020-09-01T20:15:00.007Z
 description: >-
   A look back on my first week of using Reason to build a native GraphQL 
   server. Looking at the tools used and the changes in the ReasonML ecosystem.
-featuredImage: /images/uploads/backpacker-on-a-high-ledge.jpg
+featuredImage: /images/blog/backpacker-on-a-high-ledge.jpg
 ---
 Last week was the first week of actually using ReasonML to build an application instead of looking at Reason theoretically. If you want to know what I’m building you’ll have to keep an eye on [the Open Social blog](https://www.getopensocial.com/blog) but below I’ll take you through my experience.
 
