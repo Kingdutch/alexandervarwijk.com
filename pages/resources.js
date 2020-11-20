@@ -1,5 +1,5 @@
 import React from 'react';
-import {getAllResources} from "../lib/data/resources";
+import {getAllResources} from "../lib/resources";
 import remark from "remark";
 import html from "remark-html";
 

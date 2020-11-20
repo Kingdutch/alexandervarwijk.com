@@ -4,7 +4,7 @@
 // import Layout from '../components/layout';
 // import SEO from '../components/seo';
 
-import {getAllTalks} from "../../lib/data/talks";
+import {getAllTalks} from "../../lib/talks";
 import Link from "next/link";
 
 export async function getStaticProps({ params }) {

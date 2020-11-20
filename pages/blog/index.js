@@ -1,5 +1,5 @@
-import {getAllPosts } from "../../lib/data/blog";
-import TeaserHorizontal from "../../lib/components/TeaserHorizontal";
+import {getAllPosts } from "../../lib/blog";
+import TeaserHorizontal from "../../components/TeaserHorizontal";
 
 export async function getStaticProps({ params }) {
   const posts = getAllPosts();

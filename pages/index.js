@@ -1,5 +1,5 @@
-import { getRecentPosts} from "../lib/data/blog";
-import TeaserVertical from "../lib/components/TeaserVertical";
+import { getRecentPosts} from "../lib/blog";
+import TeaserVertical from "../components/TeaserVertical";
 
 export const meta = {
   title: "Home",
