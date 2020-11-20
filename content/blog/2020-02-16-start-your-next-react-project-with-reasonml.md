@@ -6,7 +6,7 @@ description: >-
   When evaluating ReasonML for use in your React project you may have some
   doubts. Fear not! You can do the things you could do without ReasonML, but
   better!
-featuredImage: /images/uploads/reason-with-react.jpg
+featuredImage: /images/blog/reason-with-react.jpg
 ---
 In a previous blogpost I’ve [compared plain Javascript, TypeScript, Flow, and ReasonML](/blog/2020-01-13-a-comparison-of-javascript-typesystems/). I ended the article with a recommendation for using ReasonML in your new React projects. In this article I want to answer some questions that you may have about adopting ReasonML for React projects.
 

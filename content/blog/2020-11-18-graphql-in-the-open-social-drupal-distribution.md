@@ -7,7 +7,7 @@ description: >-
   module set-up to query resolver. Open Social provides solutions for flexible and
   engaging online communities. GraphQL in Drupal will pave the way for exciting 
   new features and external integrations.
-featuredImage: /images/uploads/wires-between-two-square-panels.jpg
+featuredImage: /images/blog/wires-between-two-square-panels.jpg
 ---
 
 At [Open Social](https://www.getopensocial.com) we’ll be using GraphQL to make the data of community platforms available to applications outside of Open Social. This is an important first step in our plans to [build an entirely new front-end](https://www.getopensocial.com/blog/open-source/open-social-evolving-first-phase-decoupling). In this post I will explore the options for GraphQL in Drupal, how to get started with GraphQL in Drupal and what GraphQL looks like in the Open Social Drupal distribution.

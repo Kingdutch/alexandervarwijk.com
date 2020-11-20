@@ -7,7 +7,7 @@ description: >-
   React and Vue.js, the workload of front-end development in Drupal will change. 
   A different skill set will be required and the community will have to adjust as 
   a result.
-featuredImage: /images/uploads/right-arrow-in-the-sand.jpg
+featuredImage: /images/blog/right-arrow-in-the-sand.jpg
 ---
 Drupal made a huge stride with the adoption of Twig and the abolishment of its custom templating solution. However, while the Drupal community has been focused on improving the experience for tightly coupled front-end output, the rest of the web is moving steadily in the direction of a more decoupled set-up with Javascript front-ends enabling more advanced user interactions.
 

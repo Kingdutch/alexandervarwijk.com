@@ -6,7 +6,7 @@ description: >-
   Blockchain has been around for a while. The hype seems to be coming to an end
   as it moves to a more mainstream phase of the technology lifecycle. Lets take
   a look at what Blockchain actually is.
-featuredImage: /images/uploads/what-is-blockchain-scrabbletiles.jpg
+featuredImage: /images/blog/what-is-blockchain-scrabbletiles.jpg
 ---
 _This article was originally published on my Explaining Crypto blog in early 2018._
 

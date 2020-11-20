@@ -7,7 +7,7 @@ description: >-
   out how to move your existing code patterns from JavaScript to a string
   type-system takes some time. In this article we'll explore how to translate a
   common component extension pattern.
-featuredImage: /images/uploads/always-room-to-grow-grafitti-on-shed.jpg
+featuredImage: /images/blog/always-room-to-grow-grafitti-on-shed.jpg
 ---
 A common pattern in React with JavaScript is to extend a component, add a few arguments, modify another and pass on the rest. Sometimes called ‘rest props’ this pattern provides a nice way to provide some default behaviour on top of a DOM element (or an element from a library). 
 

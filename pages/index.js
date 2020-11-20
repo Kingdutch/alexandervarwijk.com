@@ -1,21 +1,31 @@
-import React from 'react';
+import { getRecentPosts} from "../lib/data/blog";
+import TeaserVertical from "../lib/components/TeaserVertical";
 
-import Layout from '../components/layout';
-import SEO from '../components/seo';
-import RecentBlogPosts from '../components/RecentBlogPosts';
+export const meta = {
+  title: "Home",
+};
 
-const IndexPage = () => (
-  <Layout isFront={true}>
-    <SEO title="Home" />
+export async function getStaticProps({ params }) {
+  return {
+    props: {
+      posts: getRecentPosts(),
+    },
+  }
+}
+
+export default function Index({ posts }) {
+  return (
     <main>
+      {/* TODO: Visually hidden */}
+      <h1>Alexander Varwijk</h1>
       <section>
         <p>
           I'm a Full Stack developer that learned to program using Perl over 15
           years ago. Since then I've explored many languages but found my focus
-          in the world of Webdevelopment.
+          in the world of web development.
         </p>
         <p>
-          I'm currently working at{' '}
+          I'm currently working at
           <a
             href={'https://www.getopensocial.com'}
             title={'Open Social - Online community software'}
@@ -64,10 +74,15 @@ const IndexPage = () => (
 
       <section>
         <h2>Recent Posts</h2>
-        <RecentBlogPosts />
+        {posts.map(post => (
+          <TeaserVertical
+            key={post.slug}
+            {...post}
+            slug={`/blog/${post.slug}`}
+            HeadingLevel="h3"
+          />
+        ))}
       </section>
     </main>
-  </Layout>
-);
-
-export default IndexPage;
+  );
+}
