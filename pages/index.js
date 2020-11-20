@@ -1,5 +1,7 @@
 import { getRecentPosts} from "../lib/blog";
 import TeaserVertical from "../components/TeaserVertical";
+import ProseContainer from "../components/ProseContainer";
+import {getFragment} from "../lib/fragment";
 
 export const meta = {
   title: "Home",
@@ -9,79 +11,35 @@ export async function getStaticProps({ params }) {
   return {
     props: {
       posts: getRecentPosts(),
+      about: await getFragment('about-me'),
     },
   }
 }
 
-export default function Index({ posts }) {
+export default function Index({ posts, about }) {
   return (
-    <main>
-      {/* TODO: Visually hidden */}
-      <h1>Alexander Varwijk</h1>
+    <main className="mx-auto px-4 max-w-2xl lg:max-w-3xl lg:px-0">
+      <h1 className="sr-only">Alexander Varwijk</h1>
+
       <section>
-        <p>
-          I'm a Full Stack developer that learned to program using Perl over 15
-          years ago. Since then I've explored many languages but found my focus
-          in the world of web development.
-        </p>
-        <p>
-          I'm currently working at
-          <a
-            href={'https://www.getopensocial.com'}
-            title={'Open Social - Online community software'}
-          >
-            Open social
-          </a>
-          . As part of my work I've created reusable extensions for Enterprise
-          customers and I've been responsible for introducing React into the
-          Open Social codebase. I love looking for ways to improve
-          accessibility, performance and maintainabiltity of the code I work
-          with, preferring to build reusable lasting solutions over hacks. I'm
-          also the maintainer of the{' '}
-          <a
-            href={'https://www.drupal.org/project/yoast_seo/'}
-            title={'Real Time SEO Module on Drupal.org'}
-          >
-            Real Time SEO Drupal module
-          </a>{' '}
-          (used on 16.000+ sites).
-        </p>
-        <p>
-          You can view more of my work history on{' '}
-          <a
-            href={'https://www.linkedin.com/in/alexander-varwijk/'}
-            title={"Alexander Varwijk's LinkedIn Profile"}
-          >
-            LinkedIn
-          </a>
-          . My code is mostly hosted on{' '}
-          <a
-            href={'https://github.com/Kingdutch'}
-            title={"Alexander Varwijk's GitHub Profile"}
-          >
-            GitHub
-          </a>
-          . Random thoughts and blurts can be found on{' '}
-          <a
-            href={'https://twitter.com/Kingdutch/'}
-            title={'Alexander Varwijk on Twitter'}
-          >
-            Twitter
-          </a>
-          .
-        </p>
+        <h2 className="text-3xl font-bold mt-1 mt-4 mb-2">Recent Posts</h2>
+        <div className="md:grid md:grid-cols-3 gap-x-8 gap-y-4">
+          {posts.map(post => (
+            <TeaserVertical
+              key={post.slug}
+              frontmatter={post.frontmatter}
+              slug={`/blog/${post.slug}`}
+              HeadingLevel="h3"
+            />
+          ))}
+        </div>
       </section>
 
       <section>
-        <h2>Recent Posts</h2>
-        {posts.map(post => (
-          <TeaserVertical
-            key={post.slug}
-            {...post}
-            slug={`/blog/${post.slug}`}
-            HeadingLevel="h3"
-          />
-        ))}
+        <h2 className="text-3xl font-bold mt-1 mt-4 mb-2">About me</h2>
+        <ProseContainer>
+          <div dangerouslySetInnerHTML={{ __html: about }} />
+        </ProseContainer>
       </section>
     </main>
   );

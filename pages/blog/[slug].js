@@ -3,6 +3,7 @@ import html from "remark-html";
 import {getAllPosts, getPostBySlug} from "../../lib/blog";
 import Image from "next/image";
 import ConvertKitNewsletter from "../../components/forms/ConvertKitNewsletter";
+import ProseContainer from "../../components/ProseContainer";
 
 export async function getStaticProps({ params }) {
   const post = getPostBySlug(params.slug);
@@ -37,18 +38,24 @@ export async function getStaticPaths() {
 export default function Index({ frontmatter, content }) {
   return (
     <>
-      <h1>{frontmatter.title}</h1>
-      <time>{frontmatter.date}</time><br/>
-      <Image
-        src={frontmatter.featuredImage}
-        priority={true}
-        loading="eager"
-        width="1200"
-        height="800"
-        // layout="intrinsic"
-        // objectFit="cover"
-      />
-      <div dangerouslySetInnerHTML={{__html: content}} />
+      <ProseContainer>
+        <h1 className="px-4 lg:px-0 mb-0">{frontmatter.title}</h1>
+        <time className="px-4 lg:px-0">{frontmatter.date}</time>
+        <Image
+          src={frontmatter.featuredImage}
+          priority={true}
+          loading="eager"
+          width="1200"
+          height="800"
+          // layout="intrinsic"
+          // objectFit="cover"
+        />
+        <div
+          className="px-4 lg:px-0"
+          dangerouslySetInnerHTML={{__html: content}}
+        />
+
+      </ProseContainer>
       <ConvertKitNewsletter />
     </>
   );
