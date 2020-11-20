@@ -1,5 +1,10 @@
 module.exports = {
-  purge: [],
+  purge: [
+    "./content/**/*.md",
+    "./components/**/*.js",
+    "./pages/**/*.js",
+    "./pages/**/*.mdx",
+  ],
   darkMode: false,
   theme: {
     extend: {},
