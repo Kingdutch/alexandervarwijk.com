@@ -34,7 +34,7 @@ export default function Index({ posts, about }) {
 
         <section>
           <h2 className="text-3xl font-bold mt-1 mt-4 mb-2">Recent Posts</h2>
-          <div className="md:grid md:grid-cols-3 gap-x-8 gap-y-4">
+          <div className="grid md:grid-cols-3 gap-x-8 gap-y-4">
             {posts.map(post => (
               <BlogTeaserVertical
                 key={post.slug}

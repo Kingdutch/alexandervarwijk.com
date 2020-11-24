@@ -1,7 +1,6 @@
 import {getAllPosts } from "../../lib/blog";
 import BlogTeaserHorizontal from "../../components/BlogTeaserHorizontal";
 import Head from "next/head";
-import {meta} from "../index";
 
 export async function getStaticProps({ params }) {
   const posts = getAllPosts();

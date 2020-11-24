@@ -5,7 +5,6 @@ import {getAllPosts, getPostBySlug} from "../../lib/blog";
 import ConvertKitNewsletter from "../../components/forms/ConvertKitNewsletter";
 import ProseContainer from "../../components/ProseContainer";
 import Head from "next/head";
-import {meta} from "../index";
 
 export async function getStaticProps({ params }) {
   const post = getPostBySlug(params.slug);

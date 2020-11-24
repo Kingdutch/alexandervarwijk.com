@@ -3,7 +3,7 @@ import Link from "next/link";
 import ClickableArea from "./ClickableArea";
 
 
-export default function BlogTeaserHorizontal({ slug, frontmatter, HeadingLevel, className = "flex flex-row mb-8", ...rest }) {
+export default function BlogTeaserHorizontal({ slug, frontmatter, HeadingLevel, className = "mb-8 md:flex md:flex-row", ...rest }) {
   return (
     <ClickableArea className={className} {...rest}>
       <Image
@@ -14,7 +14,7 @@ export default function BlogTeaserHorizontal({ slug, frontmatter, HeadingLevel, 
         objectFit="contain"
         objectPosition="top"
       />
-      <div className="ml-4">
+      <div className="md:ml-4">
         <time>{frontmatter.date}</time>
         <HeadingLevel className="text-xl mt-3 mb-2 text-blue-600">
           <Link href={slug}>
