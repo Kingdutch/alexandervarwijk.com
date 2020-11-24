@@ -1,9 +1,11 @@
 import remark from "remark";
 import html from "remark-html";
+import Head from "next/head";
 import ConvertKitNewsletter from "../../components/forms/ConvertKitNewsletter";
-import React from "react";
 import {getAllTalks, getTalkBySlug} from "../../lib/talks";
 import ProseContainer from "../../components/ProseContainer";
+
+import {meta} from "../index";
 
 export async function getStaticProps({ params }) {
   const talk = getTalkBySlug(params.slug);
@@ -35,9 +37,24 @@ export async function getStaticPaths() {
   }
 }
 
-export default function Index({ frontmatter, content }) {
+export default function Index({ slug, frontmatter, content }) {
   return (
     <>
+      <Head>
+        <title>{frontmatter.title}</title>
+        <meta name="description" content={frontmatter.description} />
+        <meta name="twitter:card" content="summary" />
+        <meta name="twitter:creator" content="@Kingdutch" />
+        <meta property="og:type" content="article" />
+        <meta property="og:title" content={frontmatter.title} />
+        <meta property="og:description" content={frontmatter.description} />
+        <meta property="og:image" content={`https://www.alexandervarwijk.com${frontmatter.featuredImage}`} />
+        <meta property="og:author:profile:first_name" content="Alexander" />
+        <meta property="og:author:profile:last_name" content="Varwijk" />
+        <meta property="og:author:profile:username" content="Kingdutch" />
+        <meta name="theme-color" content="#0067FB" />
+        <link rel="canonical" href={`https://www.alexandervarwijk.com/talks/${slug}`} />
+      </Head>
       <ProseContainer>
         <h1>{frontmatter.title}</h1>
         <div>
