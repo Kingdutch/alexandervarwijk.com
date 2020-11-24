@@ -8,7 +8,7 @@ import React, {useEffect, useRef} from 'react';
 // TODO: This method of adding the ConvertKit form has the annoying side-effect
 //  of adding the convertkit script multiple times. However, that's easier to
 //  get working before Decoupled Days than it is to style an HTML only solution.
-function ConvertKitNewsletter() {
+function ConvertKitNewsletter({ className }) {
   const wrapper = useRef(null);
   useEffect(() => {
     const script=document.createElement('script')
@@ -20,6 +20,7 @@ function ConvertKitNewsletter() {
   }, []);
 
   return <div
+    className={className}
     ref={wrapper}
     style={{display: 'flex', justifyContent: 'center'}} />;
 };

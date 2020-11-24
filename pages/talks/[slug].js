@@ -62,7 +62,7 @@ export default function Index({ frontmatter, content }) {
           </section>
         ) : null}
       </ProseContainer>
-      <ConvertKitNewsletter />
+      <ConvertKitNewsletter className="mt-8" />
     </>
   );
 }
