@@ -1,24 +1,49 @@
 import React from 'react';
-import Image from "next/image";
+import { useRouter} from "next/router";
 import Link from "next/link";
+import {AnimatePresence, AnimateSharedLayout, motion, useReducedMotion} from "framer-motion";
+
+const MenuLink = ({href, children, className="", ...rest}) => {
+  const shouldReduceMotion = useReducedMotion();
+  const router = useRouter();
+  const isActive = router.pathname === href;
+  const linkClasses = `${className} inline-block relative ${shouldReduceMotion && isActive ? 'underline' : ''}`;
+  return (
+      <Link href={href}>
+        <a
+          className={linkClasses}
+          {...rest}
+        >
+          {
+            isActive && !shouldReduceMotion
+              ? <motion.div
+                  layoutId="underline"
+                  className="animated-underline"
+                  aria-hidden={true}
+                />
+              : null
+          }
+          {children}
+        </a>
+      </Link>
+  );
+};
 
 const Header = ({ siteTitle }) => {
   return (
     <div className="text-white bg-blue-600">
-      <div className="flex mx-auto px-4 py-2 items-center max-w-2xl lg:max-w-3xl lg:px-0">
-        <Image
-          src={"/images/alexandervarwijk.jpeg"}
-          className="rounded-full"
-          width={75}
-          height={75}
-        />
+      <div className="flex mx-auto px-4 py-4 items-center max-w-2xl lg:max-w-3xl lg:px-0">
         <Link href="/">
-          <a className="ml-4 text-2xl font-medium">{siteTitle}</a>
+          <a className="text-2xl font-medium">{siteTitle}</a>
         </Link>
         <nav className="ml-auto">
-          <Link href="/blog">Posts</Link> &middot;{' '}
-          <Link href="/talks">Talks</Link> &middot;{' '}
-          <Link href="/resources">Resources</Link>
+          <MenuLink href="/">Home</MenuLink>
+          <span aria-hidden={true}> &middot; </span>
+          <MenuLink href="/blog">Posts</MenuLink>
+          <span aria-hidden={true}> &middot; </span>
+          <MenuLink href="/talks">Talks</MenuLink>
+          <span aria-hidden={true}> &middot; </span>
+          <MenuLink href="/resources">Resources</MenuLink>
         </nav>
       </div>
     </div>

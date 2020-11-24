@@ -1,7 +1,7 @@
 import remark from "remark";
 import html from "remark-html";
-import {getAllPosts, getPostBySlug} from "../../lib/blog";
 import Image from "next/image";
+import {getAllPosts, getPostBySlug} from "../../lib/blog";
 import ConvertKitNewsletter from "../../components/forms/ConvertKitNewsletter";
 import ProseContainer from "../../components/ProseContainer";
 
