@@ -5,8 +5,6 @@ import ConvertKitNewsletter from "../../components/forms/ConvertKitNewsletter";
 import {getAllTalks, getTalkBySlug} from "../../lib/talks";
 import ProseContainer from "../../components/ProseContainer";
 
-import {meta} from "../index";
-
 export async function getStaticProps({ params }) {
   const talk = getTalkBySlug(params.slug);
   const markdown = await remark()
