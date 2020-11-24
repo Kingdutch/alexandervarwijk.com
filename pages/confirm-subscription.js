@@ -1,4 +1,4 @@
-import TeaserHorizontal from "../components/TeaserHorizontal";
+import BlogTeaserHorizontal from "../components/BlogTeaserHorizontal";
 import {getRecentPosts} from "../lib/blog";
 import remark from "remark";
 import html from "remark-html";
@@ -31,7 +31,7 @@ export default function ConfirmSubscription({ post }) {
           Expect some great emails headed your way in the near future.
           If you haven't done so already, be sure to read my newest post.
         </p>
-        <TeaserHorizontal
+        <BlogTeaserHorizontal
           key={post.slug}
           frontmatter={post.frontmatter}
           slug={`/blog/${post.slug}`}

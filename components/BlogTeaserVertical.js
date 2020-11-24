@@ -2,7 +2,7 @@ import Image from 'next/image';
 import Link from "next/link";
 import ClickableArea from "./ClickableArea";
 
-export default function TeaserVertical({ slug, frontmatter, HeadingLevel, ...rest }) {
+export default function BlogTeaserVertical({ slug, frontmatter, HeadingLevel, ...rest }) {
   return (
     <ClickableArea {...rest}>
       <Image

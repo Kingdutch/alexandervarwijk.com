@@ -1,5 +1,5 @@
 import { getRecentPosts} from "../lib/blog";
-import TeaserVertical from "../components/TeaserVertical";
+import BlogTeaserVertical from "../components/BlogTeaserVertical";
 import ProseContainer from "../components/ProseContainer";
 import {getFragment} from "../lib/fragment";
 
@@ -25,7 +25,7 @@ export default function Index({ posts, about }) {
         <h2 className="text-3xl font-bold mt-1 mt-4 mb-2">Recent Posts</h2>
         <div className="md:grid md:grid-cols-3 gap-x-8 gap-y-4">
           {posts.map(post => (
-            <TeaserVertical
+            <BlogTeaserVertical
               key={post.slug}
               frontmatter={post.frontmatter}
               slug={`/blog/${post.slug}`}
