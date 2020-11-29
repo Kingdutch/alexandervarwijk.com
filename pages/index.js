@@ -1,19 +1,20 @@
+import Head from "next/head";
 import { getRecentPosts} from "../lib/blog";
-import BlogTeaserVertical from "../components/BlogTeaserVertical";
 import ProseContainer from "../components/ProseContainer";
 import {getFragment} from "../lib/fragment";
-import Head from "next/head";
+import BlogTeaserHorizontal from "../components/BlogTeaserHorizontal";
+import Link from "next/link";
 
 export async function getStaticProps({ params }) {
   return {
     props: {
-      posts: getRecentPosts(),
+      post: getRecentPosts(1)[0],
       about: await getFragment('about-me'),
     },
   }
 }
 
-export default function Index({ posts, about }) {
+export default function Index({ post, about }) {
   return (
     <>
       <Head>
@@ -33,24 +34,27 @@ export default function Index({ posts, about }) {
         <h1 className="sr-only">Alexander Varwijk</h1>
 
         <section>
-          <h2 className="text-3xl font-bold mt-1 mt-4 mb-2">Recent Posts</h2>
-          <div className="grid md:grid-cols-3 gap-x-8 gap-y-4">
-            {posts.map(post => (
-              <BlogTeaserVertical
-                key={post.slug}
-                frontmatter={post.frontmatter}
-                slug={`/blog/${post.slug}`}
-                HeadingLevel="h3"
-              />
-            ))}
-          </div>
-        </section>
-
-        <section>
           <h2 className="text-3xl font-bold mt-1 mt-4 mb-2">About me</h2>
           <ProseContainer>
             <div dangerouslySetInnerHTML={{ __html: about }} />
           </ProseContainer>
+        </section>
+
+        <section>
+          <h2 className="text-3xl font-bold mt-1 mt-4 mb-2">Latest Post</h2>
+          <BlogTeaserHorizontal
+            key={post.slug}
+            frontmatter={post.frontmatter}
+            slug={`/blog/${post.slug}`}
+            HeadingLevel="h3"
+          />
+          <div className="text-right">
+            <Link href="/blog">
+              <a className="text-xl text-blue-600 font-medium">
+                View all posts
+              </a>
+            </Link>
+          </div>
         </section>
       </main>
     </>
