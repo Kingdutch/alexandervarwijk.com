@@ -1,15 +1,17 @@
 import remark from "remark";
 import html from "remark-html";
+import prism from 'remark-prism';
+import Head from "next/head";
 import Image from "next/image";
 import {getAllPosts, getPostBySlug} from "../../lib/blog";
 import ConvertKitNewsletter from "../../components/forms/ConvertKitNewsletter";
 import ProseContainer from "../../components/ProseContainer";
-import Head from "next/head";
 
 export async function getStaticProps({ params }) {
   const post = getPostBySlug(params.slug);
   const markdown = await remark()
     .use(html)
+    .use(prism)
     .process(post.content || '');
   const content = markdown.toString();
 
