@@ -1,5 +1,6 @@
 import remark from "remark";
 import html from "remark-html";
+import prism from 'remark-prism';
 import Head from "next/head";
 import ConvertKitNewsletter from "../../components/forms/ConvertKitNewsletter";
 import {getAllTalks, getTalkBySlug} from "../../lib/talks";
@@ -9,6 +10,7 @@ export async function getStaticProps({ params }) {
   const talk = getTalkBySlug(params.slug);
   const markdown = await remark()
     .use(html)
+    .use(prism)
     .process(talk.content || '');
   const content = markdown.toString();
 
