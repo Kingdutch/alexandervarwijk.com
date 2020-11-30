@@ -11,7 +11,7 @@
     "framer-motion": "^2.9.4",
     "gray-matter": "^4.0.2",
     "next": "^10.0.2",
-    "react": "^0.0.0-experimental-4ead6b530",
+    "react": "^0.14.0",
     "react-dom": "^0.0.0-experimental-4ead6b530",
     "remark": "^13.0.0",
     "remark-html": "^13.0.1",
