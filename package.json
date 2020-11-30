@@ -2,7 +2,7 @@
   "name": "alexandervarwijk.com",
   "private": true,
   "description": "Alexander's Homepage",
-  "version": "2.0.0-dev",
+  "version": "2.0.0",
   "license": "MIT",
   "dependencies": {
     "@mdx-js/loader": "^1.6.21",
