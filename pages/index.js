@@ -50,7 +50,7 @@ export default function Index({ post, about }) {
           />
           <div className="text-right">
             <Link href="/blog">
-              <a className="text-xl text-blue-600 font-medium">
+              <a className="text-xl text-blue-600 font-medium dark:text-yellow-600">
                 View all posts
               </a>
             </Link>

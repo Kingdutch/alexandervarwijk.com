@@ -31,7 +31,7 @@ const MenuLink = ({href, children, className="", ...rest}) => {
 
 const Header = ({ siteTitle }) => {
   return (
-    <div className="text-white bg-blue-600">
+    <div className="text-white bg-blue-600 dark:bg-gray-900 dark:text-gray-200">
       <div className="flex flex-col mx-auto px-4 py-2 items-center max-w-2xl md:py-4 md:flex-row lg:max-w-3xl lg:px-0">
         <Link href="/">
           <a className="text-2xl font-medium">{siteTitle}</a>

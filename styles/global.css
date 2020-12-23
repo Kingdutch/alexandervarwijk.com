@@ -12,4 +12,18 @@
         left: 0.25rem;
         right: 0.25rem;
     }
+
+    @media (prefers-color-scheme: dark) {
+        .prose a {
+            color: rgb(217, 119, 6);
+        }
+
+        .prose h1, .prose h2, .prose h3 {
+            color: hsl(220, 39.3%, 89%);
+        }
+
+        .prose code {
+            color: hsl(220, 39.3%, 79%);
+        }
+    }
 }

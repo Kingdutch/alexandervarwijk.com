@@ -16,7 +16,7 @@ export default function BlogTeaserHorizontal({ slug, frontmatter, HeadingLevel, 
       />
       <div className="md:ml-4">
         <time>{frontmatter.date}</time>
-        <HeadingLevel className="text-xl mt-3 mb-2 text-blue-600">
+        <HeadingLevel className="text-xl mt-3 mb-2 text-blue-600 dark:text-yellow-600">
           <Link href={slug}>
             <a
               data-expand-click-area={true}
@@ -27,7 +27,7 @@ export default function BlogTeaserHorizontal({ slug, frontmatter, HeadingLevel, 
           </Link>
         </HeadingLevel>
         <div
-          className="prose lg:prose-lg"
+          className="prose lg:prose-lg dark:text-gray-200"
           dangerouslySetInnerHTML={{ __html: frontmatter.description }} />
       </div>
     </ClickableArea>

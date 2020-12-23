@@ -3,7 +3,7 @@ import Header from './header';
 
 const Layout = ({ children }) => {
   return (
-    <div className="">
+    <div>
       <div className="text-center">
         <a href="#content" className="text-blue-600 sr-only focus:not-sr-only">Skip to main content</a>
       </div>

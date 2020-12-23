@@ -7,14 +7,14 @@ class Document extends NextDocument {
       <Html lang="en">
         <Head>
         </Head>
-        <body>
+        <body className="dark:bg-black dark:text-gray-300">
           <Main />
           <NextScript />
           <script
             key="main"
             async
             src={'//visit.alexandervarwijk.com/hello.js'}
-          ></script>,
+          ></script>
           <noscript>
             <img src={'//visit.alexandervarwijk.com/image.gif'} alt={''} />
           </noscript>

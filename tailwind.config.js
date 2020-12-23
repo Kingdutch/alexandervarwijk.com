@@ -5,13 +5,7 @@ module.exports = {
     "./pages/**/*.js",
     "./pages/**/*.mdx",
   ],
-  darkMode: false,
-  theme: {
-    extend: {},
-  },
-  variants: {
-    extend: {},
-  },
+  darkMode: 'media',
   plugins: [
     require('@tailwindcss/typography'),
   ],
