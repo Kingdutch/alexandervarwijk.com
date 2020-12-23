@@ -62,7 +62,7 @@ There is quite a bit going on here. There are three things to take away from thi
 
 One of the things that you see in the JavaScript version of this element is the use of the spread operator (`...`) to catch and release the properties that our special Image element is not interested in. Unfortunately [the spread operator is not supported in ReasonML](https://reasonml.github.io/reason-react/docs/en/props-spread "Documentation on props spread"). The documentation mentions that if we absolutely need it there is a way to mimic the behaviour.
 
-```ReasonML
+```reason
 module Image = {
   type imageVariant =
     | Top
@@ -86,7 +86,7 @@ module Image = {
 ```
 
 This component can be used in the following manner:
-```ReasonML
+```reason
 <Image variant={Image.Left}>
   <img width="400" src="https://images.unsplash.com/photo-1585409677983-0f6c41ca9c3b" />
 </Image>
@@ -100,7 +100,7 @@ Another issue is that if you were to set a className on the `img` element itself
 
 There is a way to make our `Image` work without having to pass in an extra `img` element. to do this we make use of the `ReactDOMRe.domProps` type that includes all the attributes that are allowed on a DOM element. This can be done by defining `makeProps` directly. Something that is normally done through the `[@React.component]` annotation.
 
-```ReasonML
+```reason
 module Image = {
   let makeProps = ReactDOMRe.domProps;
   let make = (props: ReactDOMRe.domProps) => {
@@ -120,7 +120,7 @@ module Image = {
 _Note when using the above code: `let makeProps = ReactDOMRe.domProps;` will copy the entire domProps generation function into your output JS. This may be undesireable._
 
 This element can be used in the following manner:
-```ReasonML
+```reason
 <Image width="400" src="https://images.unsplash.com/photo-1585409677983-0f6c41ca9c3b" />
 ```
 
@@ -136,7 +136,7 @@ JavaScript is a weakly typed language. This provides us with lots of creativity.
 
 Let’s try to recreate our component without needing a child element while still allowing for our variant class. Instead of extending `ReactDOMRe.domProps` this will require us to spell out all the properties that our `Image` component can handle. This may feel overly restrictive when coming from JavaScript — this article came from a two day discord conversation before I budged from this standpoint — but it also provides some benefits.
 
-```ReasonML
+```reason
 module Image = {
   type imageVariant =
     | Top
@@ -161,7 +161,7 @@ module Image = {
 ```
 
 This element can be used in the following manner:
-```ReasonML
+```reason
 <Image width="400" src="https://images.unsplash.com/photo-1585409677983-0f6c41ca9c3b" />
 <Image variant={Image.Left} src="https://images.unsplash.com/photo-1585409677983-0f6c41ca9c3b" />
 ```
