@@ -2,6 +2,18 @@
 @tailwind components;
 @tailwind utilities;
 
+@layer base {
+    body {
+        min-height: 100vh;
+    }
+
+    @media (prefers-color-scheme: dark) {
+        html {
+            background-color: rgb(17, 24, 39);
+        }
+    }
+}
+
 @layer components {
     .animated-underline {
         height: 2px;
