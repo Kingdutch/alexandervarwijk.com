@@ -1,0 +1,12 @@
+{
+  "routes": [
+    {
+      "src": ".*",
+      "headers": {
+        "X-Frame-Options": "DENY",
+        "X-Content-Type-Options": "nosniff"
+      },
+      "continue": true
+    }
+  ]
+}
