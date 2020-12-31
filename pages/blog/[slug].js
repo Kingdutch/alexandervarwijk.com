@@ -64,8 +64,8 @@ export default function Index({ slug, frontmatter, content }) {
           src={frontmatter.featuredImage}
           priority={true}
           loading="eager"
-          width="1200"
-          height="800"
+          width="900"
+          height="600"
           // layout="intrinsic"
           // objectFit="cover"
         />
