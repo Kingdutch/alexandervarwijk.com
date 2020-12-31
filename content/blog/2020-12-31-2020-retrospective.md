@@ -9,53 +9,58 @@ description: >-
 featuredImage: /images/blog/pomeranian-on-an-ipad.jpg
 ---
 
-Even people living under a rock will know the main theme of 2020 so there’s little point in repeating it here. However, there are a lot of other things that happened too. Encouraged by the [Blogging for Devs community](https://bloggingfordevs.com/pro/) I’m writing my first every retrospective, for the year 2020. A look back at what I’ve done this year.
+Even people living under a rock will know the main theme of 2020 so there’s little point in repeating it here. However, there are a lot of other things that happened too. Encouraged by the [Blogging for Devs community](https://bloggingfordevs.com/pro/) I’m writing my first ever retrospective. A look back at what I’ve done in the year 2020.
 
-it’s crazy to look back through my calendar and realise there was actually quite a bit of time before working from home started. One of my personal early year highlights was watching the superbowl. I bought an NFL subscription (the introductory price is affordable, renewal price is outrageous) and watched the whole thing, making Nacho’s at half time. I’ve wanted to watch the entire Super Bowl for quite a few years but always forgot to take the day after off, so being able to watch this was really cool. Even if they had [some technical issues](https://twitter.com/search?q=NfL%20from%3AKingdutch&src=typed_query) during the game.
+It’s crazy to look back through my calendar and realise there was actually quite a bit of time before working from home started. One of my personal early year highlights was watching the superbowl. I bought an NFL subscription (the introductory price is affordable, the renewal price is outrageous) and watched the whole thing, making nachos at half time. I’ve wanted to watch the entire Super Bowl for quite a few years but always forgot to take the day after off, so being able to watch it this year was really cool. Even though they had [some technical issues](https://twitter.com/search?q=NfL%20from%3AKingdutch&src=typed_query) during the game.
+
+2020 was the year we passed Unix timestamp 1600000000. The last time we saw this many zeroes was in 2017 and the next time will be in 2023. I had become somewhat accustomed to seeing the timestamps starting with “15” when I had to look at database values for debugging.
 
 ## The soundtrack of 2020
 The work I do as developer is often accompanied by some repetitive music that requires little attention when I’m solving problems or by a podcast when I’m doing something repetitive or waiting for another process (like a Continuous Integration service) to finish.
 
-i’ve already recently looked at [my favourite podcasts for the past year](/blog/2020-12-13-my-favourite-podcasts-of-2020). Most of the music that I listen to arrives to me from Spotify which provides a useful overview of what I’ve listened to.
+I’ve already recently looked at [my favourite podcasts for the past year](/blog/2020-12-13-my-favourite-podcasts-of-2020). Most of the music that I listen to arrives to me through Spotify, which provides a useful overview of what I’ve listened to.
 
 <img width="500" class="mx-auto" src="/images/blog/retrospective-2020/spotify-2020-in-review.jpeg" alt="Spotify's #2020Wrapped provides a summary of my year with Spotify. Top artists: Eminem, Russel Brower, Muse, David Arkenstone, Jason Hayes. Top Songs: Dance Monkey, Imagine, Yesterday, Chose Ones, Coming Home. Top Genre: Pop. Minutes listened: 18532." />
 
-At just shy of an hour a day through the year I haven’t used Spotify as much as I thought I had. However, it’s probably still a subscription that I’ll continue in the new year. David Arkenstone and Jason Hayes are both composers for the soundtrack to World of Warcraft which I can listen to for hours on end.
+At just shy of an hour a day throughout the year, I haven’t used Spotify as much as I thought I had. However, it’s probably still a subscription that I’ll continue in the new year. David Arkenstone and Jason Hayes are both composers for the soundtrack to World of Warcraft which I can listen to for hours on end.
 
 Of interest is that both the artist and song I’ve listened to most were set in the first months of the year. Dance Monkey is a song I’ve had on repeat 6-8 hours a day for 5 days a week for a few weeks of January and February (carried over from 2019). Funny to see how the habits of a few months can shape an entire year.
 
 ## Health: Sports
-Speaking of habits. This was also the year where i’ve said goodbye to my student [Korfball](https://en.wikipedia.org/wiki/Korfball "Korfball (a typical Dutch sport) on Wikipedia") club after being a member for 8 years. This marked the first time in 18 years that I’m not a member of a Korfball club to play the sport.
+Speaking of habits. This was also the year I’ve said goodbye to my student [Korfball](https://en.wikipedia.org/wiki/Korfball "Korfball (a typical Dutch sport) on Wikipedia") club after being a member for 8 years. This marked the first time in 18 years that I’m not a member of a Korfball club to play the sport.
 
-In 2019 I had already started experimenting with some weight exercises and joined a gym. Although I had seen regular improvements, waking up at 6 AM to be in the gym by 7 AM to exercise before work has ever really grown on my.
+In 2019 I had already started experimenting with some weight exercises and joined a gym. Although I had seen regular improvements, waking up at 6 AM to be in the gym by 7 AM to exercise before work has never really grown on me.
 
 This year [I was introduced](https://twitter.com/its_txbrown/status/1256193158997848065 "the Tweet that started a new habit") to [Freeletics](https://www.freeletics.com/) which I’ve eagerly adopted as new habit for exercise that I can easily do at home. In that sense i’ve been quite happy working from home since it allows me to do exercise in the middle of the day, right before lunch. A moment when I’ve found I’m fully awake but not yet full from a meal. At the moment of writing I’ve completed 198 workouts since starting in May.
 
-2020 is the year we passed Unix timestamp 1600000000. The last time we saw this many zeroes was in 2017 and the next time will be in 2023. I had become somewhat accustomed to seeing the timestamps starting with “15” when I had to look at database values for debugging.
-
 ## Health: Food
-Another big change this year has occurred after watching the documentary [“The Game Changers” on Netflix](https://www.netflix.com/watch/81157840). After watching the documentary I’ve tried to give a Vegan diet a try as a challenge to myself. I’m happy to say that I’ve been eating mostly vegan since the start of September.
+Another big change this year has occurred after watching the documentary [“The Game Changers” on Netflix](https://www.netflix.com/watch/81157840). After watching the documentary I’ve tried to give a vegan diet a try as a challenge to myself. I’m happy to say that I’ve been eating mostly vegan since the start of September.
 
-I say mostly because with the Christmas holidays you receive some Christmas gifts, snacks and other things that are not necessarily vegan and I find it wasteful to just toss them. My vegan diet can best be described as “I don’t order/buy any food that contains animal but otherwise don’t fuss too much”. Which I’ve found to be a comfortable way of getting started. My parents even cooked a vegan nut roast for Christmas dinner, so it may just be rubbing off on them a little bit.
+I say mostly because with the Christmas holidays you receive some Christmas gifts, snacks and other things that are not necessarily vegan and I find it wasteful to just toss them. My vegan diet can best be described as “I don’t order/buy any food that contains animal but otherwise don’t fuss too much”. I’ve found this to be a comfortable way of getting started. My parents even cooked a vegan nut roast for Christmas dinner, so it may even be rubbing off on them a little bit.
 
 Making sure I eat all the right nutrients and vitamins has been a small puzzle and a bit of guessing work. I haven’t had any blood testing done to check my levels but made sure I ate a varied diet, upped my veggy intake and have started eating [Vitamin Gummies](https://www.yummygums.com/en/ "Yummy Gums - The vitamin gummies") after being told by a vegan colleague that B12 deficiency can be dangerous and takes a while to show itself.
 
-i’ve bought a bunch of cookbooks for some inspiration and subscribed to [The Vegan Plant Club Newsletter](https://theplantbasedclub.substack.com/) for plenty of recipes on things I can cook. I’ve also noticed that in Dutch supermarkets the amount of Vegan products seems to have grown a lot in the past few years which has made my journey a lot easier.
+i’ve bought a bunch of cookbooks for some inspiration and subscribed to [The Vegan Plant Club Newsletter](https://theplantbasedclub.substack.com/) for plenty of recipes on things I can cook. I’ve also noticed that in Dutch supermarkets the amount of vegan products seems to have grown a lot in the past few years which has made my journey a lot easier.
 
 ## Conferences
+2020 seems to have been the year of (online) conferences, with almost constantly some conference to look forward to, as speaker, organiser, or attendee.
 
 ### Speaking at Decoupled Days
 At the start of this year I signed up to speak at the Decoupled Days conference that would take place in New York in July. It would’ve been a great opportunity to have work sponsor a trip to the United States and combine it into a short holiday.
 
-Unfortunately that didn’t quite go according to plan and was instead turned into a virtual conference. Not the trip to New York that I planned but instead a great excuse to work on my home audio video set-up. After some research I settled on the [Rode Procaster Microphone](http://www.rode.com/microphones/procaster) and [Logitech Brio Webcam](https://www.logitech.com/en-us/products/webcams/brio-4k-hdr-webcam.960-001105.html). It was interesting to do a talk for an online conference and definitely different from doing one in-person. My talk and slides about [Open Social’s road to a new headless front-end](/talks/2020-07-23-on-our-way-to-headless-a-transition-in-progress) are available online.
+Unfortunately that didn’t quite go according to plan and was instead turned into a virtual conference. Not the trip to New York that I planned but instead a great excuse to work on my home audio/video set-up. After some research I settled on the [Rode Procaster Microphone](http://www.rode.com/microphones/procaster) and [Logitech Brio Webcam](https://www.logitech.com/en-us/products/webcams/brio-4k-hdr-webcam.960-001105.html). 
+
+It was interesting to do a talk for an online conference and definitely different from doing one in-person. My talk and slides about [Open Social’s road to a new headless front-end](/talks/2020-07-23-on-our-way-to-headless-a-transition-in-progress) are available online.
 
 ### Organising RustFest
-in 2019 [I attended RustFest in Barcelona](https://www.alexandervarwijk.com/blog/2019-11-20-rustfest-barcelona-2019-in-review) and signed up to help organise RustFest in the Netherlands in July. Little did I know at the time that we wouldn’t be hosting an in-person conference but instead spend another few months to move the entire conference online. I haven’t been able to contribute as much as I had liked but am still proud to have been a part of [a very innovative online conference](https://rustfest.global/) experience that was well received by the community.
+In 2019 [I attended RustFest in Barcelona](https://www.alexandervarwijk.com/blog/2019-11-20-rustfest-barcelona-2019-in-review) and signed up to help organise RustFest in the Netherlands in July of 2020. Little did I know at the time that we wouldn’t be hosting an in-person conference but instead spend another few months to move the entire conference online. I haven’t been able to contribute as much as I had liked but am still proud to have been a part of [a very innovative online conference](https://rustfest.global/) experience that was well received by the community.
 
 ### Front-End Conference Galore
-The GitNation team has been hard at work as well this year, organising React Summit online, an ML Conference and GraphQL Galaxy. All interesting and educational conferences I’ve attended this year.
+As far as conferences that I wasn't an organiser or speaker at, the GitNation team has been hard at work as well this year, organising various online conferences such as React Summit, ML Conference, and GraphQL Galaxy. All interesting and educational conferences I’ve attended this year.
 
 My highlight of these conferences has been GraphQL Galaxy where I’ve been introduced to the [Urql GraphQL client](https://github.com/FormidableLabs/urql) which I’ve excitedly adopted for Open Social’s upcoming chat feature.
+
+Vercel, the company behind the Next.js framework organised their own conference for said framework. It was interesting to hear how others used the framework and to see upcoming features.
 
 ## Open Social
 As you may know if you follow my blog I work as developer for [Open Social](https://www.getopensocial.com/) —  a startup building community software. This year was exciting as [we managed to secure a 1.25M investment](https://www.getopensocial.com/blog/news-room/open-social-raises-eur-125m-peak-capital-and-nimbus-ventures) to help us build our roadmap. During the year I’ve been slowly completing my switch from back-end to front-end developer (although I still have to build any back-end that new front-end needs myself).
