@@ -153,7 +153,7 @@ export default function StatisticsTable({ statistics }) {
 
 
   const visibilityControl = (
-    <div>
+    <div className="px-2">
       {fields.map(field => (
         <label key={field.id} style={{marginRight: '.5rem'}}>
           <input
@@ -176,7 +176,7 @@ export default function StatisticsTable({ statistics }) {
 
   const heading = fields.map(field =>
     field.visible ? (
-      <td key={field.id}>
+      <td key={field.id} className="sticky top-0 px-2 py-3 bg-white dark:bg-black">
         <button onClick={() => dispatchSort({type: 'sort', by: field.sort})}>
           {field.title}
         </button>
@@ -190,7 +190,7 @@ export default function StatisticsTable({ statistics }) {
       <tr key={statistic.id}>
         {fields.map(field =>
           field.visible ? (
-            <td key={field.id}>
+            <td key={field.id} className="px-2">
               {field.process
                 ? field.process(statistic[field.id])
                 : statistic[field.id]}
@@ -207,13 +207,13 @@ export default function StatisticsTable({ statistics }) {
 
   return (
     <>
-      <button onClick={() => dispatchSort({ type: 'reset' })}>
+      <button onClick={() => dispatchSort({ type: 'reset' })} className="px-2">
         Reset sort
       </button>
       {visibilityControl}
       <table>
         <thead>
-        <tr>{heading}</tr>
+          <tr>{heading}</tr>
         </thead>
         <tbody>{statisticList}</tbody>
       </table>
