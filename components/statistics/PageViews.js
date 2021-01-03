@@ -1,14 +1,33 @@
-import { useState, useEffect, useRef } from 'react';
+import { useState, useEffect } from 'react';
 import { ResponsiveBar } from '@nivo/bar'
 
-function groupByDay(acc, { visited }) {
-  const date = new Date(visited);
-  const day = date.setHours(12, 0, 0, 0);
+function pageviewsPerDay(statistics) {
+  if (!statistics.length) {
+    return [];
+  }
 
-  return {
-    ...acc,
-    [day]: { time: `${date.getDate()}-${date.getMonth()+1}-${date.getFullYear()}`, pageviews: (acc[day]?.pageviews ?? 0) + 1 },
-  };
+  // Create start and end times at midday;
+  let current = new Date(statistics[0].visited);
+  current.setHours(12, 0, 0, 0);
+  const endTime = new Date(statistics[statistics.length - 1].visited).setHours(12, 0, 0, 0);
+
+  // Start all our buckets so even on days with 0 pageviews we have an entry.
+  let pageviews = {};
+  do {
+    pageviews[current.getTime()] = {
+      time: `${current.getDate()}-${current.getMonth()+1}-${current.getFullYear()}`,
+      pageviews: 0
+    };
+    current.setDate(current.getDate() + 1);
+  } while (current.getTime() <= endTime);
+
+  // Count all the pageviews.
+  statistics.forEach(({visited}) => {
+    const time = new Date(visited).setHours(12, 0, 0, 0);
+    pageviews[time].pageviews++;
+  })
+
+  return Object.values(pageviews);
 }
 
 const lightTheme = {
@@ -43,24 +62,12 @@ function useDetectDarkMode() {
 
 export default function PageViews({ statistics }) {
   const wantsDarkMode = useDetectDarkMode();
-  const timeSpan = statistics[statistics.length - 1].visited - statistics[0].visited;
-
-  const perDay = Object.values(statistics.reduce(groupByDay, {}));
-  const dayInMs = 1000 * 60 * 60 * 24;
-  let dateOpts;
-  // For timespans under a month we show every day.
-  if (timeSpan < (30 * dayInMs)) {
-    dateOpts = { year: 'numeric', month: 'numeric', day: 'numeric' };
-  }
-  // Above that we show only months.
-  else {
-    dateOpts = { year: 'numeric', month: 'long' };
-  }
+  const pageviews = pageviewsPerDay(statistics);
 
   return (
     <div className="h-96 w-full">
       <ResponsiveBar
-        data={perDay}
+        data={pageviews}
         keys={[ 'pageviews' ]}
         indexBy="time"
         margin={{ top: 20, right: 20, bottom: 100, left: 60 }}
