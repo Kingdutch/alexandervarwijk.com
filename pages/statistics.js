@@ -37,7 +37,7 @@ export default function Statistics() {
       return;
     }
     dispatchStatistics({ type: 'fetch' });
-    fetch('http://visit.alexandervarwijk.localhost/pageviews', {
+    fetch('https://visit.alexandervarwijk.com/pageviews', {
       headers: new Headers({
         Authorization: `Basic ${btoa(
           `${credentials.user}:${credentials.pass}`
