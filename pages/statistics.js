@@ -1,6 +1,7 @@
 import React, { useEffect, useReducer, useState } from 'react';
 import StatisticsTable from "../components/statistics/StatisticsTable";
 import ProseContainer from "../components/ProseContainer";
+import PageViews from "../components/statistics/PageViews";
 
 const initialStatisticsState = {
   loading: false,
@@ -74,16 +75,31 @@ export default function Statistics() {
     );
   }
 
+  if (loading) {
+    return <div className="px-2">Loading...</div>;
+  }
+
+  if (!statistics.length) {
+    return (
+      <div className="px-2">
+        <h1 className="px-2 text-3xl font-bold mt-4 mb-2">Statistics</h1>
+        <button onClick={fetchPageviews} className="px-2">Reload pageviews</button>
+        <br />
+        <div className="px-2">Your site doesn't have any visitors yet.</div>
+      </div>
+    );
+  }
+
   return (
-    <>
-      <h1>Pageviews</h1>
-      {loading ? (
-        'Loading...'
-      ) : (
-        <button onClick={fetchPageviews}>Reload pageviews</button>
-      )}
-      <br />
+    <div className="px-2">
+      <h1 className="px-2 text-3xl font-bold mt-4 mb-2">Statistics</h1>
+      <button onClick={fetchPageviews} className="px-2">Reload pageviews</button>
+
+      <h2 className="px-2 text-2xl font-bold mt-4 mb-2">Pageviews</h2>
+      <PageViews statistics={statistics}/>
+
+      <h2 className="px-2 text-2xl font-bold mt-4 mb-2">All data</h2>
       <StatisticsTable statistics={statistics} />
-    </>
+    </div>
   );
 }
