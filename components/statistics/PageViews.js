@@ -46,10 +46,7 @@ export default function PageViews({ statistics }) {
   const timeSpan = statistics[statistics.length - 1].visited - statistics[0].visited;
 
   const perDay = Object.values(statistics.reduce(groupByDay, {}));
-
-
   const dayInMs = 1000 * 60 * 60 * 24;
-
   let dateOpts;
   // For timespans under a month we show every day.
   if (timeSpan < (30 * dayInMs)) {
@@ -59,11 +56,11 @@ export default function PageViews({ statistics }) {
   else {
     dateOpts = { year: 'numeric', month: 'long' };
   }
-  console.log(Object.values(perDay));
+
   return (
     <div className="h-96 w-full">
       <ResponsiveBar
-        data={Object.values(perDay)}
+        data={perDay}
         keys={[ 'pageviews' ]}
         indexBy="time"
         margin={{ top: 20, right: 20, bottom: 100, left: 60 }}
