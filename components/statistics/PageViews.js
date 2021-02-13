@@ -6,10 +6,26 @@ function pageviewsPerDay(statistics) {
     return [];
   }
 
+  // Loop through the data to find the start and end date.
+  // Things may be submitted out of order so we can't just take the first and
+  // last item.
+  // TODO: Possibly order by visited on the server?
+  let min = Date.now();
+  let max = 0;
+  statistics.forEach(({visited}) => {
+    const time = new Date(visited).setHours(12, 0, 0, 0);
+    if (time < min) {
+      min = time;
+    }
+    if (time > max) {
+      max = time;
+    }
+  });
+
   // Create start and end times at midday;
-  let current = new Date(statistics[0].visited);
+  let current = new Date(min);
   current.setHours(12, 0, 0, 0);
-  const endTime = new Date(statistics[statistics.length - 1].visited).setHours(12, 0, 0, 0);
+  const endTime = max;
 
   // Start all our buckets so even on days with 0 pageviews we have an entry.
   let pageviews = {};
@@ -22,7 +38,7 @@ function pageviewsPerDay(statistics) {
   } while (current.getTime() <= endTime);
 
   // Count all the pageviews.
-  statistics.forEach(({visited}) => {
+  statistics.forEach(({visited}, idx) => {
     const time = new Date(visited).setHours(12, 0, 0, 0);
     pageviews[time].pageviews++;
   })
