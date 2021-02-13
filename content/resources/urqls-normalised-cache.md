@@ -1,6 +1,6 @@
 ---
 layout: resource
-title: Urql's Normalised Cache: Caching Relational GraphQL Data
+title: "Urql's Normalised Cache: Caching Relational GraphQL Data"
 url: 'https://kitten.sh/graphql-normalized-caching'
 date: 2021-01-13T09:56:00.000Z
 tags:
