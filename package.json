@@ -22,7 +22,7 @@
   "devDependencies": {
     "@tailwindcss/typography": "^0.4",
     "autoprefixer": "^10.0.2",
-    "postcss": "^8.1.8",
+    "postcss": "^8.2.10",
     "prettier": "^2.1.2",
     "tailwindcss": "^2.0.1"
   },
