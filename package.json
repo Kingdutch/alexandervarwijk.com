@@ -12,7 +12,7 @@
     "date-fns": "^2.16.1",
     "framer-motion": "^3.0",
     "gray-matter": "^4.0.2",
-    "next": "^10.0.2",
+    "next": "^11.1.0",
     "react": "^0.0.0-experimental-4ead6b530",
     "react-dom": "^0.0.0-experimental-4ead6b530",
     "remark": "^13.0.0",
