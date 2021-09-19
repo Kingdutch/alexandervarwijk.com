@@ -1,6 +1,6 @@
-import Head from "next/head";
-import {getAllTalks} from "../../lib/talks";
-import TalkTeaserVertical from "../../components/TalkTeaserVertical";
+import Head from 'next/head';
+import { getAllTalks } from '../../lib/talks';
+import TalkTeaserVertical from '../../components/TalkTeaserVertical';
 
 export async function getStaticProps({ params }) {
   const talks = getAllTalks();
@@ -8,7 +8,7 @@ export async function getStaticProps({ params }) {
     props: {
       talks,
     },
-  }
+  };
 }
 
 export default function Talks({ talks }) {
@@ -18,9 +18,15 @@ export default function Talks({ talks }) {
         <title>Talks | Alexander Varwijk</title>
         <meta name="twitter:card" content="summary" />
         <meta name="twitter:creator" content="@Kingdutch" />
-        <meta name="description" content="An overview of the talks given by Alexander at meetups and conferences." />
+        <meta
+          name="description"
+          content="An overview of the talks given by Alexander at meetups and conferences."
+        />
         <meta property="og:title" content="Talks" />
-        <meta property="og:description" content="An overview of the talks given by Alexander at meetups and conferences." />
+        <meta
+          property="og:description"
+          content="An overview of the talks given by Alexander at meetups and conferences."
+        />
         <meta property="og:type" content="website" />
         <meta name="theme-color" content="#0067FB" />
         <link rel="canonical" href="https://www.alexandervarwijk.com/talks" />
@@ -32,7 +38,7 @@ export default function Talks({ talks }) {
           conferences.
         </p>
         <hr className="mt-4" />
-        {talks.map(talk => (
+        {talks.map((talk) => (
           <TalkTeaserVertical
             key={talk.slug}
             frontmatter={talk.frontmatter}
@@ -44,4 +50,4 @@ export default function Talks({ talks }) {
       </main>
     </>
   );
-};
+}

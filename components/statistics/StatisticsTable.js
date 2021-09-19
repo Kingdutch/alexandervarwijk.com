@@ -1,7 +1,7 @@
 import React, { useReducer } from 'react';
 
 // String sort helper.
-const sortByString = column => (a, b) => {
+const sortByString = (column) => (a, b) => {
   // Ignore case.
   const valueA = a[column].toUpperCase();
   const valueB = b[column].toUpperCase();
@@ -36,7 +36,7 @@ const sortByCampaign = sortByString('source_campaign');
 const sortByReferrer = sortByString('source_referrer');
 
 // Convert X seconds to human readable A hour B minutes C seconds.
-const secondsToHuman = s => {
+const secondsToHuman = (s) => {
   const hour = Math.floor(s / 3600);
   const minutes = Math.floor((s - hour * 3600) / 60);
   const seconds = s - hour * 3600 - minutes * 60;
@@ -92,14 +92,14 @@ const initialFields = [
     title: 'visited',
     sort: sortByVisited,
     visible: true,
-    process: value => new Date(value).toLocaleString('nl'),
+    process: (value) => new Date(value).toLocaleString('nl'),
   },
   {
     id: 'submitted',
     title: 'submitted',
     sort: sortBySubmitted,
     visible: true,
-    process: value => new Date(value).toLocaleString('nl'),
+    process: (value) => new Date(value).toLocaleString('nl'),
   },
   {
     id: 'time_on_page',
@@ -115,7 +115,7 @@ const initialFields = [
     title: 'scroll',
     sort: sortByScroll,
     visible: true,
-    process: value => `${value / 100}%`,
+    process: (value) => `${value / 100}%`,
   },
   { id: 'source_source', title: 'source', sort: sortBySource, visible: false },
   { id: 'source_medium', title: 'medium', sort: sortByMedium, visible: false },
@@ -137,7 +137,7 @@ function fieldsReducer(state, action) {
   switch (action.type) {
     case 'visibilityChange':
       // Toggle
-      return state.map(field =>
+      return state.map((field) =>
         field.id === action.field
           ? { ...field, visible: action.visible }
           : field
@@ -151,13 +151,12 @@ export default function StatisticsTable({ statistics }) {
   const [sort, dispatchSort] = useReducer(sortReducer, initialSortState);
   const [fields, dispatchVisibility] = useReducer(fieldsReducer, initialFields);
 
-
   const visibilityControl = (
     <div className="px-2">
-      {fields.map(field => (
-        <label key={field.id} style={{marginRight: '.5rem'}}>
+      {fields.map((field) => (
+        <label key={field.id} style={{ marginRight: '.5rem' }}>
           <input
-            onChange={e =>
+            onChange={(e) =>
               dispatchVisibility({
                 type: 'visibilityChange',
                 field: field.id,
@@ -174,36 +173,36 @@ export default function StatisticsTable({ statistics }) {
     </div>
   );
 
-  const heading = fields.map(field =>
+  const heading = fields.map((field) =>
     field.visible ? (
-      <td key={field.id} className="sticky top-0 px-2 py-3 bg-white dark:bg-black">
-        <button onClick={() => dispatchSort({type: 'sort', by: field.sort})}>
+      <td
+        key={field.id}
+        className="sticky top-0 px-2 py-3 bg-white dark:bg-black"
+      >
+        <button onClick={() => dispatchSort({ type: 'sort', by: field.sort })}>
           {field.title}
         </button>
       </td>
     ) : null
   );
 
-  const statisticList = statistics
-    .sort(sort.by)
-    .map(statistic => (
-      <tr key={statistic.id}>
-        {fields.map(field =>
-          field.visible ? (
-            <td key={field.id} className="px-2">
-              {field.process
-                ? field.process(statistic[field.id])
-                : statistic[field.id]}
-            </td>
-          ) : null
-        )}
-      </tr>
-    ));
+  const statisticList = statistics.sort(sort.by).map((statistic) => (
+    <tr key={statistic.id}>
+      {fields.map((field) =>
+        field.visible ? (
+          <td key={field.id} className="px-2">
+            {field.process
+              ? field.process(statistic[field.id])
+              : statistic[field.id]}
+          </td>
+        ) : null
+      )}
+    </tr>
+  ));
 
   if (sort.reverse) {
     statisticList.reverse();
   }
-
 
   return (
     <>

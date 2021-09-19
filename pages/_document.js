@@ -1,6 +1,6 @@
-import crypto from 'crypto'
-import NextDocument, { Html, Head, Main, NextScript } from 'next/document'
-import React from "react";
+import crypto from 'crypto';
+import NextDocument, { Html, Head, Main, NextScript } from 'next/document';
+import React from 'react';
 
 /**
  * Creates a CSP hash value of a script.
@@ -11,12 +11,9 @@ import React from "react";
  *   The directive to add to the CSP header.
  */
 const cspHashOf = (text) => {
-  const hash = crypto
-    .createHash('sha256')
-    .update(text)
-    .digest('base64');
+  const hash = crypto.createHash('sha256').update(text).digest('base64');
   return `'sha256-${hash}'`;
-}
+};
 
 /**
  * Get a CSP header for the current properties.
@@ -29,10 +26,11 @@ const cspHashOf = (text) => {
 const getCsp = (props) => {
   const cspHash = cspHashOf(NextScript.getInlineScriptSource(props));
   return "default-src 'self' https://visit.alexandervarwijk.com https://*.convertkit.com https://alexandervarwijk.ck.page; frame-src https://www.slideshare.net https://www.youtube.com; frame-ancestors: 'none'; " +
-    process.env.NODE_ENV === 'production'
-      ? `script-src 'self' https://visit.alexandervarwijk.com https://*.convertkit.com https://alexandervarwijk.ck.page ${cspHash}`
-      : `style-src 'self' 'unsafe-inline'; font-src 'self' data:; script-src 'unsafe-eval' 'self' https://visit.alexandervarwijk.com https://*.convertkit.com https://alexandervarwijk.ck.page ${cspHash}`;
-}
+    process.env.NODE_ENV ===
+    'production'
+    ? `script-src 'self' https://visit.alexandervarwijk.com https://*.convertkit.com https://alexandervarwijk.ck.page ${cspHash}`
+    : `style-src 'self' 'unsafe-inline'; font-src 'self' data:; script-src 'unsafe-eval' 'self' https://visit.alexandervarwijk.com https://*.convertkit.com https://alexandervarwijk.ck.page ${cspHash}`;
+};
 
 class Document extends NextDocument {
   render() {
@@ -56,8 +54,8 @@ class Document extends NextDocument {
           </noscript>
         </body>
       </Html>
-    )
+    );
   }
 }
 
-export default Document
+export default Document;

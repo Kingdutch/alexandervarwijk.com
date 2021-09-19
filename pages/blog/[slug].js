@@ -1,11 +1,11 @@
-import remark from "remark";
-import html from "remark-html";
+import remark from 'remark';
+import html from 'remark-html';
 import prism from 'remark-prism';
-import Head from "next/head";
-import Image from "next/image";
-import {getAllPosts, getPostBySlug} from "../../lib/blog";
-import ConvertKitNewsletter from "../../components/forms/ConvertKitNewsletter";
-import ProseContainer from "../../components/ProseContainer";
+import Head from 'next/head';
+import Image from 'next/image';
+import { getAllPosts, getPostBySlug } from '../../lib/blog';
+import ConvertKitNewsletter from '../../components/forms/ConvertKitNewsletter';
+import ProseContainer from '../../components/ProseContainer';
 
 export async function getStaticProps({ params }) {
   const post = getPostBySlug(params.slug);
@@ -18,13 +18,13 @@ export async function getStaticProps({ params }) {
   return {
     props: {
       ...post,
-      content
-    }
+      content,
+    },
   };
 }
 
 export async function getStaticPaths() {
-  const posts = getAllPosts()
+  const posts = getAllPosts();
 
   return {
     paths: posts.map((post) => {
@@ -32,10 +32,10 @@ export async function getStaticPaths() {
         params: {
           slug: post.slug,
         },
-      }
+      };
     }),
     fallback: false,
-  }
+  };
 }
 
 export default function Index({ slug, frontmatter, content }) {
@@ -50,12 +50,18 @@ export default function Index({ slug, frontmatter, content }) {
         <meta property="og:type" content="article" />
         <meta property="og:title" content={frontmatter.title} />
         <meta property="og:description" content={frontmatter.description} />
-        <meta property="og:image" content={`https://www.alexandervarwijk.com${frontmatter.featuredImage}`} />
+        <meta
+          property="og:image"
+          content={`https://www.alexandervarwijk.com${frontmatter.featuredImage}`}
+        />
         <meta property="og:author:profile:first_name" content="Alexander" />
         <meta property="og:author:profile:last_name" content="Varwijk" />
         <meta property="og:author:profile:username" content="Kingdutch" />
         <meta name="theme-color" content="#0067FB" />
-        <link rel="canonical" href={`https://www.alexandervarwijk.com/blog/${slug}`} />
+        <link
+          rel="canonical"
+          href={`https://www.alexandervarwijk.com/blog/${slug}`}
+        />
       </Head>
       <ProseContainer>
         <h1 className="px-4 lg:px-0 mb-0">{frontmatter.title}</h1>
@@ -71,9 +77,8 @@ export default function Index({ slug, frontmatter, content }) {
         />
         <div
           className="px-4 lg:px-0"
-          dangerouslySetInnerHTML={{__html: content}}
+          dangerouslySetInnerHTML={{ __html: content }}
         />
-
       </ProseContainer>
       <ConvertKitNewsletter />
     </>
