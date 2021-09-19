@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { ResponsiveBar } from '@nivo/bar'
+import { ResponsiveBar } from '@nivo/bar';
 
 function pageviewsPerDay(statistics) {
   if (!statistics.length) {
@@ -12,7 +12,7 @@ function pageviewsPerDay(statistics) {
   // TODO: Possibly order by visited on the server?
   let min = Date.now();
   let max = 0;
-  statistics.forEach(({visited}) => {
+  statistics.forEach(({ visited }) => {
     const time = new Date(visited).setHours(12, 0, 0, 0);
     if (time < min) {
       min = time;
@@ -31,35 +31,37 @@ function pageviewsPerDay(statistics) {
   let pageviews = {};
   do {
     pageviews[current.getTime()] = {
-      time: `${current.getDate()}-${current.getMonth()+1}-${current.getFullYear()}`,
-      pageviews: 0
+      time: `${current.getDate()}-${
+        current.getMonth() + 1
+      }-${current.getFullYear()}`,
+      pageviews: 0,
     };
     current.setDate(current.getDate() + 1);
   } while (current.getTime() <= endTime);
 
   // Count all the pageviews.
-  statistics.forEach(({visited}, idx) => {
+  statistics.forEach(({ visited }, idx) => {
     const time = new Date(visited).setHours(12, 0, 0, 0);
     pageviews[time].pageviews++;
-  })
+  });
 
   return Object.values(pageviews);
 }
 
 const lightTheme = {
   // "background": "transparent",
-  textColor: "#111111",
+  textColor: '#111111',
 };
 
 const darkTheme = {
-  textColor: "rgb(209, 213, 219)",
+  textColor: 'rgb(209, 213, 219)',
   tooltip: {
     container: {
       background: 'rgb(17, 24, 39)',
       // border: "1px solid #eee",
     },
   },
-}
+};
 
 function useDetectDarkMode() {
   const [darkMode, setDarkMode] = useState(false);
@@ -84,7 +86,7 @@ export default function PageViews({ statistics }) {
     <div className="h-96 w-full">
       <ResponsiveBar
         data={pageviews}
-        keys={[ 'pageviews' ]}
+        keys={['pageviews']}
         indexBy="time"
         margin={{ top: 20, right: 20, bottom: 100, left: 60 }}
         padding={0}
@@ -97,7 +99,7 @@ export default function PageViews({ statistics }) {
           tickRotation: 45,
           legend: 'Date',
           legendPosition: 'middle',
-          legendOffset: 70
+          legendOffset: 70,
         }}
         axisLeft={{
           tickSize: 5,
@@ -105,11 +107,11 @@ export default function PageViews({ statistics }) {
           tickRotation: 0,
           legend: 'Pageviews',
           legendPosition: 'middle',
-          legendOffset: -40
+          legendOffset: -40,
         }}
         enableLabel={false}
         animate={true}
       />
     </div>
-  )
+  );
 }

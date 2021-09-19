@@ -1,9 +1,9 @@
-import Head from "next/head";
-import { getRecentPosts} from "../lib/blog";
-import ProseContainer from "../components/ProseContainer";
-import {getFragment} from "../lib/fragment";
-import BlogTeaserHorizontal from "../components/BlogTeaserHorizontal";
-import Link from "next/link";
+import Head from 'next/head';
+import { getRecentPosts } from '../lib/blog';
+import ProseContainer from '../components/ProseContainer';
+import { getFragment } from '../lib/fragment';
+import BlogTeaserHorizontal from '../components/BlogTeaserHorizontal';
+import Link from 'next/link';
 
 export async function getStaticProps({ params }) {
   return {
@@ -11,7 +11,7 @@ export async function getStaticProps({ params }) {
       post: getRecentPosts(1)[0],
       about: await getFragment('about-me'),
     },
-  }
+  };
 }
 
 export default function Index({ post, about }) {
@@ -19,14 +19,23 @@ export default function Index({ post, about }) {
     <>
       <Head>
         <title>Home | Alexander Varwijk</title>
-        <meta name="description" content="The thoughts and musings of Alexander Varwijk - Full Stack developer." />
+        <meta
+          name="description"
+          content="The thoughts and musings of Alexander Varwijk - Full Stack developer."
+        />
         <meta property="og:title" content="Home" />
-        <meta property="og:description" content="The thoughts and musings of Alexander Varwijk - Full Stack developer." />
+        <meta
+          property="og:description"
+          content="The thoughts and musings of Alexander Varwijk - Full Stack developer."
+        />
         <meta property="og:type" content="website" />
         <meta name="twitter:card" content="summary" />
         <meta name="twitter:creator" content="@Kingdutch" />
         <meta name="twitter:title" content="Home" />
-        <meta name="twitter:description" content="The thoughts and musings of Alexander Varwijk - Full Stack developer." />
+        <meta
+          name="twitter:description"
+          content="The thoughts and musings of Alexander Varwijk - Full Stack developer."
+        />
         <meta name="theme-color" content="#0067FB" />
         <link rel="canonical" href="https://www.alexandervarwijk.com/" />
       </Head>

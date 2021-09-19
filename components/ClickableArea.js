@@ -1,12 +1,16 @@
-import {useRef} from "react";
+import { useRef } from 'react';
 
-export default function ClickableArea({ className, children, as: Element="div" }) {
+export default function ClickableArea({
+  className,
+  children,
+  as: Element = 'div',
+}) {
   const clickableElemTypes = ['a', 'button', 'input'];
   const refExpandedArea = useRef();
 
   function handleClick(e) {
     const clickableElems = [
-      ...refExpandedArea.current.querySelectorAll('[data-expand-click-area]')
+      ...refExpandedArea.current.querySelectorAll('[data-expand-click-area]'),
     ];
     if (clickableElems.length !== 1) {
       throw new Error(
@@ -14,7 +18,9 @@ export default function ClickableArea({ className, children, as: Element="div" }
       );
     }
     const clickableElem = clickableElems[0];
-    const targetIsClickable = clickableElemTypes.includes(e.target.tagName.toLowerCase());
+    const targetIsClickable = clickableElemTypes.includes(
+      e.target.tagName.toLowerCase()
+    );
 
     if (clickableElem !== e.target && !targetIsClickable) {
       clickableElem.click();
