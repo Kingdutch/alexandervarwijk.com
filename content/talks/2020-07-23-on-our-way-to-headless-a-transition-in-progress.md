@@ -2,7 +2,7 @@
 layout: talk
 title: On our way to headless - A transition in progress
 date: 2020-07-23T13:30:00.000Z
-conference: Decoupled Days 2020
+conference: Decoupled Days
 description: >-
   Practice is more difficult than theory, but theory can be difficult too. In
   this session I covered Open Social's ongoing project of moving from a coupled
