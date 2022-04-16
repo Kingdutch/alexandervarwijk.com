@@ -1,16 +1,13 @@
 ---
 layout: talk
-title: ' Multilingualism makes better programmers - a look beyond PHP and JavaScript'
+title: 'Multilingualism makes better programmers - a look beyond PHP and JavaScript'
 date: 2019-06-28T12:00:00.000Z
 conference: 'Drupaljam:XL'
 description: >-
   This talk takes a look outside of PHP and Javascript and explores what other
   programming languages have to offer. Although not all features are supported
   in PHP or Javascript, most concepts can be transferred.
-slides: >-
-  <iframe src="//www.slideshare.net/slideshow/embed_code/key/a7iBvU0I4FzEbY"
-  width="920" height="690" frameborder="0" marginwidth="0" marginheight="0"  
-  scrolling="no" style="max-width: 100%;" allowfullscreen> </iframe>
+slides: /talks/2019-06-28 - Multilingualism makes better programmers - a look beyond PHP and JavaScript.pdf
 recording: >-
   <iframe src="https://www.youtube.com/embed/Sf1pCY5QAzw"
   width="920" height="690" frameborder="0" marginwidth="0" marginheight="0"  

@@ -71,11 +71,7 @@ export default function Index({ slug, frontmatter, content }) {
         {frontmatter.slides && frontmatter.slides.length ? (
           <section>
             <h2>Slides</h2>
-            {
-              frontmatter.slides.startsWith("/talks/")
-              ? <PdfViewer file={frontmatter.slides} />
-              : <div dangerouslySetInnerHTML={{ __html: frontmatter.slides }} />
-            }
+            <PdfViewer file={frontmatter.slides} />
           </section>
         ) : null}
         {frontmatter.recording && frontmatter.recording.length ? (

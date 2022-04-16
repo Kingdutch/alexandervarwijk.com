@@ -8,10 +8,7 @@ description: >-
   2.0 version of the Real-Time SEO module. The talk is aimed at Drupal
   developers with an intermediate understanding of Drupal core APIs (most
   notably the Form API, Field API and Entity API).
-slides: >-
-  <iframe src="//www.slideshare.net/slideshow/embed_code/key/qymXjJ2077XkQn"
-  width="920" height="690" frameborder="0" marginwidth="0" marginheight="0"  
-  scrolling="no" style="max-width: 100%;" allowfullscreen> </iframe>
+slides: /talks/2018-04-05 - Maintaining a Drupal Module - Keep it Small and Simple.pdf
 ---
 This session is about the work I have done towards the Drupal 8 2.0 version of the Real-Time SEO module. The 1.0 version focused very much on analysing specific fields and had its own configuration page, both things were not in the Drupal mindset. An often requested feature was support for the Paragraphs module which was impossible without a lot of paragraphs specific code. The 2.0 version of the module transitions to using the Entity API and the Object Oriented Form API to better support all kinds of fields. This ensures that the module is a lot more robust without a lot of field specific code. The Drupal way ensures that future field types will easily be supported. The configuration page was also shunned in favour of using the Field UI directly, which is what site builders are used to.
 
