@@ -38,4 +38,14 @@
             color: hsl(220, 39.3%, 79%);
         }
     }
+
+    .hover-parent .hover-target {
+        opacity: 0;
+        transition: opacity 200ms;
+    }
+
+
+    .hover-parent:hover .hover-target {
+        opacity: 1;
+    }
 }
