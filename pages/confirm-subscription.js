@@ -1,6 +1,6 @@
 import BlogTeaserHorizontal from '../components/BlogTeaserHorizontal';
 import { getRecentPosts } from '../lib/blog';
-import remark from 'remark';
+import { remark } from 'remark';
 import html from 'remark-html';
 
 export async function getStaticProps({ params }) {
