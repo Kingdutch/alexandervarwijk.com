@@ -34,7 +34,7 @@ export default function PdfViewer(props) {
   return (
     <div className={"flex flex-col"}>
       <Document {...props} className={"flex justify-center"} onLoadSuccess={onDocumentLoadSuccess}>
-        <Page pageNumber={pageNumber} />
+        <Page pageNumber={pageNumber} width={812} />
       </Document>
       <div className={"flex justify-between"}>
         <button
