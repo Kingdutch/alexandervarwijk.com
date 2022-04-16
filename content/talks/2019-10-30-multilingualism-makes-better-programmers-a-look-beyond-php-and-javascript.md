@@ -11,10 +11,7 @@ description: >-
   our journey of leaving the island by showing interesting developments of other
   programming languages and how we can use what they’ve come up with in our own
   use of PHP and Javascript.
-slides: >-
-  <iframe src="//www.slideshare.net/slideshow/embed_code/key/JSByI9BidTlYqy"
-  width="920" height="690" frameborder="0" marginwidth="0" marginheight="0"  
-  scrolling="no" style="max-width: 100%;" allowfullscreen> </iframe>
+slides: /talks/2019-10-30 - Multilingualism makes better programmers - a look beyond PHP and JavaScript.pdf
 recording: >-
   <iframe src="https://www.youtube.com/embed/7yimyQEyFtI" width="920"
   height="690" frameborder="0" marginwidth="0" marginheight="0"   scrolling="no"

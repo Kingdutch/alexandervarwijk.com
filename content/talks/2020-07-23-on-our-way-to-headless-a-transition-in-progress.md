@@ -8,10 +8,7 @@ description: >-
   this session I covered Open Social's ongoing project of moving from a coupled
   Drupal + Twig set-up to a decoupled project with React and ReasonML. What have
   we figured out already and what are still open questions for us? 
-slides: >-
-  <iframe src="//www.slideshare.net/slideshow/embed_code/key/wyOhC0JpIlrBfq"
-  width="920" height="690" frameborder="0" marginwidth="0" marginheight="0"
-  scrolling="no" style="max-width: 100%;" allowfullscreen> </iframe>
+slides: /talks/2020-07-23 - On our way to headless - A transition in progress.pdf
 recording: >-
   <iframe src="https://www.youtube.com/embed/YxMo0u3dvQI" width="920"
   height="690" frameborder="0" marginwidth="0" marginheight="0"   scrolling="no"
