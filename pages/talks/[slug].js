@@ -5,6 +5,7 @@ import Head from 'next/head';
 import ConvertKitNewsletter from '../../components/forms/ConvertKitNewsletter';
 import { getAllTalks, getTalkBySlug } from '../../lib/talks';
 import ProseContainer from '../../components/ProseContainer';
+import PdfViewer from "../../components/PdfViewer";
 
 export async function getStaticProps({ params }) {
   const talk = getTalkBySlug(params.slug);
@@ -70,7 +71,11 @@ export default function Index({ slug, frontmatter, content }) {
         {frontmatter.slides && frontmatter.slides.length ? (
           <section>
             <h2>Slides</h2>
-            <div dangerouslySetInnerHTML={{ __html: frontmatter.slides }} />
+            {
+              frontmatter.slides.startsWith("/talks/")
+              ? <PdfViewer file={frontmatter.slides} />
+              : <div dangerouslySetInnerHTML={{ __html: frontmatter.slides }} />
+            }
           </section>
         ) : null}
         {frontmatter.recording && frontmatter.recording.length ? (
