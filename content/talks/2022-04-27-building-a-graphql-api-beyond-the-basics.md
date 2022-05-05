@@ -7,7 +7,10 @@ description: >-
   Take a deep dive in using the GraphQL module version 4 to build a GraphQL API for your Drupal project.
 slides: /talks/2022-04-27 - DrupalCon Portland - Advanced GraphQL.pdf
 recording: >-
-  Uploaded after the talk
+  <iframe src="https://www.youtube.com/embed/PBzvJ2Ctjm0"
+  width="920" height="690" frameborder="0" marginwidth="0" marginheight="0"  
+  scrolling="no" style="max-width: 100%;" 
+  allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 ---
 Creating a GraphQL API is about more than just exposing your data. To build an
 API that’s delightful to use for your API consumers you must consider the use
