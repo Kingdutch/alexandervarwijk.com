@@ -246,7 +246,7 @@ notes:
 
 
   Focus only on making sure that your business logic is correct and that your users have an awesome experience.
-  
+
 
   You don't have to imagine, just use ReScript.
 
@@ -257,3 +257,5 @@ ReScript is a robustly typed language that compiles to efficient and human-reada
 In this talk I will take you through what ReScript is, how its type and module systems work and its great integration with React and GraphQL.
 
 No prior experience is required but I hope to show you an alternative to TypeScript that can be used to create applications of any size.
+
+The code that was used in this presentation with commits corresponding to steps taken in the slides can be [found on GitHub](https://github.com/Kingdutch/rescript-introduction-presentation).
