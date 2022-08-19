@@ -8,16 +8,24 @@ import ProseContainer from '../../components/ProseContainer';
 import PdfViewer from "../../components/PdfViewer";
 
 export async function getStaticProps({ params }) {
-  const talk = getTalkBySlug(params.slug);
+  const { frontmatter, ...talk } = getTalkBySlug(params.slug);
   const markdown = await remark()
     .use(html)
     .use(prism)
     .process(talk.content || '');
   const content = markdown.toString();
 
+  const notes = frontmatter.notes
+    ? await Promise.all(frontmatter.notes.map(async note => (await remark().use(html).process(note)).toString()))
+    : null;
+
   return {
     props: {
       ...talk,
+      frontmatter: {
+        ...frontmatter,
+        notes,
+      },
       content,
     },
   };
@@ -71,7 +79,7 @@ export default function Index({ slug, frontmatter, content }) {
         {frontmatter.slides && frontmatter.slides.length ? (
           <section>
             <h2>Slides</h2>
-            <PdfViewer file={frontmatter.slides} />
+            <PdfViewer file={frontmatter.slides} notes={frontmatter.notes} />
           </section>
         ) : null}
         {frontmatter.recording && frontmatter.recording.length ? (

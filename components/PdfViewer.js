@@ -1,6 +1,6 @@
 import 'react-pdf/dist/esm/Page/AnnotationLayer.css';
 import {Document, Page, pdfjs} from "react-pdf";
-import {startTransition, useCallback, useEffect, useRef, useState} from "react";
+import React, {startTransition, useCallback, useEffect, useRef, useState} from "react";
 
 function useFullScreen() {
   const fullscreenRef = useRef();
@@ -25,6 +25,9 @@ export default function PdfViewer(props) {
   const [numPages, setNumPages] = useState(null);
   const [pageNumber, setPageNumber] = useState(1);
   const { fullscreenRef, isFullScreen, makeFullScreen } = useFullScreen();
+
+  const hasNotes = props.notes !== null;
+  const notes = (props.notes ?? [])[pageNumber - 1] ?? null;
 
   function onDocumentLoadSuccess({ numPages }) {
     setNumPages(numPages);
@@ -101,6 +104,12 @@ export default function PdfViewer(props) {
           Next
         </button>
       </div>
+      {hasNotes
+        ? <div className='not-prose p-2 border-2'>
+            <h3 className='font-bold'>Presenter notes</h3>
+            <div className='prose' dangerouslySetInnerHTML={{ __html: notes}} />
+          </div>
+        : null}
     </div>
   );
 }
