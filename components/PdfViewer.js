@@ -1,6 +1,6 @@
 import 'react-pdf/dist/esm/Page/AnnotationLayer.css';
 import {Document, Page, pdfjs} from "react-pdf";
-import React, {startTransition, useCallback, useEffect, useRef, useState} from "react";
+import React, {startTransition, useCallback, useEffect, useId, useLayoutEffect, useRef, useState} from "react";
 
 function useFullScreen() {
   const fullscreenRef = useRef();
@@ -26,12 +26,30 @@ export default function PdfViewer(props) {
   const [pageNumber, setPageNumber] = useState(1);
   const { fullscreenRef, isFullScreen, makeFullScreen } = useFullScreen();
 
+  const slideHeightId = useId();
+  const [slideHeight, setSlideHeight] = useState(null);
+
   const hasNotes = props.notes !== null;
   const notes = (props.notes ?? [])[pageNumber - 1] ?? null;
+
+  const heightStyle = typeof CSS !== "undefined" ? `
+    .${CSS.escape(slideHeightId)} {
+      height: ${slideHeight}px;
+    }
+  ` : null;
 
   function onDocumentLoadSuccess({ numPages }) {
     setNumPages(numPages);
     setPageNumber(1);
+  }
+
+  function onRenderSuccess() {
+    console.log(document.querySelector(`.${CSS.escape(slideHeightId)} canvas`));
+
+    const slideCanvas = document.querySelector(`.${CSS.escape(slideHeightId)} canvas`) ?? null;
+    if (slideCanvas) {
+      setSlideHeight(prev => prev === null ? slideCanvas.clientHeight : prev);
+    }
   }
 
   const changePage = useCallback(
@@ -76,8 +94,9 @@ export default function PdfViewer(props) {
             <img src={"/images/fullscreen.png"} alt={"View Fullscreen"} width={36} />
           </button>
         : null}
-      <Document {...props} className={"flex justify-center mt-auto"} onLoadSuccess={onDocumentLoadSuccess}>
-        <Page pageNumber={pageNumber} width={isFullScreen ? undefined : 812} />
+      {slideHeight && !isFullScreen ? <style>{heightStyle}</style> : null}
+      <Document {...props} className={"flex justify-center mt-auto " + slideHeightId} onLoadSuccess={onDocumentLoadSuccess}>
+        <Page pageNumber={pageNumber} width={isFullScreen ? undefined : 812} onRenderSuccess={onRenderSuccess} />
       </Document>
       <div className={"flex justify-between mt-auto" + (isFullScreen ? " text-white" : "")}>
         <button
@@ -105,9 +124,9 @@ export default function PdfViewer(props) {
         </button>
       </div>
       {hasNotes
-        ? <div className='not-prose p-2 border-2'>
+        ? <div className={"not-prose p-2 border-2" + (isFullScreen ? " text-white" : "")}>
             <h3 className='font-bold'>Presenter notes</h3>
-            <div className='prose' dangerouslySetInnerHTML={{ __html: notes}} />
+            <div className={'prose' + (isFullScreen ? " text-white" : "")} dangerouslySetInnerHTML={{ __html: notes}} />
           </div>
         : null}
     </div>
