@@ -62,19 +62,24 @@ export default function Index({ slug, frontmatter, content }) {
         </ul>
         <h2>Recipe</h2>
         <div dangerouslySetInnerHTML={{ __html: content }} />
-        <h2>Nutrition</h2>
-        <table>
-          <thead>
-          <tr>
-            {Object.keys(frontmatter.nutrition).map((type, i) => <td key={i}>{type}</td>)}
-          </tr>
-          </thead>
-          <tbody>
-          <tr>
-            {Object.values(frontmatter.nutrition).map((value, i) => <td key={i}>{value}</td>)}
-          </tr>
-          </tbody>
-        </table>
+        {frontmatter.nutrition
+          ? <>
+          <h2>Nutrition</h2>
+          <table>
+            <thead>
+            <tr>
+              {Object.keys(frontmatter.nutrition).map((type, i) => <td key={i}>{type}</td>)}
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+              {Object.values(frontmatter.nutrition).map((value, i) => <td key={i}>{value}</td>)}
+            </tr>
+            </tbody>
+          </table>
+          </>
+          : null
+        }
       </ProseContainer>
     </>
   );
