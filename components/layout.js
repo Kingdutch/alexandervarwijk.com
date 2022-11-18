@@ -20,6 +20,8 @@ const Layout = ({ children }) => {
           {` • `}
           <a href="https://github.com/Kingdutch/" className='underline'>GitHub</a>
           {` • `}
+          <a rel="me" href="https://hachyderm.io/@Kingdutch">Mastodon</a>
+          {` • `}
           <a href="https://twitter.com/Kingdutch" className='underline'>Twitter</a>
           {` • `}
           <a href="https://www.twitch.tv/TheKingdutch" className='underline'>Twitch</a>
