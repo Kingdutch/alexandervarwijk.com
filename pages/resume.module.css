@@ -1,0 +1,132 @@
+.links {
+  margin-left: .25rem;
+}
+.links li {
+  padding: .25rem 0;
+}
+.links svg {
+  display: inline-block;
+  margin-right: .25rem;
+
+  fill: black;
+}
+
+.links .mastodon path:last-child {
+  fill: white;
+}
+
+.skills {
+  list-style:circle;
+  margin-left: 1.5rem;
+}
+
+.container {
+  max-width: 48rem;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+.container h1 {
+  font-weight: bold;
+  font-size: 1.5rem;
+}
+
+.container h2 {
+  font-weight: bold;
+  font-size: 1.25rem;
+  padding-top: 1rem;
+}
+
+.container h3 {
+  font-weight: bold;
+}
+
+.link {
+  color: rgb(37 99 235);
+  text-decoration: underline;
+}
+
+.aside {
+  flex: 1 0 240px;
+  order: 1;
+
+  display: flex;
+  flex-direction: column;
+}
+
+.aside ul + p, .aside p + p {
+  margin-top: 1rem;
+}
+
+.body dt {
+  font-weight: bold;
+}
+
+.body dd + dt, .body .nosplit + .nosplit {
+  padding-top: 1rem;
+}
+
+.body p + p {
+  padding-top: 1rem;
+}
+
+.nosplit {
+  page-break-inside: avoid;
+}
+
+.footer {
+  text-align: center;
+  padding-top: 1rem;
+}
+
+/*
+ * Fix an issue in Firefox with how our `nosplit` class causes the page
+ * text but not the containers to bump down, causing an overflow
+ * that causes text to overlap.
+ *
+ * See https://bugzilla.mozilla.org/show_bug.cgi?id=1695475
+ */
+@supports (-moz-appearance: none) {
+  .footer {
+    padding-top: 5rem;
+  }
+}
+
+/*
+ * Fix SVG icons in dark mode.
+ */
+@media (prefers-color-scheme: dark) {
+  .links svg {
+    fill: white;
+  }
+
+  .links .mastodon path:last-child {
+    fill: black;
+  }
+}
+
+@media print {
+  .aside {
+    order: 0;
+  }
+
+  .body {
+    padding-left: 1rem;
+  }
+}
+
+@media (min-width: 48rem) {
+  .aside {
+    order: 0;
+  }
+
+  .body {
+    padding-left: 1rem;
+  }
+}
+
+@media (min-width: 50rem) {
+  .container {
+    padding: 0;
+  }
+}
