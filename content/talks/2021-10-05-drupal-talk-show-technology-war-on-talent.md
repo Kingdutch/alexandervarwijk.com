@@ -14,5 +14,5 @@ recording: >-
   allowfullscreen></iframe>
 ---
 As part of Open Social's DrupalJam sponsorship I was asked to talk about Open 
-Social's future plans and how we're making sure that we fidn the right people to 
+Social's future plans and how we're making sure that we find the right people to 
 help us fulfil our ambitions.
