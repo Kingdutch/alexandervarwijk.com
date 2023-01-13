@@ -259,3 +259,5 @@ In this talk I will take you through what ReScript is, how its type and module s
 No prior experience is required but I hope to show you an alternative to TypeScript that can be used to create applications of any size.
 
 The code that was used in this presentation with commits corresponding to steps taken in the slides can be [found on GitHub](https://github.com/Kingdutch/rescript-introduction-presentation).
+
+Unfortunately this talk was not recorded.
