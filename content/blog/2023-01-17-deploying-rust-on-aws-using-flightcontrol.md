@@ -214,7 +214,7 @@ One of the best features of services like Vercel or Platform.sh are their abilit
 ### Docker pull limit
 If you follow along with this article and you notice that a deployment fails due to a docker limit then you'll need to add the `DOCKER_USERNAME` and `DOCKER_PASSWORD` environment variables using your Docker Hub account as per [the Flightcontrol documentation](https://www.flightcontrol.dev/docs/guides/examples/docker ).
 
-While Flightcontrol builds the `Dockerfile` included in our repository, it doesn't do anything to cache the images that are used in it, so these are pulled on every deploy and quickly hit the very strict rate limits set by Docker Hub.
+Flightcontrol uses [AWS CodeBuild](https://aws.amazon.com/codebuild/) to build the `Dockerfile` included in our repository. Any images your Dockerfile may need are pulled from Docker Hub. By default this happens with unauthenticated requests. Docker Hub has very strict rate limits for unauthenticated requests that you'll run into quite quickly. By providing the `DOCKER_USERNAME` and `DOCKER_PASSWORD` environment variables, Flightcontrol can authenticate on your behalf and bypass the rate limit.
 
 ### Automating the `sqlx` migration
 I've not yet found a way to automatically migrate the database of our application. For the JavaScript templates that Flightcontrol supports this is probably relatively simple (though I haven't tried it out). However, to keep our container small we don't include our migration SQL and there's no hook that Flightcontrol provides to run this directly from a clone of our database. Hopefully that's something they'll solve in the future.
@@ -232,3 +232,5 @@ The hardest part was figuring out how to change the configuration set-up to acce
 The Flightcontrol team was very responsive in their discord whenever I had a question while getting everything figured out. It's very exciting to see a company offer the convenience of a PaaS provider like Platform.sh with the benefits of hosting on AWS that allows it to be cheaper and allows me to bring my own docker images.
 
 The roadmap shows that the Flightcontrol team is on the right track to build an amazing tool for developers in any language and I'm very excited to see what they ship next.
+
+*Updated on 2023-01-22* to clarify the need for Docker Hub credentials and the cause of hitting a rate limit.
