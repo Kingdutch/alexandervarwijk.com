@@ -1,7 +1,7 @@
 ---
 layout: blog
 title:  Deploying Rust on AWS using Flightcontrol
-date: 2022-01-17T21:30:00.000Z
+date: 2023-01-17T21:30:00.000Z
 description: >-
   Deploying a Rust app to AWS can be complicated but Flightcontrol
   makes it easy. A walkthrough of Zero to Production in Rust on
