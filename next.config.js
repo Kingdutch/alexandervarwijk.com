@@ -18,6 +18,17 @@ module.exports = withMDX({
         destination:  '/blog/2023-01-17-deploying-rust-on-aws-using-flightcontrol',
         permanent: true,
       },
+      {
+        source: '/',
+        has: [
+          {
+              type: 'host',
+              value: 'ddd23.alexandervarwijk.com',
+          },
+        ],
+        destination: '/talks/2023-07-19 - Drupal Dev Days Vienna - Keeping Drupal Relevant for the Modern Web/index.html',
+        permanent: true,
+      }
     ];
   },
 });
