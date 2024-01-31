@@ -25,11 +25,11 @@ const cspHashOf = (text) => {
  */
 const getCsp = (props) => {
   const cspHash = cspHashOf(NextScript.getInlineScriptSource(props));
-  return "default-src 'self' https://visit.alexandervarwijk.com https://*.convertkit.com https://alexandervarwijk.ck.page; frame-src https://www.slideshare.net https://www.youtube.com; frame-ancestors: 'none'; " +
+  return "default-src 'self' https://*.convertkit.com https://alexandervarwijk.ck.page; frame-src https://www.slideshare.net https://www.youtube.com; frame-ancestors: 'none'; " +
     process.env.NODE_ENV ===
     'production'
-    ? `script-src 'self' https://visit.alexandervarwijk.com https://*.convertkit.com https://alexandervarwijk.ck.page ${cspHash}`
-    : `style-src 'self' 'unsafe-inline'; font-src 'self' data:; script-src 'unsafe-eval' 'self' https://visit.alexandervarwijk.com https://*.convertkit.com https://alexandervarwijk.ck.page ${cspHash}`;
+    ? `script-src 'self' https://*.convertkit.com https://alexandervarwijk.ck.page ${cspHash}`
+    : `style-src 'self' 'unsafe-inline'; font-src 'self' data:; script-src 'unsafe-eval' 'self' https://*.convertkit.com https://alexandervarwijk.ck.page ${cspHash}`;
 };
 
 class Document extends NextDocument {
@@ -44,14 +44,6 @@ class Document extends NextDocument {
         <body className="dark:bg-black dark:text-gray-300">
           <Main />
           <NextScript />
-          <script
-            key="main"
-            async
-            src={'//visit.alexandervarwijk.com/hello.js'}
-          ></script>
-          <noscript>
-            <img src={'//visit.alexandervarwijk.com/image.gif'} alt={''} />
-          </noscript>
         </body>
       </Html>
     );
