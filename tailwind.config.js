@@ -1,7 +1,8 @@
 module.exports = {
   content: [
-    './content/**/*.md',
-    './components/**/*.js',
+    './app/**/*.{js,ts,jsx,tsx}',
+    // './content/**/*.md',
+    // './components/**/*.js',
     './pages/**/*.js',
     './pages/**/*.mdx',
   ],

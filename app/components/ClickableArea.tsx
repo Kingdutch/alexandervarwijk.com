@@ -1,9 +1,14 @@
+import type { ElementType, ReactNode } from 'react';
 import { useRef } from 'react';
 
 export default function ClickableArea({
   className,
   children,
   as: Element = 'div',
+} : {
+  className : string,
+  children : ReactNode,
+  as?: ElementType
 }) {
   const clickableElemTypes = ['a', 'button', 'input'];
   const refExpandedArea = useRef();

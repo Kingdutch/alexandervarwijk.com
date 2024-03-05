@@ -13,7 +13,7 @@ const fragmentsDirectory = join(process.cwd(), 'content', 'fragments');
  * @return string
  *   The parsed markdown that can be used as HTMl.
  */
-export async function getFragment(slug) {
+export async function getFragment(slug : string) {
   const fullPath = join(fragmentsDirectory, `${slug}.md`);
   const fileContents = fs.readFileSync(fullPath, 'utf8');
   const markdown = await remark()

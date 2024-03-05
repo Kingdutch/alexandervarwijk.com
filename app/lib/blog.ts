@@ -13,7 +13,7 @@ const postsDirectory = join(process.cwd(), 'content', 'blog');
  *   extension.
  * @return {{frontmatter: {[p: string]: any, date: string}, slug: string, content: string}}
  */
-export function getPostBySlug(slug) {
+export function getPostBySlug(slug : string) {
   const realSlug = slug.replace(/\.md$/, '');
   const fullPath = join(postsDirectory, `${realSlug}.md`);
   const fileContents = fs.readFileSync(fullPath, 'utf8');
@@ -24,16 +24,20 @@ export function getPostBySlug(slug) {
 }
 
 export function getRecentPosts(limit = 6) {
-  return fs
-    .readdirSync(postsDirectory)
-    .reverse()
-    .slice(0, limit)
-    .map((slug) => getPostBySlug(slug));
+  return Promise.resolve(
+    fs
+      .readdirSync(postsDirectory)
+      .reverse()
+      .slice(0, limit)
+      .map((slug) => getPostBySlug(slug))
+  );
 }
 
 export function getAllPosts() {
-  return fs
-    .readdirSync(postsDirectory)
-    .reverse()
-    .map((slug) => getPostBySlug(slug));
+  return Promise.resolve(
+    fs
+      .readdirSync(postsDirectory)
+      .reverse()
+      .map((slug) => getPostBySlug(slug))
+  );
 }

@@ -1,44 +1,72 @@
-import React from 'react';
-import Head from 'next/head';
-import Image from 'next/image';
-import { container, aside, body, footer, links, skills, link, nosplit, mastodon } from "./resume.module.css"
+import styles from "./resume.module.css"
+import { MetaFunction } from '@remix-run/cloudflare';
+
+const { container, aside, body, footer, links, skills, link, nosplit, mastodon } = styles;
+
+export const meta: MetaFunction = () => {
+  return [
+    { title: "Resume | Alexander Varwijk" },    {
+      name: "description",
+      content: "Alexander Varwijk's resume.",
+    },
+    {
+      name: "theme-color",
+      content: "#0067FB",
+    },
+    {
+      rel: "canonical",
+      href: "https://www.alexandervarwijk.com/resume",
+    },
+    // Open Graph
+    {
+      name: "og:title",
+      content: "Resume",
+    },
+    {
+      name: "og:description",
+      content: "Alexander Varwijk's resume.",
+    },
+    {
+      name: "og:type",
+      content: "website",
+    },
+    // Twitter
+    {
+      name: "twitter:card",
+      content: "summary",
+    },
+    {
+      name: "twitter:creator",
+      content: "@Kingdutch",
+    },
+    {
+      name: "twitter:title",
+      content: "Resume",
+    },
+    {
+      name: "twitter:description",
+      content: "Alexander Varwijk's resume.",
+    },
+  ];
+};
 
 export default function Resume() {
   return (
     <>
-      <Head>
-        <title>Resume | Alexander Varwijk</title>
-        <meta name="twitter:card" content="summary" />
-        <meta name="twitter:creator" content="@Kingdutch" />
-        <meta
-          name="description"
-          content="Alexander Varwijk's resume."
-        />
-        <meta property="og:title" content="Resume" />
-        <meta
-          property="og:description"
-          content="Alexander Varwijk's resume."
-        />
-        <meta property="og:type" content="website" />
-        <meta name="theme-color" content="#0067FB" />
-        <link
-          rel="canonical"
-          href="https://www.alexandervarwijk.com/resume"
-        />
-        <style type='text/css' media='print'>{`
+      <style type='text/css' media='print'>{`
           @page {
             margin: 1rem .5rem;
           }
-        `}</style>
-      </Head>
+      `}</style>
       <main className={container + " flex flex-col md:flex-row print:flex-row"}>
         <div className={aside}>
           <h1 className="center hidden print:inline-block">Alexander Varwijk</h1>
-          <div className="hidden print:block md:block rounded-full border-double border-stone-500 border-2 pt-2 overflow-hidden relative aspect-square m-2 -order-1">
-            <Image
+          <div className="hidden print:block md:block rounded-full border-double border-stone-500 border-2 overflow-hidden relative aspect-square m-2 -order-1">
+            <img
               src={"/images/alexandervarwijk.jpeg"}
-              layout="fill"
-              objectFit="cover"
+              alt=""
+              // layout="fill"
+              // objectFit="cover"
             />
           </div>
           <h2>Links</h2>

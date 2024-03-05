@@ -3,12 +3,12 @@
  * Renders the ConvertKit Newsletter Sign-Up form.
  */
 
-import React, { useEffect, useRef } from 'react';
+import { useEffect, useRef } from 'react';
 
 // TODO: This method of adding the ConvertKit form has the annoying side-effect
 //  of adding the convertkit script multiple times. However, that's easier to
 //  get working before Decoupled Days than it is to style an HTML only solution.
-function ConvertKitNewsletter({ className }) {
+function ConvertKitNewsletter({ className } : { className: string }) {
   const wrapper = useRef(null);
   useEffect(() => {
     const script = document.createElement('script');

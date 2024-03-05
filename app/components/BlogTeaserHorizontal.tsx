@@ -1,6 +1,6 @@
-import Image from 'next/image';
-import Link from 'next/link';
 import ClickableArea from './ClickableArea';
+import type { ElementType } from 'react';
+import { NavLink } from '@remix-run/react';
 
 export default function BlogTeaserHorizontal({
   slug,
@@ -8,25 +8,28 @@ export default function BlogTeaserHorizontal({
   HeadingLevel,
   className = 'mb-8 md:flex md:flex-row',
   ...rest
+} : {
+  slug: string,
+  frontmatter: any,
+  HeadingLevel: ElementType,
+  className?: string
 }) {
   return (
     <ClickableArea className={className} {...rest}>
-      <Image
+      <img
         src={frontmatter.featuredImage}
         alt=""
         width={300}
         height={200}
-        objectFit="contain"
-        objectPosition="top"
+        // objectFit="contain"
+        // objectPosition="top"
       />
       <div className="md:ml-4">
         <time>{frontmatter.date}</time>
         <HeadingLevel className="text-xl mt-3 mb-2 text-blue-600 dark:text-yellow-600">
-          <Link href={slug}>
-            <a data-expand-click-area={true} className="underline font-medium">
+          <NavLink to={slug} rel="prefetch" data-expand-click-area={true} className="underline font-medium">
               {frontmatter.title}
-            </a>
-          </Link>
+          </NavLink>
         </HeadingLevel>
         <div
           className="prose lg:prose-lg dark:text-gray-200"

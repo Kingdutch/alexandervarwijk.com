@@ -70,3 +70,9 @@ yarn-error.log
 
 # vercel
 .vercel
+
+# Remix cache
+/.cache
+
+# Cloudflare Wrangler folder
+.wrangler
