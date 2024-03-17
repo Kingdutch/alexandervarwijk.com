@@ -12,7 +12,7 @@ export default function App({ Component, pageProps }) {
       <Layout>
         <Component {...pageProps} />
       </Layout>
-      <Script src="https://scripts.simpleanalyticscdn.com/latest.js" />
+      <Script src="https://visit.alexandervarwijk.com/latest.js" />
     </AnimateSharedLayout>
   );
 }

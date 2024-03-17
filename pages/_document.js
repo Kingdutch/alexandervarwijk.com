@@ -28,8 +28,8 @@ const getCsp = (props) => {
   return "default-src 'self' https://*.convertkit.com https://alexandervarwijk.ck.page; frame-src https://www.slideshare.net https://www.youtube.com; frame-ancestors: 'none'; " +
     process.env.NODE_ENV ===
     'production'
-    ? `script-src 'self' https://*.convertkit.com https://alexandervarwijk.ck.page https://scripts.simpleanalyticscdn.com ${cspHash}`
-    : `style-src 'self' 'unsafe-inline'; font-src 'self' data:; script-src 'unsafe-eval' 'self' https://*.convertkit.com https://alexandervarwijk.ck.page https://scripts.simpleanalyticscdn.com ${cspHash}`;
+    ? `script-src 'self' https://*.convertkit.com https://alexandervarwijk.ck.page https://visit.alexandervarwijk.com ${cspHash}`
+    : `style-src 'self' 'unsafe-inline'; font-src 'self' data:; script-src 'unsafe-eval' 'self' https://*.convertkit.com https://alexandervarwijk.ck.page https://visit.alexandervarwijk.com ${cspHash}`;
 };
 
 class Document extends NextDocument {
