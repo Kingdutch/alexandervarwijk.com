@@ -17,6 +17,24 @@ function ConvertKitNewsletter({ className }) {
     script.setAttribute('data-uid', '3291cf134a');
     wrapper.current.innerHtml = '';
     wrapper.current.appendChild(script);
+
+    // Wire up the ConvertKit submit button to Simple Analytics.
+    const onReadyStateChange = () => {
+      // Loop through all forms but only process the ones not already marked,
+      // this ensures multiple forms on a single page work.
+      document.querySelectorAll('.formkit-form').forEach(el => {
+        if (!el.hasAttribute('data-sa-linked')) {
+          el.setAttribute('data-sa-linked', '');
+          el.addEventListener('submit', () => {
+            if (typeof sa_event === "function") {
+              sa_event("convertkit-form-submit", { form_id: el.getAttribute('data-sv-form') });
+            }
+          });
+        }
+      })
+      script.removeEventListener('load', onReadyStateChange)
+    }
+    script.addEventListener('load', onReadyStateChange);
   }, []);
 
   return (
