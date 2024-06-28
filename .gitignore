@@ -55,9 +55,6 @@ typings/
 # Output of 'npm pack'
 *.tgz
 
-# dotenv environment variables file
-.env
-
 # Mac files
 .DS_Store
 
@@ -70,6 +67,10 @@ yarn-error.log
 
 # vercel
 .vercel
+
+# Environment specific dotenv files
+.env.*
+!.env.development.dist
 
 # Drupal project development configuration.
 /.editorconfig

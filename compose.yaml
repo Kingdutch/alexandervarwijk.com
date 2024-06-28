@@ -1,0 +1,82 @@
+################################################################################
+# Provides everything needed to build production images.                       #
+#                                                                              #
+# Uses compose.prod.yaml as a base to be able to build all the images in a     #
+# production setting. If you want to run production images locally, use that   #
+# file directly instead. By default, docker compose will also apply            #
+# compose.override.yaml on top of this file to provide you with a local        #
+# development environment.                                                     #
+#                                                                              #
+# This file omits descriptions for services that are extended from other       #
+# files. Refer to those files instead.                                         #
+#                                                                              #
+# This file assumes that composer credentials are provided as COMPOSER_AUTH    #
+# environment variable. Add `-f compose.composer_auth.yaml` to your docker     #
+# compose call to use your local `~/.composer.auth.json` file instead.         #
+#                                                                              #
+# For help with docker compose see https://docs.docker.com/compose/reference/  #
+# For syntax see https://docs.docker.com/compose/compose-file/                 #
+################################################################################
+name: alexandervarwijk-com
+
+# Common build configuration for all the targets built from docker/web/Dockerfile.
+x-build-dockerfile: &build-dockerfile
+  context: .
+  dockerfile: docker/web/Dockerfile
+  secrets:
+    - composer-auth
+  args:
+    NGINX_VERSION: $NGINX_VERSION
+    NGINX_ALPINE_VERSION: $NGINX_ALPINE_VERSION
+    PHP_VERSION: $PHP_VERSION
+    PHP_ALPINE_VERSION: $PHP_ALPINE_VERSION
+    COMPOSER_VERSION: $COMPOSER_VERSION
+  platforms:
+    - linux/amd64
+    - linux/arm64
+
+services:
+  router:
+    extends:
+      file: compose.prod.yaml
+      service: router
+    environment: !reset []
+    build:
+      <<: *build-dockerfile
+      target: router-runtime
+      cache_from:
+        - type=registry,ref=ghcr.io/kingdutch/alexandervarwijk-website-router:latest
+
+  website:
+    extends:
+      file: compose.prod.yaml
+      service: website
+    environment: !reset []
+    build:
+      <<: *build-dockerfile
+      target: php-fpm-runtime
+      cache_from:
+        - type=registry,ref=ghcr.io/kingdutch/alexandervarwijk-website-php-fpm:latest
+
+  cli:
+    extends:
+      file: compose.prod.yaml
+      service: cli
+    environment: !reset []
+    build:
+      <<: *build-dockerfile
+      target: php-cli-runtime
+      cache_from:
+        - type=registry,ref=ghcr.io/kingdutch/alexandervarwijk-website-php-cli:latest
+
+  database:
+    extends:
+      file: compose.prod.yaml
+      service: database
+
+volumes:
+  database:
+
+secrets:
+  composer-auth:
+    environment: 'COMPOSER_AUTH'

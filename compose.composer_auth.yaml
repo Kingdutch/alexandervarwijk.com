@@ -1,0 +1,16 @@
+################################################################################
+# Provides a way to load the composer auth information from disk.              #
+#                                                                              #
+# The default compose file expects secrets to be provided through environment  #
+# variables. This works well on the CI but can be difficult if you're trying   #
+# to build an image locally. When added to a compose command this file will    #
+# use the developers' local auth information instead.                          #
+#                                                                              #
+# To run docker compose in this way (e.g. to build production images locally): #
+#                                                                              #
+#     docker compose -f compose.yaml -f compose.composer_auth.yaml <command>   #
+################################################################################
+secrets:
+  composer-auth:
+    file: $HOME/.composer/auth.json
+    environment: !reset null

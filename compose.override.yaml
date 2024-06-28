@@ -1,0 +1,74 @@
+################################################################################
+# Provides development overrides on top of the production set-up.              #
+#                                                                              #
+# The compose.override.yaml is automatically loaded on top of the compose.yaml #
+# file if no file is explicitly specified with `docker compose -f`.            #
+#                                                                              #
+# The development front-controller will be available at                        #
+#                                                                              #
+#     localhost.alexandervarwijk.com                                           #
+#                                                                              #
+# To start the containers in this project run                                  #
+#                                                                              #
+#     docker compose up --detach                                               #
+#                                                                              #
+# Images in this override are reset to prevent accidental pushing of           #
+# development build configurations to production image names.                  #
+# Build secrets are reset because they should not be needed in development.    #
+#                                                                              #
+# This file omits descriptions for services that are extended from other       #
+# files. Refer to those files instead.                                         #
+#                                                                              #
+# For information on how docker compose files are merged see                   #
+# https://docs.docker.com/compose/multiple-compose-files/merge/                #
+################################################################################
+services:
+  router:
+    image: !reset null
+    build:
+      target: router-development
+      secrets: !reset []
+    env_file:
+      - .env.development
+    volumes_from:
+      - website:ro
+    networks:
+      default:
+        aliases:
+          - localhost.alexandervarwijk.com
+    ports:
+      - "80:80"
+    tmpfs:
+      - /tmp
+
+  website:
+    image: !reset null
+    build:
+      target: php-fpm-development
+      secrets: !reset []
+    env_file:
+      - .env.development
+    volumes:
+      - .:/app/:delegated
+      - ./docker/web/php/fpm-development.ini:/usr/local/etc/php/conf.d/drupal-php.ini:ro
+
+  cli:
+    profiles:
+      - cli
+    image: !reset null
+    build:
+      target: php-cli-development
+      secrets: !reset []
+    env_file:
+      - .env.development
+    volumes:
+      - .:/app/:delegated
+      - ./docker/web/php/cli-development.ini:/usr/local/etc/php/conf.d/drupal-php.ini:ro
+
+  database:
+    env_file:
+      - .env.development
+    volumes:
+      - database:/var/lib/mysql
+    ports:
+      - "3306"

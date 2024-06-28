@@ -1,0 +1,82 @@
+################################################################################
+# Provides a production set-up for a Drupal website.                           #
+#                                                                              #
+# This file assumes that environment variables that are needed by our          #
+# production images are provided. You may need to do this by manually          #
+# specifying a proper env-file or looking at your cloud provider               #
+# documentation.                                                               #
+################################################################################
+
+# Variables that control how the router interacts with other services.
+x-router-environment: &router-env
+  DRUPAL_ROUTER_UPSTREAM:
+
+# Environment variables that need to be made available in all PHP/Drupal based
+# containers which are provided by the workflow environment.
+x-php-environment: &php-env
+  DRUPAL_DATABASE:
+  DRUPAL_DATABASE_USERNAME:
+  DRUPAL_DATABASE_PASSWORD:
+  DRUPAL_DATABASE_HOST:
+  DRUPAL_DATABASE_PORT:
+  DRUPAL_PRIVATE_FILE_PATH:
+  DRUPAL_PROJECT_ENTROPY:
+
+# Environment variables used to control the initialisation of the MariaDB image.
+x-database-environment: &database-env
+  MARIADB_DATABASE:
+  MARIADB_ROOT_PASSWORD:
+
+services:
+  ##############################################################################
+  # Router                                                                     #
+  #                                                                            #
+  # The router is responsible for handling non-SSL web traffic (from a load    #
+  # balancer) and will use FastCGI to pass any PHP requests to the community   #
+  # container.                                                                 #
+  ##############################################################################
+  router:
+    environment: *router-env
+    image: ghcr.io/kingdutch/alexandervarwijk-website-router:${WEBSITE_VERSION:-}
+    depends_on:
+      - website
+
+  ##############################################################################
+  # Website PHP-FPM                                                            #
+  #                                                                            #
+  # The PHP-FPM container will receive PHP requests using the FastCGI protocol #
+  # from the router and run them with our Drupal-based Open Social application.#
+  ##############################################################################
+  website:
+    environment: *php-env
+    image: ghcr.io/kingdutch/alexandervarwijk-website-php-fpm:${WEBSITE_VERSION:-}
+    depends_on:
+      - database
+
+  ##############################################################################
+  # Drupal CLI                                                                 #
+  #                                                                            #
+  # The CLI container exists to allow running site-install, updates and cron.  #
+  # It's not started by default but can be invoked using `docker run`.         #
+  ##############################################################################
+  cli:
+    environment: *php-env
+    profiles:
+      - cli
+    image: ghcr.io/kingdutch/alexandervarwijk-website-php-cli:${WEBSITE_VERSION:-}
+    depends_on:
+      - database
+
+  ##############################################################################
+  # MariaDB Database                                                           #
+  #                                                                            #
+  # Drupal uses a MariaDB (compatible) database to store all of its data.      #
+  # This includes run-time configuration, user data, content and session data. #
+  ##############################################################################
+  database:
+    environment: *database-env
+    image: mariadb:${MARIADB_VERSION}
+    command: mysqld --max_allowed_packet=16M
+
+volumes:
+  database:
