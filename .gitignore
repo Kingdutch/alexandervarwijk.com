@@ -70,3 +70,36 @@ yarn-error.log
 
 # vercel
 .vercel
+
+# Drupal project development configuration.
+/.editorconfig
+/.gitattributes
+
+# Drupal configuration and files
+/html/sites/default/files
+/files_private
+
+# Composer installed packages
+/vendor/
+/html/core
+/html/modules/contrib
+/html/profiles/contrib
+/html/sites/development.services.yml
+/html/sites/example.settings.local.php
+/html/sites/example.sites.php
+/html/.csslintrc
+/html/.editorconfig
+/html/.eslintignore
+/html/.eslintrc.json
+/html/.gitattributes
+/html/.htaccess
+/html/.ht.router.php
+/html/autoload.php
+/html/example.gitignore
+/html/index.php
+/html/INSTALL.txt
+/html/LICENSE.txt
+/html/README.txt
+/html/robots.txt
+/html/update.php
+/html/web.config
