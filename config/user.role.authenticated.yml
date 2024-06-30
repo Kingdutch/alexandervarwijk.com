@@ -1,0 +1,16 @@
+uuid: 43dac978-64d2-4830-ac67-c80a1b00bd59
+langcode: en
+status: true
+dependencies:
+  module:
+    - media
+    - system
+_core:
+  default_config_hash: dJ0L2DNSj5q6XVZAGsuVDpJTh5UeYkIPwKrUOOpr8YI
+id: authenticated
+label: 'Authenticated user'
+weight: 1
+is_admin: false
+permissions:
+  - 'access content'
+  - 'view media'

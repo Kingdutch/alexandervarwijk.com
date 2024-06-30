@@ -1,0 +1,33 @@
+_core:
+  default_config_hash: 4GIX5Esnc_umpXUBj4IIocRX7Mt5fPhm4AgXfE3E56E
+module:
+  big_pipe: 0
+  block: 0
+  contextual: 0
+  datetime: 0
+  dynamic_page_cache: 0
+  field: 0
+  file: 0
+  filter: 0
+  image: 0
+  inline_form_errors: 0
+  layout_builder: 0
+  layout_discovery: 0
+  link: 0
+  media: 0
+  menu_link_content: 0
+  mysql: 0
+  navigation: 0
+  node: 0
+  path: 0
+  path_alias: 0
+  system: 0
+  taxonomy: 0
+  text: 0
+  user: 0
+  views: 10
+  minimal: 1000
+theme:
+  claro: 0
+  olivero: 0
+profile: minimal
