@@ -1,0 +1,19 @@
+uuid: a7ca35a9-9e50-42dd-94dd-51ca9fb18f93
+langcode: en
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: sL588ui1E_8-2c_UupwyYxcqX2OVyMFp3HTLbbFqvPc
+id: global
+label: Global
+tags:
+  canonical_url: '[current-page:url]'
+  og_site_name: '[site:name]'
+  og_title: '[current-page:title]'
+  og_type: website
+  og_url: '[current-page:url]'
+  theme_color: '#0067FB'
+  title: '[current-page:title] | [site:name]'
+  twitter_cards_site: '@Kingdutch'
+  twitter_cards_title: '[current-page:title]'
+  twitter_cards_type: summary

@@ -22,6 +22,10 @@
         "composer/installers": "^2.0",
         "drupal/core-composer-scaffold": "^11",
         "drupal/core-recommended": "^11",
+        "drupal/manage_display": "^3.0",
+        "drupal/metatag": "^2.0@dev",
+        "drupal/pathauto": "^1.0@dev",
+        "drupal/redirect": "^1.0@dev",
         "drush/drush": "^13.0@beta"
     },
     "conflict": {
@@ -30,7 +34,7 @@
     "config": {
         "allow-plugins": {
             "composer/installers": true,
-            "drupal/core-composer-scaffold": true
+            "drupal/core-com    poser-scaffold": true
         },
         "sort-packages": true
     },
