@@ -53,7 +53,7 @@ RUN apk add --no-cache \
             # zip
             libzip-dev \
             zip \
-    && docker-php-ext-configure gd --with-freetype --with-jpeg \
+    && docker-php-ext-configure gd --with-freetype --with-jpeg --with-webp \
     && docker-php-ext-install \
             gd  \
             pdo_mysql \
@@ -91,7 +91,7 @@ RUN apk add --no-cache \
             # zip
             libzip-dev \
             zip \
-    && docker-php-ext-configure gd --with-freetype --with-jpeg \
+    && docker-php-ext-configure gd --with-freetype --with-jpeg --with-webp \
     && docker-php-ext-install \
             gd  \
             pdo_mysql \
