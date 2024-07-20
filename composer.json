@@ -28,13 +28,23 @@
         "drupal/redirect": "^1.0@dev",
         "drush/drush": "^13.0@beta"
     },
+    "require-dev": {
+        "dealerdirect/phpcodesniffer-composer-installer": "^1.0",
+        "drupal/coder": "^8.3",
+        "mglaman/phpstan-drupal": "^1.2",
+        "phpstan/extension-installer": "^1.4",
+        "phpstan/phpstan": "^1.11",
+        "phpstan/phpstan-deprecation-rules": "^1.2"
+    },
     "conflict": {
         "drupal/drupal": "*"
     },
     "config": {
         "allow-plugins": {
             "composer/installers": true,
-            "drupal/core-com    poser-scaffold": true
+            "drupal/core-composer-scaffold": true,
+            "dealerdirect/phpcodesniffer-composer-installer": true,
+            "phpstan/extension-installer": true
         },
         "sort-packages": true
     },
