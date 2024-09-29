@@ -1,0 +1,101 @@
+################################################################################
+# Development set-up for the website using Docker.                             #
+################################################################################
+name: website
+
+# Common build configuration for all the targets built from docker/website/Dockerfile.
+x-build-dockerfile: &build-dockerfile
+  context: .
+  dockerfile: docker/website/Dockerfile
+  args:
+    NGINX_VERSION: $NGINX_VERSION
+    NGINX_ALPINE_VERSION: $NGINX_ALPINE_VERSION
+    PHP_VERSION: $PHP_VERSION
+    PHP_ALPINE_VERSION: $PHP_ALPINE_VERSION
+    COMPOSER_VERSION: $COMPOSER_VERSION
+  platforms:
+    - linux/amd64
+    - linux/arm64
+
+# Variables that control how the router interacts with other services.
+x-router-environment: &router-env
+  WEBSITE_ROUTER_UPSTREAM:
+
+# Environment variables that need to be made available in all PHP/Drupal based
+# containers which are provided by the workflow environment.
+x-php-environment: &php-env
+  WEBSITE_DATABASE:
+  WEBSITE_DATABASE_USERNAME:
+  WEBSITE_DATABASE_PASSWORD:
+  WEBSITE_DATABASE_HOST:
+  WEBSITE_DATABASE_PORT:
+  WEBSITE_PRIVATE_FILE_PATH:
+  WEBSITE_PROJECT_ENTROPY:
+
+# Environment variables used to control the initialisation of the MariaDB image.
+x-database-environment: &database-env
+  MARIADB_DATABASE:
+  MARIADB_ROOT_PASSWORD:
+
+services:
+  router:
+    environment: *router-env
+    build:
+      <<: *build-dockerfile
+      target: router-development
+    env_file:
+      - .env.development
+    volumes_from:
+      - website:ro
+    networks:
+      default:
+        aliases:
+          - ${WEBSITE_ROUTER_ALIAS:-cablecar.localhost.getopensocial.net}
+    ports:
+      - "80:80"
+    tmpfs:
+      - /tmp
+
+  website:
+    environment: *php-env
+    build:
+      <<: *build-dockerfile
+      target: php-fpm-development
+    env_file:
+      - .env.development
+    depends_on:
+      - database
+    volumes:
+      - .:/app/:delegated
+      - ./docker/website/settings.docker.php:/app/html/sites/default/settings.docker.php:ro
+      - ./docker/website/php-fpm-development.ini:/usr/local/etc/php/conf.d/website-php.ini:ro
+
+  cli:
+    environment: *php-env
+    profiles:
+      - cli
+    build:
+      <<: *build-dockerfile
+      target: php-cli-development
+    env_file:
+      - .env.development
+    depends_on:
+      - database
+    volumes:
+      - .:/app/:delegated
+      - ./docker/website/settings.docker.php:/app/html/sites/default/settings.docker.php:ro
+      - ./docker/website/php-fpm-development.ini:/usr/local/etc/php/conf.d/website-php.ini:ro
+
+  database:
+    environment: *database-env
+    image: mariadb:${MARIADB_VERSION}
+    command: mysqld --max_allowed_packet=16M
+    env_file:
+      - .env.development
+    volumes:
+      - database:/var/lib/mysql
+    ports:
+      - "3306"
+
+volumes:
+  database:

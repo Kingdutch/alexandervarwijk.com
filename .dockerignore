@@ -1,0 +1,11 @@
+# We ignore all files and then allow only those files to be added to docker that
+# are required for our open_social docker file.
+#
+# For syntax see
+*
+!composer.json
+!composer.lock
+!docker
+
+# Allow the settings.php file to be added for our CI image.
+!html/sites/default/settings.php
