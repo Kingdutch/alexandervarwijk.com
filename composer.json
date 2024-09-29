@@ -3,13 +3,14 @@
   "description": "Alexander's Homepage",
   "license": "MIT",
   "type": "project",
-  "minimum-stability": "stable",
+  "minimum-stability": "rc",
   "prefer-stable": true,
   "require": {
     "composer/installers": "^2.1",
     "cweagans/composer-patches": "^1.7",
-    "drupal/core-composer-scaffold": "^11",
     "drupal/core": "^11",
+    "drupal/core-composer-scaffold": "^11",
+    "drupal/gin": "^3.0@RC",
     "drush/drush": "^13",
     "oomphinc/composer-installers-extender": "^2.0"
   },
