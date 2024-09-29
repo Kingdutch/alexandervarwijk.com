@@ -1,0 +1,15 @@
+_core:
+  default_config_hash: HlN7eAN2N4JIHsYv56V4E7sqC9bS609KwvGFjyD_mgk
+langcode: en
+uuid: 7babdf63-4413-407c-82bb-f4087b1ffff4
+name: 'Alexander Varwijk'
+mail: devel@example.com
+slogan: 'The thoughts and musings of Alexander Varwijk - Full Stack developer.'
+page:
+  403: ''
+  404: ''
+  front: /user/login
+admin_compact_mode: false
+weight_select_max: 100
+default_langcode: en
+mail_notification: ''
