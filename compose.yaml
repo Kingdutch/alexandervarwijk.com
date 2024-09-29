@@ -17,29 +17,8 @@ x-build-dockerfile: &build-dockerfile
     - linux/amd64
     - linux/arm64
 
-# Variables that control how the router interacts with other services.
-x-router-environment: &router-env
-  WEBSITE_ROUTER_UPSTREAM:
-
-# Environment variables that need to be made available in all PHP/Drupal based
-# containers which are provided by the workflow environment.
-x-php-environment: &php-env
-  WEBSITE_DATABASE:
-  WEBSITE_DATABASE_USERNAME:
-  WEBSITE_DATABASE_PASSWORD:
-  WEBSITE_DATABASE_HOST:
-  WEBSITE_DATABASE_PORT:
-  WEBSITE_PRIVATE_FILE_PATH:
-  WEBSITE_PROJECT_ENTROPY:
-
-# Environment variables used to control the initialisation of the MariaDB image.
-x-database-environment: &database-env
-  MARIADB_DATABASE:
-  MARIADB_ROOT_PASSWORD:
-
 services:
   router:
-    environment: *router-env
     build:
       <<: *build-dockerfile
       target: router-development
@@ -57,7 +36,6 @@ services:
       - /tmp
 
   website:
-    environment: *php-env
     build:
       <<: *build-dockerfile
       target: php-fpm-development
@@ -71,7 +49,6 @@ services:
       - ./docker/website/php-fpm-development.ini:/usr/local/etc/php/conf.d/website-php.ini:ro
 
   cli:
-    environment: *php-env
     profiles:
       - cli
     build:
@@ -87,7 +64,6 @@ services:
       - ./docker/website/php-fpm-development.ini:/usr/local/etc/php/conf.d/website-php.ini:ro
 
   database:
-    environment: *database-env
     image: mariadb:${MARIADB_VERSION}
     command: mysqld --max_allowed_packet=16M
     env_file:

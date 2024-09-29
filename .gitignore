@@ -20,8 +20,14 @@
 # Ignore sensitive information.
 /html/sites/*/settings.php
 
+# Ignore artifacts arrising from docker symlinks.
+/html/sites/*/settings.docker.php
+
 # Ignore Drupal's file directory.
 /html/sites/*/files/
+
+# IGnore private files
+/files_private/
 
 # Ignore SimpleTest multi-site environment.
 /html/sites/simpletest
