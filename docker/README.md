@@ -4,7 +4,7 @@ This folder contains the things needed to run the website in a dockerized
 manner.
 
 ## website/Dockerfile
-For the website we currently only have a single Dockerfile located in the `website/` folder. 
+For the website we currently only have a single Dockerfile located in the `website/` folder.
 This Dockerfile can build into a few different images:
 
 1) php-cli-environment
