@@ -6,8 +6,12 @@ dependencies:
     - core.entity_view_mode.node.teaser
     - field.field.node.post.body
     - field.field.node.post.field_hero_image
+    - field.field.node.post.field_seo_analysis
+    - field.field.node.post.field_seo_description
+    - field.field.node.post.field_seo_title
     - node.type.post
   module:
+    - media
     - text
     - user
 id: node.post.teaser
@@ -21,12 +25,25 @@ content:
     settings:
       trim_length: 600
     third_party_settings: {  }
-    weight: 101
+    weight: 1
+    region: content
+  field_hero_image:
+    type: media_thumbnail
+    label: hidden
+    settings:
+      image_link: content
+      image_style: ''
+      image_loading:
+        attribute: lazy
+    third_party_settings: {  }
+    weight: 0
     region: content
   links:
     settings: {  }
     third_party_settings: {  }
-    weight: 100
+    weight: 2
     region: content
 hidden:
-  field_hero_image: true
+  field_seo_analysis: true
+  field_seo_description: true
+  field_seo_title: true

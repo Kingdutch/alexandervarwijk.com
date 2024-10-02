@@ -1,0 +1,19 @@
+uuid: 77da6bdd-4bb4-49bb-a3ff-616bd7963727
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_seo_title
+    - node.type.post
+id: node.post.field_seo_title
+field_name: field_seo_title
+entity_type: node
+bundle: post
+label: 'SEO Title'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

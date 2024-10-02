@@ -1,0 +1,17 @@
+uuid: 13d3aed1-50ff-4c04-a125-101c82b92166
+langcode: en
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: sL588ui1E_8-2c_UupwyYxcqX2OVyMFp3HTLbbFqvPc
+id: global
+label: Global
+tags:
+  referrer: unsafe-url
+  title: '[current-page:title] | [site:name]'
+  canonical_url: '[current-page:url:absolute]'
+  shortlink: '[current-page:url:unaliased]'
+  rights: 'Copyright ©[date:html_year] All rights reserved.'
+  og_url: '[current-page:url:absolute]'
+  og_site_name: '[site:name]'
+  twitter_cards_type: summary
