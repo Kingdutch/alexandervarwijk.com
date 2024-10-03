@@ -1,0 +1,7 @@
+"https://{default}/":
+  type: upstream
+  upstream: "cms:http"
+
+"https://{all}/":
+  type: redirect
+  to: "https://{default}/"
