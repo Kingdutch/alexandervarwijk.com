@@ -17,9 +17,6 @@
 /html/profiles/contrib/
 /html/libraries/
 
-# Ignore sensitive information.
-/html/sites/*/settings.php
-
 # Ignore artifacts arrising from docker symlinks.
 /html/sites/*/settings.docker.php
 
