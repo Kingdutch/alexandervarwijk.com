@@ -1,0 +1,109 @@
+- name: cms
+
+  type: 'php:8.3'
+
+  build:
+    flavor: composer
+
+  dependencies:
+    php:
+      composer/composer: '^2.7'
+
+  runtime:
+    extensions:
+      - sodium
+      - apcu
+
+  relationships:
+    database: 'database:mysql'
+
+  disk: 2048
+
+  mounts:
+    '/html/sites/default/files':
+      source: local
+      source_path: 'files'
+    '/tmp':
+      source: local
+      source_path: 'tmp'
+    '/files_private':
+      source: local
+      source_path: 'files_private'
+    "/.drush":
+      source: local
+      source_path: 'drush'
+
+  hooks:
+    deploy: |
+      set -e
+      php ./drush/platformsh_generate_drush_yml.php
+      cd html
+      if [ -n "$(drush status --field=bootstrap)" ]; then
+        drush -y cache-rebuild
+        drush -y updatedb
+        if [ -n "$(ls $(drush php:eval "echo realpath(Drupal\Core\Site\Settings::get('config_sync_directory'));")/*.yml 2>/dev/null)" ]; then
+          drush -y config-import
+        else
+          echo "No config to import. Skipping."
+        fi
+      else
+        echo "Drupal not installed. Skipping standard Drupal deploy steps"
+      fi
+
+  web:
+    locations:
+      '/':
+        root: 'html'
+
+        # How long to allow static assets from this location to be cached.
+        #
+        # Can be a time in seconds, or -1 for no caching. Times can be
+        # suffixed with "s" (seconds), "m" (minutes), "h" (hours), "d"
+        # (days), "w" (weeks), "M" (months, as 30 days) or "y" (years, as
+        # 365 days).
+        expires: -1
+
+        # Redirect any incoming request to Drupal's front controller.
+        passthru: '/index.php'
+
+        # Deny access to all static files, except those specifically allowed below.
+        allow: false
+
+        # Rules for specific URI patterns.
+        rules:
+          # Allow access to common static files.
+          '\.(avif|webp|jpe?g|png|gif|svgz?|css|js|map|ico|bmp|eot|woff2?|otf|ttf)$':
+            allow: true
+          '^/robots\.txt$':
+            allow: true
+          '^/sitemap\.xml$':
+            allow: true
+
+          # Deny direct access to configuration files.
+          '^/sites/sites\.php$':
+            scripts: false
+          '^/sites/[^/]+/settings.*?\.php$':
+            scripts: false
+
+      # The files directory has its own special configuration rules.
+      '/sites/default/files':
+        # Allow access to all files in the public files directory.
+        allow: true
+        expires: -1
+        passthru: '/index.php'
+        root: 'html/sites/default/files'
+
+        # Do not execute PHP scripts from the writeable mount.
+        scripts: false
+
+        rules:
+          # Provide a longer TTL for aggregated CSS and JS files.
+          '^/sites/default/files/(css|js)':
+            expires: -1
+
+  crons:
+    # Run Drupal's cron tasks every 19 minutes.
+    drupal:
+      spec: '*/19 * * * *'
+      commands:
+        start: 'cd web ; drush core-cron'

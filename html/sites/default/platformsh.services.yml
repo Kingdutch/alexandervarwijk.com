@@ -1,0 +1,5 @@
+parameters:
+  # Make sure our login sessions stay for 30 days.
+  session.storage.options:
+    gc_maxlifetime: 2000000
+    cookie_lifetime: 2000000
