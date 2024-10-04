@@ -1,5 +1,8 @@
 parameters:
-  # Make sure our login sessions stay for 30 days.
+  # Make it possible to use User 1 as editor without security risk.
+  security.enable_super_user: false
+  # Make sure our login sessions stay for 30 days and are strict by domain.
   session.storage.options:
     gc_maxlifetime: 2000000
     cookie_lifetime: 2000000
+    cookie_samesite: Strict
