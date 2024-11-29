@@ -1,0 +1,9 @@
+uuid: fd0a84fc-9142-4e73-a3cf-d835a64c003e
+langcode: en
+status: true
+dependencies: {  }
+name: 'Talk Types'
+vid: talk_types
+description: null
+weight: 0
+new_revision: false

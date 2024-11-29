@@ -8,6 +8,7 @@ dependencies:
     - field.field.node.talk.field_presenter_notes
     - field.field.node.talk.field_recording
     - field.field.node.talk.field_slides
+    - field.field.node.talk.field_type
     - node.type.talk
   module:
     - text
@@ -23,12 +24,20 @@ content:
     settings:
       trim_length: 600
     third_party_settings: {  }
-    weight: 101
+    weight: 2
+    region: content
+  field_type:
+    type: entity_reference_label
+    label: hidden
+    settings:
+      link: false
+    third_party_settings: {  }
+    weight: 0
     region: content
   links:
     settings: {  }
     third_party_settings: {  }
-    weight: 100
+    weight: 1
     region: content
 hidden:
   field_presenter_notes: true
