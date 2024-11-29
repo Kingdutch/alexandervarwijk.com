@@ -1,0 +1,24 @@
+uuid: ee17704a-18c3-49c6-816e-937a6cc1f8f1
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.body
+    - node.type.talk
+  module:
+    - text
+id: node.talk.body
+field_name: body
+entity_type: node
+bundle: talk
+label: Description
+description: ''
+required: true
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  display_summary: true
+  required_summary: true
+  allowed_formats: {  }
+field_type: text_with_summary

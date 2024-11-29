@@ -1,0 +1,27 @@
+uuid: fe1b17c1-47da-4408-b9c3-8c059e454532
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.media.slides_pdf.field_media_file
+    - media.type.slides_pdf
+  module:
+    - file
+id: media.slides_pdf.default
+targetEntityType: media
+bundle: slides_pdf
+mode: default
+content:
+  field_media_file:
+    type: file_default
+    label: visually_hidden
+    settings:
+      use_description_as_link_text: true
+    third_party_settings: {  }
+    weight: 0
+    region: content
+hidden:
+  created: true
+  name: true
+  thumbnail: true
+  uid: true

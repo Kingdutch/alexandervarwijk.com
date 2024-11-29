@@ -1,0 +1,36 @@
+uuid: 4f4f680e-024e-4c82-80bc-4b1b5cf23b8c
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.teaser
+    - field.field.node.talk.body
+    - field.field.node.talk.field_presenter_notes
+    - field.field.node.talk.field_recording
+    - field.field.node.talk.field_slides
+    - node.type.talk
+  module:
+    - text
+    - user
+id: node.talk.teaser
+targetEntityType: node
+bundle: talk
+mode: teaser
+content:
+  body:
+    type: text_summary_or_trimmed
+    label: hidden
+    settings:
+      trim_length: 600
+    third_party_settings: {  }
+    weight: 101
+    region: content
+  links:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 100
+    region: content
+hidden:
+  field_presenter_notes: true
+  field_recording: true
+  field_slides: true

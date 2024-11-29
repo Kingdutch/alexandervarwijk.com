@@ -1,0 +1,14 @@
+uuid: 9f9bbdcc-bb07-4f56-a277-3d81c3da3524
+langcode: en
+status: true
+dependencies: {  }
+id: slides_pdf
+label: 'Slides (PDF)'
+description: ''
+source: file
+queue_thumbnail_downloads: false
+new_revision: false
+source_configuration:
+  source_field: field_media_file
+field_map:
+  name: name

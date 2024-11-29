@@ -1,0 +1,11 @@
+uuid: 4b34e56e-61d7-4b4a-97c6-f0e6a523cf1d
+langcode: en
+status: true
+dependencies: {  }
+name: Talk
+type: talk
+description: 'A talk that was given at a conference or meetup.'
+help: null
+new_revision: false
+preview_mode: 1
+display_submitted: false

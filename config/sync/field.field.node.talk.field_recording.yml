@@ -1,0 +1,29 @@
+uuid: 6417ebf0-090b-4970-93da-ea71c63fa3ee
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_recording
+    - media.type.youtube_video
+    - node.type.talk
+id: node.talk.field_recording
+field_name: field_recording
+entity_type: node
+bundle: talk
+label: Recording
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:media'
+  handler_settings:
+    target_bundles:
+      youtube_video: youtube_video
+    sort:
+      field: name
+      direction: ASC
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

@@ -1,0 +1,20 @@
+uuid: 97b3f529-8477-46ae-b118-be001ba85644
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_form_mode.media.media_library
+    - field.field.media.slides_pdf.field_media_file
+    - media.type.slides_pdf
+id: media.slides_pdf.media_library
+targetEntityType: media
+bundle: slides_pdf
+mode: media_library
+content: {  }
+hidden:
+  created: true
+  field_media_file: true
+  name: true
+  path: true
+  status: true
+  uid: true

@@ -1,0 +1,56 @@
+uuid: bd9ea034-6fcc-4ed8-aa38-4bd9cab814a4
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.talk.body
+    - field.field.node.talk.field_presenter_notes
+    - field.field.node.talk.field_recording
+    - field.field.node.talk.field_slides
+    - node.type.talk
+  module:
+    - text
+    - user
+id: node.talk.default
+targetEntityType: node
+bundle: talk
+mode: default
+content:
+  body:
+    type: text_default
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 101
+    region: content
+  field_presenter_notes:
+    type: basic_string
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 104
+    region: content
+  field_recording:
+    type: entity_reference_entity_view
+    label: above
+    settings:
+      view_mode: default
+      link: false
+    third_party_settings: {  }
+    weight: 103
+    region: content
+  field_slides:
+    type: entity_reference_entity_view
+    label: above
+    settings:
+      view_mode: default
+      link: false
+    third_party_settings: {  }
+    weight: 102
+    region: content
+  links:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 100
+    region: content
+hidden: {  }
