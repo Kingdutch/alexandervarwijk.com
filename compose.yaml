@@ -29,7 +29,7 @@ services:
     networks:
       default:
         aliases:
-          - ${WEBSITE_ROUTER_ALIAS:-cablecar.localhost.getopensocial.net}
+          - ${WEBSITE_ROUTER_ALIAS:-localhost.alexandervarwijk.com}
     ports:
       - "80:80"
     tmpfs:
