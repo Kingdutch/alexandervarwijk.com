@@ -24,6 +24,7 @@ module:
   system: 0
   text: 0
   token: 0
+  token_or: 0
   toolbar: 0
   user: 0
   yoast_seo: 0
