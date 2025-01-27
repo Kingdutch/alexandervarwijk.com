@@ -1,0 +1,74 @@
+html {
+  font-family: ui-sans-serif,system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, Noto Sans, sans-serif,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol,Noto Color Emoji;
+  font-feature-settings: normal;
+  font-variation-settings: normal;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+}
+
+header > div, main > div, footer > div {
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 48rem;
+  }
+
+header {
+  color: white;
+  background-color: rgb(37, 99, 235);
+}
+
+@media (prefers-color-scheme: dark) {
+    header {
+      color: rgb(229, 231, 235);
+      background-color: rgb(17, 24, 39);
+    }
+  }
+
+header > div {
+    display: flex;
+    align-items: center;
+  }
+
+#block-av-branding {
+  margin-right: auto;
+}
+
+#block-av-branding a {
+    color: inherit;
+    text-decoration: inherit;
+
+    font-size: 1.5rem;
+    font-weight: 500;
+    line-height: 2rem;
+  }
+
+#block-av-mainnavigation {
+  margin-left: auto;
+}
+
+#block-av-mainnavigation ul {
+    display: flex;
+    padding: 0;
+    list-style: none;
+  }
+
+#block-av-mainnavigation li:not(:last-child) {
+    margin-right: .25rem;
+  }
+
+#block-av-mainnavigation li a {
+    display: inline-block;
+    margin-left: .25rem;
+    margin-right: .25rem;
+    padding: .25rem;
+
+    color: inherit;
+    text-decoration: inherit;
+  }
+
+#block-av-mainnavigation li + li {
+    list-style: "·";
+  }

@@ -1,0 +1,5 @@
+base:
+  css:
+    theme:
+      styles/base/global.css: {}
+      styles/base/color.css: {}

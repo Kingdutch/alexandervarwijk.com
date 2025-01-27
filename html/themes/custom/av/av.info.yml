@@ -1,0 +1,17 @@
+name: My Theme
+type: theme
+base theme: false
+description: 'The theme for my website.'
+core_version_requirement: ^11
+
+enforce_prop_schemas: true
+
+libraries:
+  - av/base
+
+regions:
+  header: Header
+  breadcrumb: Breadcrumb
+  highlighted: Highlighted
+  content: Content
+  footer: Footer

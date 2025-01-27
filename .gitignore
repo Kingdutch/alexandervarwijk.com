@@ -20,6 +20,9 @@
 # Ignore artifacts arrising from docker symlinks.
 /html/sites/*/settings.docker.php
 
+# Ignore local settings overrides.
+/html/sites/*/settings.local.php
+
 # Ignore Drupal's file directory.
 /html/sites/*/files/
 

@@ -1,13 +1,13 @@
-uuid: d7cfdc5d-4dd2-4b71-a1ae-9c9ae9d7b17f
+uuid: 024f6b6e-e936-4db5-b2ee-94672eb94f93
 langcode: en
 status: true
 dependencies:
   theme:
-    - stark
+    - av
 _core:
   default_config_hash: T0wbI6qVdThbbIqXDZFg_1VZ3_ittXBdEoUH7d7ux_E
-id: stark_local_tasks
-theme: stark
+id: av_local_tasks
+theme: av
 region: content
 weight: -20
 provider: null

@@ -1,17 +1,17 @@
-uuid: 2c048a18-fdf2-4f66-8ad8-3f90963afd05
+uuid: e213eb2b-e4c5-474e-9ef4-eaec0904c1a1
 langcode: en
 status: true
 dependencies:
   module:
     - system
   theme:
-    - stark
+    - av
 _core:
   default_config_hash: sG8t_FghbUscJ-GrnQ8zs_vx5YM4bJCfntrK-J5HcAY
-id: stark_branding
-theme: stark
+id: av_branding
+theme: av
 region: header
-weight: 0
+weight: -2
 provider: null
 plugin: system_branding_block
 settings:
@@ -19,7 +19,7 @@ settings:
   label: 'Site branding'
   label_display: '0'
   provider: system
-  use_site_logo: true
+  use_site_logo: false
   use_site_name: true
-  use_site_slogan: true
+  use_site_slogan: false
 visibility: {  }

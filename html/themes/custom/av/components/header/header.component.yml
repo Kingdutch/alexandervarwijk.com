@@ -1,0 +1,5 @@
+name: Header
+props:
+  type: object
+  additionalProperties: false
+  properties: {}

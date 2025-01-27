@@ -1,0 +1,25 @@
+uuid: c169d0cb-5e14-445b-a55d-e97dc0a4b1e9
+langcode: en
+status: true
+dependencies:
+  config:
+    - system.menu.main
+  module:
+    - system
+  theme:
+    - av
+id: av_mainnavigation
+theme: av
+region: header
+weight: -1
+provider: null
+plugin: 'system_menu_block:main'
+settings:
+  id: 'system_menu_block:main'
+  label: 'Main navigation'
+  label_display: '0'
+  provider: system
+  level: 1
+  depth: 0
+  expand_all_items: false
+visibility: {  }
