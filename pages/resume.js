@@ -61,13 +61,6 @@ export default function Resume() {
               </svg>
               <a href="https://github.com/Kingdutch/">Kingdutch</a>
             </li>
-            <li>
-              <svg className={mastodon} xmlns="http://www.w3.org/2000/svg" width="19" height="19" viewBox="0 0 216.4144 232.00976">
-                <path d="M211.80734 139.0875c-3.18125 16.36625-28.4925 34.2775-57.5625 37.74875-15.15875 1.80875-30.08375 3.47125-45.99875 2.74125-26.0275-1.1925-46.565-6.2125-46.565-6.2125 0 2.53375.15625 4.94625.46875 7.2025 3.38375 25.68625 25.47 27.225 46.39125 27.9425 21.11625.7225 39.91875-5.20625 39.91875-5.20625l.8675 19.09s-14.77 7.93125-41.08125 9.39c-14.50875.7975-32.52375-.365-53.50625-5.91875C9.23234 213.82 1.40609 165.31125.20859 116.09125c-.365-14.61375-.14-28.39375-.14-39.91875 0-50.33 32.97625-65.0825 32.97625-65.0825C49.67234 3.45375 78.20359.2425 107.86484 0h.72875c29.66125.2425 58.21125 3.45375 74.8375 11.09 0 0 32.975 14.7525 32.975 65.0825 0 0 .41375 37.13375-4.59875 62.915"/>
-                <path d="M177.50984 80.077v60.94125h-24.14375v-59.15c0-12.46875-5.24625-18.7975-15.74-18.7975-11.6025 0-17.4175 7.5075-17.4175 22.3525v32.37625H96.20734V85.42325c0-14.845-5.81625-22.3525-17.41875-22.3525-10.49375 0-15.74 6.32875-15.74 18.7975v59.15H38.90484V80.077c0-12.455 3.17125-22.3525 9.54125-29.675 6.56875-7.3225 15.17125-11.07625 25.85-11.07625 12.355 0 21.71125 4.74875 27.8975 14.2475l6.01375 10.08125 6.015-10.08125c6.185-9.49875 15.54125-14.2475 27.8975-14.2475 10.6775 0 19.28 3.75375 25.85 11.07625 6.36875 7.3225 9.54 17.22 9.54 29.675"/>
-              </svg>
-              <a href="https://hachyderm.io/@Kingdutch">@Kingdutch@hachyderm.io</a>
-            </li>
           </ul>
           <h2>Languages</h2>
           <ul className={skills}>
@@ -88,12 +81,12 @@ export default function Resume() {
 
           <h2>Technical Skills</h2>
           <ul className={skills}>
-            <li>GraphQL</li>
             <li>PHP</li>
-            <li>MySQL/PostgresQL</li>
-            <li>JavaScript</li>
             <li>Rust</li>
-            <li>ReScript</li>
+            <li>JavaScript/TypeScript</li>
+            <li>HTML/CSS</li>
+            <li>GraphQL</li>
+            <li>MySQL/PostgresQL</li>
             <li>SOLR</li>
             <li>Redis</li>
             <li>Docker</li>
@@ -123,62 +116,60 @@ export default function Resume() {
             moderating, and writing <a href="https://www.alexandervarwijk.com/blog" className={link}>blog posts</a>.
           </p>
           <h2>Experience</h2>
-          <dl>
-            <div className={nosplit}>
-              <dt>Lead Engineer, Open Social; The Netherlands — 2016-Present</dt>
-              <dd>
-                <p>
-                  I've spearheaded the shift towards a decoupled project. Introducing GraphQL in the company and
-                  educating colleagues. The first feature was a real time chat with a back-end in PHP and a
-                  front-end with ReScript and React. A big part of my work is a push towards a platform vision
-                  for Open Social to enable and encourage third party integrations.
-                </p>
-                <p>
-                  Set up a translation management system using Weblate, Jenkins and custom bash scripts to extract, translate and import translations for Open Social. This replaced a previous workflow with spreadsheets.
-                </p>
-                <p>
-                  Built a site management and deployment system using Jenkins, Ansible and Symfony.
-                  This system allowed us to manage dependencies and bundle these in packages to create various templates for Open Social platforms.
-                  The system could deploy these templates to create new sites on Platform.sh in 15 minutes (this was dependency management, to deployment, to site install).
-                  This system was built on earlier work that I performed using just Ansible to remove the manual aspects of managing our fleet of platforms.
-                </p>
-              </dd>
-            </div>
+          <h3>Technical Architect, Open Social; The Netherlands — 2024-Present</h3>
+          <ul>
+            <li>Responsible for the <b>technical architecture</b> of products at Open Social.</li>
+            <li><b>Guide development teams</b> through technical decisions and best practices.</li>
+            <li><b>Align technology investments</b> with long-term business strategy through <b>executive-level advising</b>.</li>
+            <li>Map client and prospect requirements to existing features and <b>roadmap initiatives</b>.</li>
+            <li>Improve development workflows via <b>CI/CD enhancements</b> and <b>direct coaching</b>.</li>
+          </ul>
 
-            <div className={nosplit}>
-              <dt>Founder, Ontdekbier; The Netherlands — 2016-2017</dt>
-              <dd>
-                <p>
-                  Ontdekbier was a craft beer subscription box service which aimed to surprise and delight members every month.
-                  The project was started after my experience as purchaser of craft beers for the student bar at the Unversity of Twente.
-                </p>
-                <p>
-                  Although proven a good idea, operations were ceased after a multi-million euro investment by Heineken to start BeerWulf in their bid to capture
-                  the craft-beer eCommerce market. BeerWulf featured among its products a similar offering as Ontdekbier.
-                </p>
-              </dd>
-            </div>
+          <h3>Lead Engineer, Open Social; The Netherlands — 2020-2024</h3>
+          <ul>
+            <li>Created an <b>automated site deployment system</b> (using Jenkins, Ansible, and Symfony), reducing new platform setup time to 15 minutes.</li>
+            <li>Introduced <b>GraphQL for API strategy</b> and <b>built a Real-Time Chat</b> feature using async PHP, ReScript, and React.</li>
+            <li>Set-up a <b>translation management system</b> with Weblate and GitHub actions, replacing an inefficient spreadsheet-based workflow.</li>
+            <li>Led the push towards a <b>platform-based architecture</b> to encourage third-party integrations.</li>
+          </ul>
 
-            <div className={nosplit}>
-              <dt>Various Positions, De Vestingbar; The Netherlands - 2013-2018</dt>
-              <dd>
-                <p>
-                  De Vestingbar is a student bar owned and operated by a student association of about 40 members.
-                  The bar would be open daily with regular large scale student events.
-                  The associations takes care of all aspects ranging from purchasing, bartending, DJs, audio/lighting, and security.
-                  As president of de Vestingbar I was responsible for a 5 person board that oversaw the day to day operations of the association.
-                </p>
-              </dd>
-            </div>
-          </dl>
+          <h3>Developer, Open Social; The Netherlands — 2016-2020</h3>
+          <ul>
+            <li>Contributed to the core product team, leading <b>open-source efforts</b> and infrastructure automation.</li>
+            <li>Served as contact point for <b>Enterprise clients</b>, addressing bugs, feature requests, and ensuring new product features integrated seamlessly with existing functionality.</li>
+            <li>Delivered a <b>Drupal eCommerce platform</b> (€500k annual revenue) in six months, turning around a stalled 24-month project.</li>
+          </ul>
+
+          <h3>Founder, Ontdekbier; The Netherlands — 2016-2017</h3>
+          <ul>
+            <li><b>Launched a craft beer subscription service</b>, leveraging expertise in product sourcing and logistics.</li>
+            <li>Successfully <b>validated the business model</b> but ceased operations following Heineken’s entry into the market with BeerWulf.</li>
+          </ul>
+
+          <h3>President and Head  of Craft Beer, De Vestingbar; The Netherlands - 2013-2018</h3>
+          <ul>
+            <li><b>Served as President</b>, managing a five-person board and ensuring smooth daily operations.</li>
+            <li>Led a 40-member student <b>bar association with €300k,- annual revenue</b>, overseeing operations, purchasing, events, and security.</li>
+            <li>Responsible for selecting of craft beer assortment and <b>meeting with suppliers</b> for purchasing agreements.</li>
+          </ul>
 
           <h2>Education</h2>
-          <p>
-            Open Universiteit, The Netherlands — Bachelors Business Administration, 2016-2022<br/>
-            University of Twente, The Netherlands  — Bachelors Electrical Engineering, 2012-2016<br/>
-            Het Rietveld Lyceum, Doetinchem, The Netherlands - VWO, 2009-2012<br/>
-            Het Bonhoeffercollege, Castricum, The Netherlands - VWO, 2006-2009<br/>
-          </p>
+          <div className={nosplit}>
+            <h3>Open Universiteit, The Netherlands — Business Administration 2016-2022</h3>
+            <p>
+              Completed the courses: "Research Methods and Techniques", "Basic Academic Skills",
+              "Management and Organisation", "Entrepreneurship", "Organizational science",
+              "Financial accounting and administrative processes", "Supply chain management",
+              "Behaviour in organizations", "Human resource management", "Management accounting",
+              "Organizational advice and coaching", "Political Science for Management",
+              and "Organizational strategy".
+            </p>
+          </div>
+
+          <div className={nosplit}>
+            <h3>University of Twente, The Netherlands  — Electrical Engineering 2012-2016</h3>
+            <p>Completed 120 credits towards a Bachelors Degree in Electrical Engineering with a minor in Entrepreneurship.</p>
+          </div>
         </div>
       </main>
       <p className={footer + " hidden print:block"}>

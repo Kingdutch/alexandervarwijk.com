@@ -58,16 +58,17 @@
   margin-top: 1rem;
 }
 
-.body dt {
-  font-weight: bold;
-}
-
-.body dd + dt, .body .nosplit + .nosplit {
+.body .nosplit + .nosplit {
   padding-top: 1rem;
 }
 
-.body p + p {
+.body p + p, .body ul + h3 {
   padding-top: 1rem;
+}
+
+.body ul {
+  list-style: outside;
+  margin-left: 1rem;
 }
 
 .nosplit {
