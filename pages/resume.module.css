@@ -11,10 +11,6 @@
   fill: black;
 }
 
-.links .mastodon path:last-child {
-  fill: white;
-}
-
 .skills {
   list-style:circle;
   margin-left: 1.5rem;
@@ -47,7 +43,7 @@
 }
 
 .aside {
-  flex: 1 0 240px;
+  flex: 1 0 210px;
   order: 1;
 
   display: flex;
@@ -62,13 +58,17 @@
   padding-top: 1rem;
 }
 
-.body p + p, .body ul + h3 {
+.body p + p, .body ul + h3, .body p + ul {
   padding-top: 1rem;
 }
 
 .body ul {
   list-style: outside;
   margin-left: 1rem;
+}
+
+.education p + h3 {
+  margin-top: 1rem;
 }
 
 .nosplit {
@@ -99,10 +99,6 @@
 @media (prefers-color-scheme: dark) {
   .links svg {
     fill: white;
-  }
-
-  .links .mastodon path:last-child {
-    fill: black;
   }
 }
 
