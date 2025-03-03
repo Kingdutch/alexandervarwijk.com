@@ -16,17 +16,13 @@ const Layout = ({ children }) => {
       {children}
       <footer className={`mx-auto px-4 py-6 max-w-2xl text-sm text-slate-500 lg:max-w-3xl lg:px-0${isResume ? " print:hidden" : ""}`}>
         <div>
-          Copyright © Alexander Varwijk. Made with
-          {` `}
-          <a href="https://nextjs.org" className='underline'>Next.js</a> by <a href="https://www.alexandervarwijk.com" className='underline'>Alexander Varwijk</a>
-          {` • `}
+          Copyright © <a href="https://www.alexandervarwijk.com" className='underline'>Alexander Varwijk</a>
+          {` • Find me on `}
+          <a rel="me" href="https://bsky.app/profile/kingdut.ch" className='underline'>Bluesky</a>
+          {`, `}
+          <a href="https://www.linkedin.com/in/alexander-varwijk/" className='underline'>LinkedIn</a>
+          {`, and `}
           <a href="https://github.com/Kingdutch/" className='underline'>GitHub</a>
-          {` • `}
-          <a rel="me" href="https://hachyderm.io/@Kingdutch">Mastodon</a>
-          {` • `}
-          <a href="https://twitter.com/Kingdutch" className='underline'>Twitter</a>
-          {` • `}
-          <a href="https://www.twitch.tv/TheKingdutch" className='underline'>Twitch</a>
         </div>
       </footer>
     </>
