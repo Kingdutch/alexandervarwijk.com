@@ -11,14 +11,14 @@
     "drupal/core": "^11",
     "drupal/core-composer-scaffold": "^11",
     "drupal/field_group": "^4@alpha",
-    "drupal/gin": "^3.0@RC",
+    "drupal/gin": "^4",
     "drupal/metatag": "^2",
     "drupal/pathauto": "^1.13",
     "drupal/redirect": "^1.10",
     "drupal/scheduler": "^2.1",
     "drupal/simple_sitemap": "^4.2",
     "drupal/token_or": "^2.3",
-    "drupal/yoast_seo": "^2@alpha",
+    "drupal/yoast_seo": "^2",
     "drush/drush": "^13",
     "oomphinc/composer-installers-extender": "^2.0"
   },
@@ -48,7 +48,8 @@
       "ergebnis/composer-normalize": true,
       "oomphinc/composer-installers-extender": true,
       "php-http/discovery": true,
-      "phpstan/extension-installer": true
+      "phpstan/extension-installer": true,
+      "tbachert/spi": false
     },
     "discard-changes": true,
     "sort-packages": true
