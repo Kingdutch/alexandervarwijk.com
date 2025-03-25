@@ -69,7 +69,7 @@ content:
     settings:
       edit_title: false
       edit_description: false
-      render_theme: null
+      render_theme: av
       render_view_mode: default
     third_party_settings: {  }
   field_seo_description:
