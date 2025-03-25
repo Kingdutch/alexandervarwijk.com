@@ -3,3 +3,8 @@ base:
     theme:
       styles/base/global.css: {}
       styles/base/color.css: {}
+
+card:
+  css:
+    component:
+      styles/components/card.css: {}

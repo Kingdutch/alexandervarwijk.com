@@ -1,0 +1,17 @@
+name: Clickable Area
+props:
+  type: object
+  additionalProperties: false
+  properties:
+    attributes:
+      type: Drupal\Core\Template\Attribute
+    element:
+      type: string
+      title: Element
+      description: The HTML element to use for the outer clickable area.
+      default: div
+
+slots:
+  body:
+    title: Body
+    description: The contents of the area

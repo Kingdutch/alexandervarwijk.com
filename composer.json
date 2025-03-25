@@ -12,6 +12,7 @@
     "drupal/core-composer-scaffold": "^11",
     "drupal/field_group": "^4@alpha",
     "drupal/gin": "^4",
+    "drupal/manage_display": "^3.0",
     "drupal/metatag": "^2",
     "drupal/pathauto": "^1.13",
     "drupal/redirect": "^1.10",
