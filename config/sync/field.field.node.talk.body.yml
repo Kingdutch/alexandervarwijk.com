@@ -4,6 +4,7 @@ status: true
 dependencies:
   config:
     - field.storage.node.body
+    - filter.format.content_authoring
     - node.type.talk
   module:
     - text
@@ -20,5 +21,6 @@ default_value_callback: ''
 settings:
   display_summary: true
   required_summary: true
-  allowed_formats: {  }
+  allowed_formats:
+    - content_authoring
 field_type: text_with_summary

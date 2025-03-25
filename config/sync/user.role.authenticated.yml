@@ -2,7 +2,10 @@ uuid: 6e00949f-6a59-4b65-ad01-85b9f30b5c0a
 langcode: en
 status: true
 dependencies:
+  config:
+    - filter.format.content_authoring
   module:
+    - filter
     - media
     - system
 _core:
@@ -13,4 +16,5 @@ weight: 1
 is_admin: false
 permissions:
   - 'access content'
+  - 'use text format content_authoring'
   - 'view media'
