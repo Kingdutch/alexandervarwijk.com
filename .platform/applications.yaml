@@ -5,6 +5,9 @@
   build:
     flavor: composer
 
+  source:
+    root: /
+
   dependencies:
     php:
       composer/composer: '^2.7'
