@@ -3,12 +3,12 @@ _core:
 langcode: en
 uuid: 7babdf63-4413-407c-82bb-f4087b1ffff4
 name: 'Alexander Varwijk'
-mail: devel@example.com
+mail: admin@example.com
 slogan: 'The thoughts and musings of Alexander Varwijk - Full Stack developer.'
 page:
-  403: ''
-  404: ''
-  front: /user/login
+  403: /user/login
+  404: /node/2
+  front: /node/1
 admin_compact_mode: false
 weight_select_max: 100
 default_langcode: en
