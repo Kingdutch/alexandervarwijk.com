@@ -1,0 +1,19 @@
+uuid: 4da5a34e-9301-427c-ba90-929b15c7885f
+langcode: en
+status: true
+dependencies:
+  module:
+    - menu_ui
+third_party_settings:
+  menu_ui:
+    available_menus:
+      - footer
+      - main
+    parent: 'main:'
+name: Page
+type: page
+description: 'A landing page such as the homepage or the 404 status page.'
+help: null
+new_revision: true
+preview_mode: 1
+display_submitted: true

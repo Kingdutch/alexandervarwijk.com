@@ -1,0 +1,25 @@
+uuid: 1da5f583-1856-47e7-8cdb-cd1b05d5d42d
+langcode: en
+status: true
+dependencies:
+  content:
+    - 'block_content:titled_paragraphs:12e49156-3ddd-4d17-97d6-062a89e6b129'
+  module:
+    - block_content
+  theme:
+    - av
+id: av_copyrightsociallinks
+theme: av
+region: footer
+weight: 0
+provider: null
+plugin: 'block_content:12e49156-3ddd-4d17-97d6-062a89e6b129'
+settings:
+  id: 'block_content:12e49156-3ddd-4d17-97d6-062a89e6b129'
+  label: 'Copyright & Social links'
+  label_display: '0'
+  provider: block_content
+  status: true
+  info: ''
+  view_mode: full
+visibility: {  }

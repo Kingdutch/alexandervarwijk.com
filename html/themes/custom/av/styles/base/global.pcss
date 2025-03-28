@@ -50,27 +50,28 @@ header {
 #block-av-mainnavigation {
   margin-left: auto;
 
-  ul {
+  .menu {
     display: flex;
     padding: 0;
     list-style: none;
-  }
 
-  li:not(:last-child) {
-    margin-right: .25rem;
-  }
 
-  li a {
-    display: inline-block;
-    margin-left: .25rem;
-    margin-right: .25rem;
-    padding: .25rem;
+    li:not(:last-child) {
+      margin-right: .25rem;
+    }
 
-    color: inherit;
-    text-decoration: inherit;
-  }
+    li a {
+      display: inline-block;
+      margin-left: .25rem;
+      margin-right: .25rem;
+      padding: .25rem;
 
-  li + li {
-    list-style: "·";
+      color: inherit;
+      text-decoration: inherit;
+    }
+
+    li + li {
+      list-style: "·";
+    }
   }
 }

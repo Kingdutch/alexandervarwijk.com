@@ -49,26 +49,26 @@ header > div {
   margin-left: auto;
 }
 
-#block-av-mainnavigation ul {
+#block-av-mainnavigation .menu {
     display: flex;
     padding: 0;
     list-style: none;
   }
 
-#block-av-mainnavigation li:not(:last-child) {
-    margin-right: .25rem;
-  }
+#block-av-mainnavigation .menu li:not(:last-child) {
+      margin-right: .25rem;
+    }
 
-#block-av-mainnavigation li a {
-    display: inline-block;
-    margin-left: .25rem;
-    margin-right: .25rem;
-    padding: .25rem;
+#block-av-mainnavigation .menu li a {
+      display: inline-block;
+      margin-left: .25rem;
+      margin-right: .25rem;
+      padding: .25rem;
 
-    color: inherit;
-    text-decoration: inherit;
-  }
+      color: inherit;
+      text-decoration: inherit;
+    }
 
-#block-av-mainnavigation li + li {
-    list-style: "·";
-  }
+#block-av-mainnavigation .menu li + li {
+      list-style: "·";
+    }

@@ -1,0 +1,21 @@
+uuid: d5d6b256-0834-42d8-ac77-4e7501bdcd11
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_seo_analysis
+    - node.type.page
+  module:
+    - yoast_seo
+id: node.page.field_seo_analysis
+field_name: field_seo_analysis
+entity_type: node
+bundle: page
+label: 'SEO Analysis'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: yoast_seo

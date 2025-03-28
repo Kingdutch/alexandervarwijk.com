@@ -1,0 +1,8 @@
+uuid: 467e24d9-e4d2-4a28-8aed-07f94ab91397
+langcode: en
+status: true
+dependencies: {  }
+id: titled_paragraphs
+label: 'Titled paragraphs'
+revision: false
+description: null

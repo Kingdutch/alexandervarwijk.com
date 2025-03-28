@@ -1,0 +1,22 @@
+uuid: 274d49e0-c717-4665-98ac-ae5088428c21
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.titled_paragraphs
+    - field.field.block_content.titled_paragraphs.body
+  module:
+    - text
+id: block_content.titled_paragraphs.default
+targetEntityType: block_content
+bundle: titled_paragraphs
+mode: default
+content:
+  body:
+    type: text_default
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 0
+    region: content
+hidden: {  }
