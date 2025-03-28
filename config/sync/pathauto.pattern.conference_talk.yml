@@ -1,0 +1,22 @@
+uuid: b55fc510-174c-4608-a933-b1a676f78676
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+id: conference_talk
+label: 'Conference Talk'
+type: 'canonical_entities:node'
+pattern: '/talks/[node:created:html_date]-[node:field_seo_title|node:title]'
+selection_criteria:
+  6e9e47ab-cf05-489c-b108-a91b1348e35f:
+    id: 'entity_bundle:node'
+    negate: false
+    uuid: 6e9e47ab-cf05-489c-b108-a91b1348e35f
+    context_mapping:
+      node: node
+    bundles:
+      talk: talk
+selection_logic: and
+weight: -5
+relationships: {  }
