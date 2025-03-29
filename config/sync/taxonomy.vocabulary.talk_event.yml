@@ -1,0 +1,9 @@
+uuid: e0c97e29-0c38-48e0-852c-ef5ba16745e2
+langcode: en
+status: true
+dependencies: {  }
+name: 'Talk Event'
+vid: talk_event
+description: 'The event that a talk or presentation was given at'
+weight: 0
+new_revision: false

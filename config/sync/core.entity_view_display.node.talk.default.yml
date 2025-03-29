@@ -7,11 +7,12 @@ dependencies:
     - field.field.node.talk.field_presenter_notes
     - field.field.node.talk.field_recording
     - field.field.node.talk.field_slides
-    - field.field.node.talk.field_type
+    - field.field.node.talk.field_talk_event
+    - field.field.node.talk.field_talk_type
     - node.type.talk
   module:
+    - manage_display
     - text
-    - user
 id: node.talk.default
 targetEntityType: node
 bundle: talk
@@ -49,10 +50,36 @@ content:
     third_party_settings: {  }
     weight: 2
     region: content
+  field_talk_event:
+    type: entity_reference_label
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 6
+    region: content
+  field_talk_type:
+    type: entity_reference_label
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 5
+    region: content
   links:
     settings: {  }
     third_party_settings: {  }
     weight: 0
     region: content
+  title:
+    type: title
+    label: hidden
+    settings:
+      link_to_entity: true
+      tag: h2
+    third_party_settings: {  }
+    weight: -49
+    region: content
 hidden:
-  field_type: true
+  created: true
+  uid: true

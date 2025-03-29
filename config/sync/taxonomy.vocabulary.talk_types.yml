@@ -4,6 +4,6 @@ status: true
 dependencies: {  }
 name: 'Talk Types'
 vid: talk_types
-description: null
+description: 'The type of talk that was given.'
 weight: 0
 new_revision: false

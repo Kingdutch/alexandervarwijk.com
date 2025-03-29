@@ -10,6 +10,7 @@ dependencies:
     - node.type.page
     - node.type.post
     - node.type.talk
+    - taxonomy.vocabulary.talk_event
     - taxonomy.vocabulary.talk_types
   module:
     - contextual
@@ -48,6 +49,7 @@ permissions:
   - 'create post content'
   - 'create slides_pdf media'
   - 'create talk content'
+  - 'create terms in talk_event'
   - 'create terms in talk_types'
   - 'create url aliases'
   - 'create youtube_video media'
@@ -73,7 +75,9 @@ permissions:
   - 'delete page revisions'
   - 'delete post revisions'
   - 'delete talk revisions'
+  - 'delete term revisions in talk_event'
   - 'delete term revisions in talk_types'
+  - 'delete terms in talk_event'
   - 'delete terms in talk_types'
   - 'edit any image media'
   - 'edit any page content'
@@ -87,6 +91,7 @@ permissions:
   - 'edit own slides_pdf media'
   - 'edit own talk content'
   - 'edit own youtube_video media'
+  - 'edit terms in talk_event'
   - 'edit terms in talk_types'
   - 'revert all revisions'
   - 'revert any image media revisions'
@@ -95,6 +100,7 @@ permissions:
   - 'revert page revisions'
   - 'revert post revisions'
   - 'revert talk revisions'
+  - 'revert term revisions in talk_event'
   - 'revert term revisions in talk_types'
   - 'update any media'
   - 'update media'
@@ -109,6 +115,7 @@ permissions:
   - 'view page revisions'
   - 'view post revisions'
   - 'view talk revisions'
+  - 'view term revisions in talk_event'
   - 'view term revisions in talk_types'
   - 'view the administration theme'
   - 'view vocabulary labels'
