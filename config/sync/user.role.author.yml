@@ -3,6 +3,7 @@ langcode: en
 status: true
 dependencies:
   config:
+    - block_content.type.titled_paragraphs
     - core.entity_view_display.node.page.default
     - media.type.image
     - media.type.slides_pdf
@@ -14,6 +15,7 @@ dependencies:
     - taxonomy.vocabulary.talk_types
   module:
     - block
+    - block_content
     - contextual
     - file
     - layout_builder
@@ -30,6 +32,7 @@ weight: 2
 is_admin: false
 permissions:
   - 'access administration pages'
+  - 'access block library'
   - 'access content overview'
   - 'access contextual links'
   - 'access files overview'
@@ -53,6 +56,7 @@ permissions:
   - 'create talk content'
   - 'create terms in talk_event'
   - 'create terms in talk_types'
+  - 'create titled_paragraphs block content'
   - 'create url aliases'
   - 'create youtube_video media'
   - 'delete all revisions'
@@ -64,6 +68,8 @@ permissions:
   - 'delete any slides_pdf media'
   - 'delete any slides_pdf media revisions'
   - 'delete any talk content'
+  - 'delete any titled_paragraphs block content'
+  - 'delete any titled_paragraphs block content revisions'
   - 'delete any youtube_video media'
   - 'delete any youtube_video media revisions'
   - 'delete media'
@@ -86,6 +92,7 @@ permissions:
   - 'edit any post content'
   - 'edit any slides_pdf media'
   - 'edit any talk content'
+  - 'edit any titled_paragraphs block content'
   - 'edit any youtube_video media'
   - 'edit own image media'
   - 'edit own page content'
@@ -98,6 +105,7 @@ permissions:
   - 'revert all revisions'
   - 'revert any image media revisions'
   - 'revert any slides_pdf media revisions'
+  - 'revert any titled_paragraphs block content revisions'
   - 'revert any youtube_video media revisions'
   - 'revert page revisions'
   - 'revert post revisions'
@@ -111,6 +119,7 @@ permissions:
   - 'view all revisions'
   - 'view any image media revisions'
   - 'view any slides_pdf media revisions'
+  - 'view any titled_paragraphs block content history'
   - 'view any youtube_video media revisions'
   - 'view own unpublished content'
   - 'view own unpublished media'
