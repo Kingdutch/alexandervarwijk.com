@@ -8,6 +8,11 @@
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1), 2px 4px 0 rgba(0, 0, 0, 0.05);
 }
 
+.card.talk--teaser {
+  height: auto;
+  min-height: 10rem;
+}
+
 .card + .card {
   margin: 1rem 1rem 0 0;
 }
@@ -61,4 +66,23 @@
     color: #444;
   }
 
+}
+
+.card .metadata {
+  display: flex;
+  align-items: center;
+  gap: .5rem;
+
+  div {
+    font-size: 0.85rem;
+    font-weight: 500;
+    background-color: #e9e9ed;
+    border-radius: 20px;
+    display: inline-block;
+    padding: .25rem .5rem;
+  }
+}
+
+.card .metadata + h2 {
+  margin-top: 1rem;
 }
