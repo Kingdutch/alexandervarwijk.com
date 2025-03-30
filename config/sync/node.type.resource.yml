@@ -1,0 +1,17 @@
+uuid: e7223482-ecd1-40fa-a1ac-b9e444215e30
+langcode: en
+status: true
+dependencies:
+  module:
+    - menu_ui
+third_party_settings:
+  menu_ui:
+    available_menus: {  }
+    parent: ''
+name: Resource
+type: resource
+description: 'A page on a different site that is useful to reference later.'
+help: null
+new_revision: true
+preview_mode: 1
+display_submitted: true

@@ -75,3 +75,46 @@ header {
     }
   }
 }
+
+#views-exposed-form-resources-page-1 {
+  display: flex;
+  align-items: flex-end;
+  gap: 1rem;
+
+  .form-item {
+    display: flex;
+    flex-direction: column;
+    gap: .5rem;
+  }
+}
+
+.resource {
+  .resource-types {
+    display: flex;
+    gap: .25rem;
+
+    div + div:before {
+      content: ' ⋅ ';
+    }
+  }
+
+  h2 {
+    margin: 0;
+  }
+
+  h2 + div {
+    margin-top: 1rem;
+
+    p:first-child {
+      margin-top: 0;
+    }
+
+    p:last-child {
+      margin-bottom: 0;
+    }
+  }
+}
+
+.resource + .resource, form + .resource {
+  margin-top: 1rem;
+}

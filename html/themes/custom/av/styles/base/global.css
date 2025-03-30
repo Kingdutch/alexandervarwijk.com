@@ -72,3 +72,44 @@ header > div {
 #block-av-mainnavigation .menu li + li {
       list-style: "·";
     }
+
+#views-exposed-form-resources-page-1 {
+  display: flex;
+  align-items: flex-end;
+  gap: 1rem;
+}
+
+#views-exposed-form-resources-page-1 .form-item {
+    display: flex;
+    flex-direction: column;
+    gap: .5rem;
+  }
+
+.resource .resource-types {
+    display: flex;
+    gap: .25rem;
+  }
+
+.resource .resource-types div + div:before {
+      content: ' ⋅ ';
+    }
+
+.resource h2 {
+    margin: 0;
+  }
+
+.resource h2 + div {
+    margin-top: 1rem;
+  }
+
+.resource h2 + div p:first-child {
+      margin-top: 0;
+    }
+
+.resource h2 + div p:last-child {
+      margin-bottom: 0;
+    }
+
+.resource + .resource, form + .resource {
+  margin-top: 1rem;
+}
