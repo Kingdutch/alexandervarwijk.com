@@ -1,0 +1,13 @@
+uuid: 0fee561e-f0de-400f-ab86-209c5bee0b91
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.post
+id: node.post
+targetEntityType: node
+bundle: post
+action: display_page
+no_bypass: false
+bypass_message: false
+configuration: {  }

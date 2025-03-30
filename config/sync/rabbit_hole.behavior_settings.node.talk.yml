@@ -1,0 +1,13 @@
+uuid: f7f450b8-1752-40b0-bf8d-4c3f8a9076eb
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.talk
+id: node.talk
+targetEntityType: node
+bundle: talk
+action: display_page
+no_bypass: false
+bypass_message: false
+configuration: {  }
