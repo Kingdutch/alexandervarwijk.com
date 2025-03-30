@@ -1,9 +1,9 @@
-uuid: 1da5f583-1856-47e7-8cdb-cd1b05d5d42d
+uuid: 98837da7-4af0-45ae-8ac6-b89b8f989c99
 langcode: en
 status: true
 dependencies:
   content:
-    - 'block_content:titled_paragraphs:12e49156-3ddd-4d17-97d6-062a89e6b129'
+    - 'block_content:titled_paragraphs:e49db79b-d987-4044-b406-cf5745462b6a'
   module:
     - block_content
   theme:
@@ -13,9 +13,9 @@ theme: av
 region: footer
 weight: 0
 provider: null
-plugin: 'block_content:12e49156-3ddd-4d17-97d6-062a89e6b129'
+plugin: 'block_content:e49db79b-d987-4044-b406-cf5745462b6a'
 settings:
-  id: 'block_content:12e49156-3ddd-4d17-97d6-062a89e6b129'
+  id: 'block_content:e49db79b-d987-4044-b406-cf5745462b6a'
   label: 'Copyright & Social links'
   label_display: '0'
   provider: block_content
