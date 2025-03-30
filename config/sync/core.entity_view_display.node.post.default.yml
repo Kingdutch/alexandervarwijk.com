@@ -38,7 +38,18 @@ content:
     third_party_settings: {  }
     weight: 0
     region: content
+  title:
+    type: title
+    label: hidden
+    settings:
+      link_to_entity: true
+      tag: h2
+    third_party_settings: {  }
+    weight: -49
+    region: content
 hidden:
+  created: true
   field_seo_analysis: true
   field_seo_description: true
   field_seo_title: true
+  uid: true
