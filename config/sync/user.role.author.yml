@@ -13,6 +13,7 @@ dependencies:
     - taxonomy.vocabulary.talk_event
     - taxonomy.vocabulary.talk_types
   module:
+    - block
     - contextual
     - file
     - layout_builder
@@ -38,6 +39,7 @@ permissions:
   - 'access taxonomy overview'
   - 'access toolbar'
   - 'access user profiles'
+  - 'administer blocks'
   - 'administer menu'
   - 'administer nodes'
   - 'administer url aliases'
