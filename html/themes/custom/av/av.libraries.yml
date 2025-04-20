@@ -3,6 +3,7 @@ base:
     theme:
       styles/base/global.css: {}
       styles/base/color.css: {}
+      styles/pages/resume.css: {}
 
 card:
   css:

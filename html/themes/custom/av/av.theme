@@ -1,0 +1,13 @@
+<?php
+
+function av_preprocess_html(array &$variables) {
+  // Get current path.
+  $current_path = \Drupal::service('path.current')->getPath();
+  $path_alias = \Drupal::service('path_alias.manager')->getAliasByPath($current_path);
+
+  // Convert path to a machine-friendly string.
+  $path_class = 'path-' . str_replace('/', '-', trim($path_alias, '/'));
+
+  // Add the class to the existing body classes.
+  $variables['attributes']['class'][] = $path_class;
+}

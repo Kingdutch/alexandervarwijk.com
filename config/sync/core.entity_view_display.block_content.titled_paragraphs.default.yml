@@ -5,6 +5,7 @@ dependencies:
   config:
     - block_content.type.titled_paragraphs
     - field.field.block_content.titled_paragraphs.body
+    - field.field.block_content.titled_paragraphs.field_css_class
   module:
     - text
 id: block_content.titled_paragraphs.default
@@ -18,5 +19,13 @@ content:
     settings: {  }
     third_party_settings: {  }
     weight: 0
+    region: content
+  field_css_class:
+    type: string
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 1
     region: content
 hidden: {  }
