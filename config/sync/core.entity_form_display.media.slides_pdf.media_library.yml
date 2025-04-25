@@ -5,6 +5,7 @@ dependencies:
   config:
     - core.entity_form_mode.media.media_library
     - field.field.media.slides_pdf.field_media_file
+    - field.field.media.slides_pdf.field_media_presenter_notes
     - media.type.slides_pdf
 id: media.slides_pdf.media_library
 targetEntityType: media
@@ -14,6 +15,7 @@ content: {  }
 hidden:
   created: true
   field_media_file: true
+  field_media_presenter_notes: true
   name: true
   path: true
   status: true

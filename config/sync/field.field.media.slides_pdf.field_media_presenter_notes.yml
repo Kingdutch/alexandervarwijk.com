@@ -1,0 +1,19 @@
+uuid: 46bf4b64-b6b8-4ca3-9e1c-8e53c87efb66
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.media.field_media_presenter_notes
+    - media.type.slides_pdf
+id: media.slides_pdf.field_media_presenter_notes
+field_name: field_media_presenter_notes
+entity_type: media
+bundle: slides_pdf
+label: 'Presenter Notes'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string_long
