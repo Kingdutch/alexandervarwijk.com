@@ -15,6 +15,29 @@ html {
 body {
   margin: 0;
   padding: 0;
+
+  @media (prefers-color-scheme: dark) {
+    color: rgb(209 213 219);
+    background-color: rgb(0,0,0);
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  a {
+    color: #d97706;
+  }
+
+  a:visited {
+    color: #af0e44;
+  }
+
+  a:focus {
+    color: #ffaf2e;
+  }
+
+  a:active {
+    color: #fddbb5;
+  }
 }
 
 header, main, footer {
