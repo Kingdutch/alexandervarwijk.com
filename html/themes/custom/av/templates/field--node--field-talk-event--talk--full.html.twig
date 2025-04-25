@@ -1,0 +1,32 @@
+{#
+/**
+ * @file
+ * Theme override for field_talk_event field.
+ *
+ * @see template_preprocess_field()
+ */
+#}
+{%
+  set classes = [
+    'field',
+    'field--name-' ~ field_name|clean_class,
+    'field--type-' ~ field_type|clean_class,
+    'field--label-' ~ label_display,
+    'talk-event',
+  ]
+%}
+<div{{ attributes.addClass(classes) }}>
+  {% for item in items %}
+    <div class="talk-event__item">
+      <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+           stroke-linecap="round" stroke-linejoin="round">
+        <title>at event</title>
+        <path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4z"></path>
+        <path d="M16 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+        <path d="M17 11l2 2"></path>
+        <path d="M19 13l2-2"></path>
+      </svg>
+      <span class="talk-event__text">{{ item.content }}</span>
+    </div>
+  {% endfor %}
+</div>

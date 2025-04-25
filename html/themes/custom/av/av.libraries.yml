@@ -9,3 +9,40 @@ card:
   css:
     component:
       styles/components/card.css: {}
+
+pdf-dist:
+  remote: https://github.com/mozilla/pdf.js/
+  version: 5.1.91
+  license:
+    name: Apache License 2.0
+    url: https://github.com/mozilla/pdf.js/blob/master/LICENSE
+    gpl-compatible: true
+  js:
+    /libraries/pdfjs-dist/build/pdf.mjs:
+      attributes:
+        type: module
+    /libraries/pdfjs-dist/web/pdf_viewer.mjs:
+      attributes:
+        type: module
+  css:
+    theme:
+      /libraries/pdfjs-dist/web/pdf_viewer.css: {}
+
+pdf-dist-worker:
+  remote: https://github.com/mozilla/pdf.js/
+  version: 5.1.91
+  license:
+    name: Apache License 2.0
+    url: https://github.com/mozilla/pdf.js/blob/master/LICENSE
+    gpl-compatible: true
+  js:
+    /libraries/pdfjs-dist/build/pdf.worker.mjs: {}
+
+presentation-viewer:
+  dependencies:
+    - av/pdf-dist
+    - core/once
+    - core/drupal
+    - core/drupalSettings
+  js:
+    js/presentation-viewer.js: {}

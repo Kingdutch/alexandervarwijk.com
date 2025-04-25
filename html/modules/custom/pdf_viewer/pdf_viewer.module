@@ -1,0 +1,46 @@
+<?php
+
+declare(strict_types=1);
+
+use Drupal\Core\Asset\AttachedAssets;
+use Drupal\Core\Entity\Display\EntityViewDisplayInterface;
+use Drupal\Core\Entity\EntityInterface;
+
+function pdf_viewer_media_view(array &$build, EntityInterface $entity, EntityViewDisplayInterface $display, $view_mode) {
+  if ($view_mode === "full" && $entity->bundle() === "slides_pdf") {
+    _pdf_viewer_attach_library($build);
+  }
+}
+
+function _pdf_viewer_attach_library(&$build) {
+  $worker_asset = AttachedAssets::createFromRenderArray([
+    '#attached' => [
+      'library' => ['av/pdf-dist-worker'],
+    ]
+  ]);
+
+  $asset_resolver = \Drupal::service('asset.resolver');
+  $resolved_assets = $asset_resolver->getJsAssets($worker_asset, TRUE);
+  $js_assets = $resolved_assets[0] ?: $resolved_assets[1];
+
+  if (count($js_assets) !== 1) {
+    throw new \RuntimeException("Invalid pdf-dist-worker library definition. Expected exactly 1 JS file. Found " . count($js_assets));
+  }
+
+  $build['#attached']['library'][] = 'av/presentation-viewer';
+  $build['#attached']['drupalSettings']['presentationViewer']['workerSrc'] = reset($js_assets)['data'];
+}
+
+/**
+ * Implements hook_page_attachments_alter().
+ */
+function pdf_viewer_page_attachments_alter(array &$attachments): void {
+  // Ensure the worker JS is never included directly.
+  if (in_array('av/pdf-dist-worker', $attachments['#attached']['library'], TRUE)) {
+    \Drupal::logger('av')->warning("The av/pdf-dist-worker library should never be attached directly.");
+    $index = array_search('av/pdf-dist-worker', $attachments['#attached']['library'], TRUE);
+    unset($attachments['#attached']['library'][$index]);
+  }
+}
+
+

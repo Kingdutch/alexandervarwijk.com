@@ -1,0 +1,4 @@
+name: PDF Viewer
+description: Provides a bit of helper code for our themes PDF viewer.
+type: module
+core_version_requirement: ^11

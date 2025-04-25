@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "9af4f7229d714487a14a923da8156e60",
+    "content-hash": "693cf49eac7a9515a161a40c8257c856",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -3506,6 +3506,18 @@
                 "source": "https://github.com/nikic/PHP-Parser/tree/v5.4.0"
             },
             "time": "2024-12-30T11:07:19+00:00"
+        },
+        {
+            "name": "npm-asset/pdfjs-dist",
+            "version": "5.1.91",
+            "dist": {
+                "type": "tar",
+                "url": "https://registry.npmjs.org/pdfjs-dist/-/pdfjs-dist-5.1.91.tgz"
+            },
+            "type": "npm-asset",
+            "license": [
+                "Apache-2.0"
+            ]
         },
         {
             "name": "oomphinc/composer-installers-extender",

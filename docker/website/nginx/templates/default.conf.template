@@ -51,7 +51,7 @@ server {
       expires         -1s;
     }
 
-    location ~ "\.(jpe?g|png|gif|svgz?|css|js|map|ico|bmp|eot|woff2?|otf|ttf)$" {
+    location ~ "\.(jpe?g|png|gif|svgz?|css|m?js|map|ico|bmp|eot|woff2?|otf|ttf|pdf)$" {
 
       set $_rewrite_path "/index.php";
       try_files       $uri @rewrite;

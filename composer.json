@@ -22,6 +22,7 @@
     "drupal/token_or": "^2.3",
     "drupal/yoast_seo": "^2",
     "drush/drush": "^13",
+    "npm-asset/pdfjs-dist": "^5.1",
     "oomphinc/composer-installers-extender": "^2.0"
   },
   "require-dev": {
