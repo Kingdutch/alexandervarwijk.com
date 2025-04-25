@@ -15,3 +15,7 @@ slots:
   body:
     title: Body
     description: The contents of the area
+
+libraryOverrides:
+  dependencies:
+    - core/drupal
