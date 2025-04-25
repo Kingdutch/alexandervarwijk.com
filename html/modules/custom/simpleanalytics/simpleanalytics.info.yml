@@ -1,0 +1,4 @@
+name: Simple Analytics
+description: Integrate with the analytics from https://www.simpleanalytics.com/
+type: module
+core_version_requirement: ^11

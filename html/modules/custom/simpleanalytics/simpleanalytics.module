@@ -1,0 +1,44 @@
+<?php
+
+declare(strict_types=1);
+
+function simpleanalytics_page_attachments(array &$page) {
+  // We don't track authenticated users.
+  if (!\Drupal::currentUser()->isAnonymous()) {
+    return;
+  }
+
+  $page['#attached']['library'][] = 'simpleanalytics/analytics';
+}
+
+function simpleanalytics_page_bottom(array &$page_bottom): void {
+  // We don't track authenticated users.
+  if (!\Drupal::currentUser()->isAnonymous()) {
+    return;
+  }
+
+  $page_bottom['simpleanalytics'] = [
+    '#markup' => '<noscript><img src="https://queue.simpleanalyticscdn.com/noscript.gif" alt="" referrerpolicy="no-referrer-when-downgrade" /></noscript>',
+  ];
+}
+
+function simpleanalytics_library_info_build() {
+  $settings = \Drupal::config('simpleanalytics.settings');
+  $libraries = [];
+
+  $libraries['analytics'] = [
+    'js' => [
+      "https://{$settings->get('analytics_domain')}/latest.js" => [
+        "type" => "external",
+        "minified" => TRUE,
+        "attributes" => [
+          "async" => TRUE,
+          "data-ignore-pages" => "/admin/*",
+          "data-allow-params" => "event,type"
+        ]
+      ]
+    ]
+  ];
+
+  return $libraries;
+}
