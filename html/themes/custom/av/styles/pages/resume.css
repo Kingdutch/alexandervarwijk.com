@@ -9,8 +9,10 @@
     margin: 0;
     padding: 0;
   }
+
   body.path-resume {
     --gin-toolbar-y-offset: 0;
+
     padding-top: 0;
   }
 }
@@ -35,6 +37,7 @@
       .path-resume .layout--twocol-section.layout--twocol-section--33-67 > .layout__region--first {
         flex-basis: 210px;
       }
+
       .path-resume .layout--twocol-section.layout--twocol-section--33-67 > .layout__region--second {
         flex-basis: 558px;
         padding-left: 1rem;
@@ -55,7 +58,6 @@
 
 .path-resume h2 {
     margin: 0;
-
     font-weight: 700;
     font-size: 1.25rem;
   }
@@ -70,6 +72,12 @@
     margin: 0;
   }
 
+.path-resume ul {
+    list-style: outside;
+    padding: 0;
+    margin:0 0 0 1rem;
+  }
+
 .path-resume .layout__region div + div,
   .path-resume ul + h3,
   .path-resume p + h3,
@@ -77,12 +85,6 @@
   .path-resume p + p,
   .path-resume p + ul {
     margin-top: 1rem;
-  }
-
-.path-resume ul {
-    list-style: outside;
-    padding: 0;
-    margin:0 0 0 1rem;
   }
 
 .path-resume .links ul {
@@ -109,7 +111,6 @@
 .path-resume .links ul svg {
       display: inline-block;
       margin-right: .25rem;
-
       fill: black;
     }
 
@@ -118,7 +119,3 @@
       margin: 0 0 0 1.5rem;
       padding: 0;
     }
-
-.path-resume .about {
-
-  }

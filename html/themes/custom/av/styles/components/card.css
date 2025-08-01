@@ -3,7 +3,6 @@
   height: 12rem;
   margin: 1rem 0;
   overflow: hidden;
-
   border-radius: .75rem;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1), 2px 4px 0 rgba(0, 0, 0, 0.05);
 }
@@ -32,7 +31,7 @@
 .card-media time {
     position: absolute;
     background: rgba(0, 0, 0, 0.4);
-    padding: 0.5rem 0.75rem 0.5rem;
+    padding: 0.5rem 0.75rem;
     border-radius: 0 0 .5rem;
     color: rgb(245, 245, 245);
   }
