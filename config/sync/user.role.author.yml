@@ -24,6 +24,7 @@ dependencies:
     - media
     - node
     - path
+    - save_edit
     - system
     - taxonomy
     - toolbar
@@ -128,6 +129,7 @@ permissions:
   - 'revert term revisions in talk_types'
   - 'update any media'
   - 'update media'
+  - 'use save and edit'
   - 'use yoast seo'
   - 'view all media revisions'
   - 'view all revisions'
