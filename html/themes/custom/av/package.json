@@ -6,13 +6,16 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "css": "postcss {components,styles}/**/*.pcss --base . --ext css --dir .",
     "css:watch": "pnpm run css --watch",
-    "lint": "stylelint styles/**/*.pcss"
+    "lint": "stylelint styles/**/*.pcss",
+    "js": "esbuild js/src/hljs.js --bundle --outfile=js/hljs.js"
   },
   "author": "",
   "license": "MIT",
   "description": "",
   "devDependencies": {
     "autoprefixer": "^10.4.21",
+    "esbuild": "^0.25.10",
+    "highlight.js": "^11.11.1",
     "postcss": "^8.5.6",
     "postcss-cli": "^11.0.1",
     "postcss-nested": "^7.0.2",

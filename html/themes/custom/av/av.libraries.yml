@@ -46,3 +46,14 @@ presentation-viewer:
     - core/drupalSettings
   js:
     js/presentation-viewer.js: {}
+
+hljs:
+  dependencies:
+    - core/drupal
+  js:
+    js/hljs.js:
+      attributes:
+        defer: true
+  css:
+    theme:
+      js/hljs.css: {}
