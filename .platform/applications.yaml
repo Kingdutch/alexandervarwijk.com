@@ -82,6 +82,18 @@
           '^/sitemap\.xml$':
             allow: true
 
+          # Allow access to assets from libraries while ensuring correct content type.
+          '^/libraries/.*\.(mjs|js)$':
+            allow: true
+            # Libraries are accessed with version so we can cache them for a long time.
+            expires: 1y
+            headers:
+              Content-Type: 'application/javascript'
+          '^/libraries/.*\.(css|bcmap|icc|pfb|wasm|svg|map)$':
+            allow: true
+            # Libraries are accessed with version so we can cache them for a long time.
+            expires: 1y
+
           # Deny direct access to configuration files.
           '^/sites/sites\.php$':
             scripts: false
