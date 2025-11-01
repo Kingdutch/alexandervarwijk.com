@@ -184,14 +184,19 @@ display:
     display_plugin: feed
     position: 2
     display_options:
+      title: 'Alexander Varwijk - Talks'
       pager:
         type: some
       style:
         type: rss
       row:
         type: node_rss
+      defaults:
+        title: false
+        sitename_title: false
       display_extenders: {  }
       path: talks.xml
+      sitename_title: false
       displays:
         default: default
         page_1: page_1
