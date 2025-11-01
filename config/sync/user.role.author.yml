@@ -26,6 +26,7 @@ dependencies:
     - path
     - save_edit
     - scheduler
+    - shortcut
     - system
     - taxonomy
     - toolbar
@@ -41,6 +42,7 @@ permissions:
   - 'access contextual links'
   - 'access files overview'
   - 'access media overview'
+  - 'access shortcuts'
   - 'access site in maintenance mode'
   - 'access site reports'
   - 'access taxonomy overview'
@@ -65,6 +67,7 @@ permissions:
   - 'create titled_paragraphs block content'
   - 'create url aliases'
   - 'create youtube_video media'
+  - 'customize shortcut links'
   - 'delete all revisions'
   - 'delete any image media'
   - 'delete any image media revisions'
