@@ -9,7 +9,7 @@ dependencies:
     - field.field.node.post.field_seo_analysis
     - field.field.node.post.field_seo_description
     - field.field.node.post.field_seo_title
-    - image.style.medium
+    - image.style.large
     - node.type.post
   module:
     - media
@@ -52,7 +52,7 @@ content:
     label: hidden
     settings:
       image_link: ''
-      image_style: medium
+      image_style: large
       image_loading:
         attribute: lazy
     third_party_settings: {  }
