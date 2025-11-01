@@ -84,6 +84,14 @@ header > div {
     line-height: 2rem;
   }
 
+@media (max-width: 25rem) {
+
+#block-av-branding a {
+      font-size: 1.2rem;
+      line-height: 1.4rem
+  }
+    }
+
 #block-av-mainnavigation {
   margin-left: auto;
 }
