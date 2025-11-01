@@ -211,3 +211,17 @@ form + .resource, .resource + .resource {
       opacity: 0.7;
     }
   }
+
+.feed-icon {
+  margin-top: 1rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45em;
+}
+
+.feed-icon .rss-icon {
+    width: 1em;
+    height: 1em;
+    flex: 0 0 auto;
+    color: #f60;
+  }

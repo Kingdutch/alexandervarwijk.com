@@ -1,0 +1,25 @@
+{#
+/**
+ * @file
+ * Default theme implementation for a feed icon.
+ *
+ * Available variables:
+ * - url: An internal system path or a fully qualified external URL of the feed.
+ * - title: Title of the feed for describing the feed on the subscribe link.
+ * - attributes: Remaining HTML attributes for the feed link.
+ *   - title: A descriptive title of the feed link.
+ *   - class: HTML classes to be applied to the feed link.
+ *
+ * @ingroup themeable
+ */
+#}
+<a href="{{ url }}"{{ attributes.addClass('feed-icon') }}>
+  <svg class="rss-icon" viewBox="0 0 24 24" aria-hidden="true">
+    <rect width="24" height="24" rx="5" fill="#f60"/>
+    <circle cx="6" cy="18" r="2.5" fill="#fff"/>
+    <path d="M4 10a10 10 0 0 1 10 10" fill="none" stroke="#fff" stroke-width="2.5" stroke-linecap="round"/>
+    <path d="M4 6a14 14 0 0 1 14 14" fill="none" stroke="#fff" stroke-width="2.5" stroke-linecap="round"/>
+  </svg>
+
+  {{ 'Subscribe to @title'|t({'@title': title}) }}
+</a>
