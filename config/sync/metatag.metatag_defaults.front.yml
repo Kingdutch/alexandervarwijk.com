@@ -8,4 +8,6 @@ id: front
 label: 'Front page'
 tags:
   canonical_url: '[site:url]'
+  description: 'Alexander Varwijk combines broad experience in software development with a passion for business and entrepreneurship. Stay up to date on his posts, public talks, and resources.'
   shortlink: '[site:url]'
+  title: '[site:name]'
