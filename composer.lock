@@ -3365,10 +3365,10 @@
         },
         {
             "name": "npm-asset/pdfjs-dist",
-            "version": "5.4.149",
+            "version": "5.4.296",
             "dist": {
                 "type": "tar",
-                "url": "https://registry.npmjs.org/pdfjs-dist/-/pdfjs-dist-5.4.149.tgz"
+                "url": "https://registry.npmjs.org/pdfjs-dist/-/pdfjs-dist-5.4.296.tgz"
             },
             "type": "npm-asset",
             "license": [
