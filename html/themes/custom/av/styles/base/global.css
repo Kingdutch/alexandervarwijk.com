@@ -42,6 +42,13 @@ body {
   }
 }
 
+@media (max-width: 48rem) {
+
+header, main, footer {
+    padding: 0 1rem
+}
+  }
+
 header > div, main > div, footer > div {
     margin-left: auto;
     margin-right: auto;
@@ -115,6 +122,11 @@ header > div {
     flex-direction: column;
     gap: .5rem;
   }
+
+.post img {
+  max-width: 100%;
+  height: auto;
+}
 
 .resource .resource-types {
     display: flex;
