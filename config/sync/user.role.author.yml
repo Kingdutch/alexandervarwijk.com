@@ -25,6 +25,7 @@ dependencies:
     - node
     - path
     - save_edit
+    - scheduler
     - system
     - taxonomy
     - toolbar
@@ -127,6 +128,9 @@ permissions:
   - 'revert term revisions in resource_type'
   - 'revert term revisions in talk_event'
   - 'revert term revisions in talk_types'
+  - 'schedule publishing of media'
+  - 'schedule publishing of nodes'
+  - 'schedule publishing of taxonomy_term'
   - 'update any media'
   - 'update media'
   - 'use save and edit'
@@ -142,6 +146,9 @@ permissions:
   - 'view page revisions'
   - 'view post revisions'
   - 'view resource revisions'
+  - 'view scheduled content'
+  - 'view scheduled media'
+  - 'view scheduled taxonomy_term'
   - 'view talk revisions'
   - 'view term revisions in resource_type'
   - 'view term revisions in talk_event'

@@ -1,7 +1,28 @@
 uuid: 4b34e56e-61d7-4b4a-97c6-f0e6a523cf1d
 langcode: en
 status: true
-dependencies: {  }
+dependencies:
+  module:
+    - menu_ui
+    - scheduler
+third_party_settings:
+  menu_ui:
+    available_menus:
+      - main
+    parent: 'main:'
+  scheduler:
+    expand_fieldset: when_required
+    fields_display_mode: vertical_tab
+    publish_enable: true
+    publish_past_date: publish
+    publish_past_date_created: false
+    publish_required: false
+    publish_revision: true
+    publish_touch: false
+    show_message_after_update: true
+    unpublish_enable: false
+    unpublish_required: false
+    unpublish_revision: false
 name: Talk
 type: talk
 description: 'A talk that was given at a conference or meetup.'
