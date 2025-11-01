@@ -57,8 +57,10 @@ hljs:
     - core/drupal
   js:
     js/hljs.js:
+      minified: true
       attributes:
         defer: true
   css:
     theme:
-      js/hljs.css: {}
+      js/hljs.css:
+        minified: true
