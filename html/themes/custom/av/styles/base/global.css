@@ -119,6 +119,11 @@ header > div {
       margin-right: .25rem;
     }
 
+.about-me {
+  font-size: 1.125rem;
+  line-height: 1.5;
+}
+
 #views-exposed-form-resources-page-1 {
   display: flex;
   align-items: flex-end;
