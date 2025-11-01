@@ -60,7 +60,7 @@
  * @ingroup themeable
  */
 #}
-<article{{ attributes }}>
+<article{{ attributes.addClass('post', 'post--full') }}>
 
   {% if not node.isPublished() %}
     {{ attach_library('av/info-banner') }}
