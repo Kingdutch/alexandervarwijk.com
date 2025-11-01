@@ -7,7 +7,7 @@
     "css": "postcss {components,styles}/**/*.pcss --base . --ext css --dir .",
     "css:watch": "pnpm run css --watch",
     "lint": "stylelint styles/**/*.pcss",
-    "js": "esbuild js/src/hljs.js --bundle --outfile=js/hljs.js"
+    "js": "esbuild js/src/hljs.js --bundle --minify --outfile=js/hljs.js"
   },
   "author": "",
   "license": "MIT",
