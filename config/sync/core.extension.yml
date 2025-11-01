@@ -6,6 +6,7 @@ module:
   breakpoint: 0
   ckeditor5: 0
   contextual: 0
+  datetime: 0
   dblog: 0
   dynamic_page_cache: 0
   editor: 0
@@ -35,6 +36,7 @@ module:
   rabbit_hole: 0
   redirect: 0
   save_edit: 0
+  scheduler: 0
   simpleanalytics: 0
   system: 0
   taxonomy: 0
