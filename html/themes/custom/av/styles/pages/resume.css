@@ -24,7 +24,8 @@
 
 @media print {
     .path-resume header,
-    .path-resume #block-av-local-tasks {
+    .path-resume #block-av-local-tasks,
+    .path-resume #block-av-copyrightsociallinks {
       display: none;
     }
   }
