@@ -14,7 +14,7 @@
   "description": "",
   "devDependencies": {
     "autoprefixer": "^10.5.0",
-    "esbuild": "^0.27.7",
+    "esbuild": "^0.28.1",
     "highlight.js": "^11.11.1",
     "postcss": "^8.5.15",
     "postcss-cli": "^11.0.1",
