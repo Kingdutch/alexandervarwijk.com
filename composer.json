@@ -14,6 +14,8 @@
     "drupal/field_group": "^4@alpha",
     "drupal/gin": "^5",
     "drupal/manage_display": "^3.0",
+    "drupal/mcp_server": "^2@beta",
+    "drupal/mcp_server_oauth": "^1@alpha",
     "drupal/metatag": "^2",
     "drupal/pathauto": "^1.13",
     "drupal/rabbit_hole": "^2@beta",

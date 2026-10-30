@@ -1,0 +1,19 @@
+uuid: b6a0a19e-ae09-4243-b97b-440f2228556c
+langcode: en
+status: true
+dependencies: {  }
+id: mcp
+name: mcp
+description: 'Read your posts and pages through the MCP server.'
+grant_types:
+  authorization_code:
+    status: true
+    description: 'Read your posts and pages through the MCP server.'
+  refresh_token:
+    status: true
+    description: 'Keep access to your posts and pages through the MCP server.'
+umbrella: false
+parent: null
+granularity_id: role
+granularity_configuration:
+  role: mcp_client

@@ -1,0 +1,11 @@
+_core:
+  default_config_hash: X-5E5ttrkcyeCk7ua_-ucBAscwA1cKMj-srqqDDMBX4
+langcode: en
+server_name: alexandervarwijk.com
+server_version: 1.0.0
+server_instructions: "Gives access to the blog posts, pages, talks and resources on Alexander Varwijk's website. Use list_content to find content and get_content to read it. Drafts are unpublished content."
+pagination_limit: 50
+pending:
+  poll_interval_ms: 300
+  sampling_timeout: 25
+  elicitation_timeout: 600
