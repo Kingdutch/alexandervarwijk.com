@@ -21,24 +21,24 @@ MCP clients discover the authorization server through
 `/.well-known/oauth-protected-resource/mcp` and register themselves through
 dynamic client registration at `/oauth/register`.
 
-A token can only reach the MCP server when:
+MCP clients request the `mcp` scope, which this module advertises in the
+protected resource metadata. It is an umbrella scope whose child scopes each
+grant one permission:
 
-- it was issued with the `mcp` scope, which this module advertises in the
-  protected resource metadata, and
-- the user who authorized it has the `MCP client` role.
+- `mcp:access`: `access mcp server`
+- `mcp:content`: `access content`
+- `mcp:unpublished`: `view own unpublished content`
 
-The `mcp` scope limits a token to the permissions of the `MCP client` role,
-so an AI assistant can't do more than read content even when the user who
-authorized it is an administrator. User 1 is the exception: core's super user
-policy still applies to its tokens, so authorize with a regular account.
+A token is limited to the permissions its scopes grant that the user who
+authorized it also has. Authors have `access mcp server` and
+`grant simple_oauth codes`, so they can authorize clients, but an AI assistant
+can't do more than read content even though authors can edit it. User 1 is
+the exception: core's super user policy still applies to its tokens, so
+authorize with a regular account.
 
 ## Required secrets
 
-- An RSA key pair at `/app/files_private/oauth/{private,public}.key`, used to
-  sign access tokens. Generate it with
-  `drush simple-oauth:generate-keys /app/files_private/oauth` after creating
-  the directory.
-- A secret `hash_salt` of at least 32 characters. Simple OAuth uses it to
-  encrypt authorization codes and refresh tokens, so it must not be the value
-  committed to this public repository. On Platform.sh set it as the sensitive
-  variable `drupalsettings:hash_salt`.
+An RSA key pair at `/app/files_private/oauth/{private,public}.key`, used to
+sign access tokens. Generate it with
+`drush simple-oauth:generate-keys /app/files_private/oauth` after creating the
+directory.

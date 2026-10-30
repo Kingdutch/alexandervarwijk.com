@@ -21,12 +21,14 @@ dependencies:
     - contextual
     - file
     - layout_builder
+    - mcp_server
     - media
     - node
     - path
     - save_edit
     - scheduler
     - shortcut
+    - simple_oauth
     - system
     - taxonomy
     - toolbar
@@ -41,6 +43,7 @@ permissions:
   - 'access content overview'
   - 'access contextual links'
   - 'access files overview'
+  - 'access mcp server'
   - 'access media overview'
   - 'access shortcuts'
   - 'access site in maintenance mode'
@@ -119,6 +122,7 @@ permissions:
   - 'edit terms in resource_type'
   - 'edit terms in talk_event'
   - 'edit terms in talk_types'
+  - 'grant simple_oauth codes'
   - 'revert all revisions'
   - 'revert any image media revisions'
   - 'revert any slides_pdf media revisions'

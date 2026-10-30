@@ -1,0 +1,19 @@
+uuid: d3713063-6b45-410a-a640-c83e69621d02
+langcode: en
+status: true
+dependencies: {  }
+id: mcp_content
+name: 'mcp:content'
+description: 'View published content.'
+grant_types:
+  authorization_code:
+    status: true
+    description: 'View published content.'
+  refresh_token:
+    status: true
+    description: 'View published content.'
+umbrella: false
+parent: mcp
+granularity_id: permission
+granularity_configuration:
+  permission: 'access content'
