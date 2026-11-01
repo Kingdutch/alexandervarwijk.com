@@ -1,10 +1,12 @@
 _core:
   default_config_hash: 4GIX5Esnc_umpXUBj4IIocRX7Mt5fPhm4AgXfE3E56E
 module:
+  av_mcp: 0
   block: 0
   block_content: 0
   breakpoint: 0
   ckeditor5: 0
+  consumers: 0
   contextual: 0
   datetime: 0
   dblog: 0
@@ -20,6 +22,8 @@ module:
   layout_discovery: 0
   link: 0
   manage_display: 0
+  mcp_server: 0
+  mcp_server_oauth: 0
   media: 0
   media_library: 0
   menu_link_content: 0
@@ -29,6 +33,7 @@ module:
   metatag_twitter_cards: 0
   mysql: 0
   node: 0
+  options: 0
   page_cache: 0
   path: 0
   path_alias: 0
@@ -37,7 +42,13 @@ module:
   redirect: 0
   save_edit: 0
   scheduler: 0
+  serialization: 0
   shortcut: 0
+  simple_oauth: 0
+  simple_oauth_21: 0
+  simple_oauth_client_registration: 0
+  simple_oauth_pkce: 0
+  simple_oauth_server_metadata: 0
   simpleanalytics: 0
   system: 0
   taxonomy: 0

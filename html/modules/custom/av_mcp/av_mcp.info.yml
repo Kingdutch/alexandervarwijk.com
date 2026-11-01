@@ -1,0 +1,10 @@
+name: AV MCP
+description: Exposes the site's posts and pages to AI assistants through MCP Server tools.
+type: module
+core_version_requirement: ^11
+dependencies:
+  - drupal:node
+  - drupal:path_alias
+  - mcp_server:mcp_server
+  - mcp_server_oauth:mcp_server_oauth
+  - simple_oauth_21:simple_oauth_server_metadata

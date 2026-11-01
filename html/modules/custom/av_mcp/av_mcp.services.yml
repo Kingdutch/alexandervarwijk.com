@@ -1,0 +1,6 @@
+services:
+  Drupal\av_mcp\ContentSerializer:
+    autowire: true
+  Drupal\av_mcp\EventSubscriber\ResourceMetadataSubscriber:
+    tags:
+      - { name: event_subscriber }

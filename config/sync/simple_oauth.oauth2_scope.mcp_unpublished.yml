@@ -1,0 +1,19 @@
+uuid: ab681e7f-19b8-45de-9b96-e32780eb30d1
+langcode: en
+status: true
+dependencies: {  }
+id: mcp_unpublished
+name: 'mcp:unpublished'
+description: 'View your own unpublished content.'
+grant_types:
+  authorization_code:
+    status: true
+    description: 'View your own unpublished content.'
+  refresh_token:
+    status: true
+    description: 'View your own unpublished content.'
+umbrella: false
+parent: mcp
+granularity_id: permission
+granularity_configuration:
+  permission: 'view own unpublished content'

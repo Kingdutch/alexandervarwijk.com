@@ -1,0 +1,19 @@
+uuid: fafb5c65-30f6-464a-a640-bb048d66471f
+langcode: en
+status: true
+dependencies: {  }
+id: mcp_access
+name: 'mcp:access'
+description: 'Connect to the MCP server.'
+grant_types:
+  authorization_code:
+    status: true
+    description: 'Connect to the MCP server.'
+  refresh_token:
+    status: true
+    description: 'Connect to the MCP server.'
+umbrella: false
+parent: mcp
+granularity_id: permission
+granularity_configuration:
+  permission: 'access mcp server'
